@@ -1,0 +1,265 @@
+@import './constants.scss';
+@import './fonts.scss';
+/* -----------GENERAL STYLES------------------*/
+
+html {
+    box-sizing: border-box;
+} 
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+	color: $main-text-color;
+	transition: all .5s;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: initial;
+}
+ol li {
+    list-style: inherit;
+}
+body {
+	font-family: Oswald-Regular;
+	font-weight: 400;
+	font-size: $main-font-size;
+	line-height: $main-line-height;
+	color: $main-text-color;
+	background-color: $main-bg-color;
+	overflow-x: hidden;
+}
+body.lock {
+    overflow: hidden;
+}
+body.addition {
+    padding-top: 92px;
+}
+.container {
+	max-width: 1140px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+.container-fluid {
+	position: relative;
+	padding: 0 15px;
+}
+@media (max-width: 640px) {
+	.container,
+	.container-fluid {
+		padding: 0 10px;
+	}
+}
+
+
+/*---------------MAIN-CLASSES--------------*/
+.top-title,
+.top-subtitle,
+.chapter-subtitle {
+	font-size: $title-font-size;
+	line-height: 121px;
+	font-family: Cormorant-Regular;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+/* @media (max-width: 640px) {
+.top-title {
+    font-size: 52px;
+    line-height: 1.2;
+    padding-left: unset;
+    word-break: break-word;
+}
+}
+@media (max-height: 800px) and (orientation: landscape) {
+.top-title {
+    font-size: 52px;
+    padding-left: unset;
+}
+} */
+.top-subtitle {
+	font-size: 60px;
+	line-height: 64px;
+}
+.chapter-subtitle {
+	font-size: 40px;
+	line-height: 48.44px;
+}
+.common-title {
+	font-size:  $subtitle-font-size;
+	line-height: 44.46px;
+	font-family: Oswald-Bold;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.common-subtitle {
+	font-size:  20px;
+	line-height: 29.64px;
+	letter-spacing: 1px;
+	font-weight: 400;
+}
+.bigger-text {
+	font-size:  20px;
+	line-height: 26px;
+	font-family: Oswald-Light;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+.common-btn,
+.colored-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 255px;
+	width: 100%;
+	min-height: 50px;
+	background-color: $main-bg-color;
+	border: 0.5px solid $main-text-color;
+	padding: 15px 40px;
+	color: $main-text-color;  
+	font-size: 12px;
+	line-height: 17.78px;
+	text-transform: uppercase;
+	font-family: Oswald-Bold; 
+	font-weight: 700;
+	transition: all .5s;
+	white-space: nowrap;
+	cursor: pointer;
+	letter-spacing: 1px;
+}
+.common-btn:hover {
+	color: $main-bg-color;
+	background-color: $green;
+	border-color: $green;
+}
+.common-btn:focus {
+    border-color: $green;
+}
+.common-btn:active {
+    box-shadow: inset 0 0 10px 0 #01281F;
+}
+.common-btn:disabled,
+.colored-btn:disabled {
+	color: #555;
+	border-color: #555;
+}
+@media (max-width: 480px) {
+	.common-btn  {
+		max-width: unset;
+	}
+}
+.colored-btn {
+	max-width: 220px;
+	color: $main-bg-color;
+	border: 1px solid $green;
+	padding: 15px 25px;
+	background-color: $green;  
+}
+.colored-btn:hover {
+	color: $main-text-color;
+	background-color: $crimson;
+	border-color: $crimson;
+}
+.colored-btn:focus {
+    border-color: $crimson;
+}
+.colored-btn:active {
+    box-shadow: inset 0 0 10px 0 #1b000e;
+}
+.common-btn:disabled {
+    color: #555;
+    border-color: #555;
+}
+.common-link-btn {
+	color: $pink;  
+	font-size: 12px;
+	line-height: 17.78px;
+	text-transform: uppercase;
+	font-family: Oswald-Bold; 
+	font-weight: 700;
+	cursor: pointer;
+	letter-spacing: 1px;
+	background: unset;
+	border: none;
+}
+.common-list {
+    padding-left: 16px;
+}
+.page-margin {
+    margin-bottom: $main-margin-bottom;
+}
+.chapter-margin {
+    margin-bottom: $chapter-margin-bottom;
+}
+.green-text {
+    color: $green;
+}
+.pink-heading {
+	color: $pink;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+.flex {
+	display: flex;
+	align-items: center;
+}
+.main-block {
+	padding: 30px 50px;
+	border-radius: 20px;
+	background-color: $blackscale-1;
+	backdrop-filter: blur(20px);
+}
+/* @media (max-width: 1050px) {
+.main-block {
+    padding: 24px;
+}
+}
+@media (max-height: 800px) and (orientation: landscape) {
+.main-block {
+    padding: 24px;
+}
+} */
+
+.visually-hidden {
+	/* Удаляем элемент из потока документа */
+	position: absolute;
+	/* Временное решение для неверно произносимого, размазанного текста */
+	white-space: nowrap;
+	/* Устанавливаем минимально возможный размер (некоторые скринридеры игнорируют элементы с нулевой высотой и шириной) */
+	width: 1px;
+	height: 1px;
+	/* Скрываем вылезающий за границы контент */
+	overflow: hidden;
+	/* Сбрасываем любые свойства, которые могут повлиять на размер элемента */
+	border: 0;
+	padding: 0;
+	/* Вырезаем ту часть контента, которая должна отображаться. */
+	/* Устаревшее свойство clip для старых браузеров */
+	clip: rect(0 0 0 0);
+	/* clip-path для новых браузеров. inset(50%) определяет область вставки, которая позволит контенту исчезнуть.  */
+	clip-path: inset(50%); 
+		/* Похоже, никто до конца не понимает, почему тут margin: -1px. Кроме того, это приводит к проблемам (читай: https://github.com/h5bp/html5-boilerplate/issues/1985). */
+	margin: -1px;
+}
+
+.grid-block {
+	display: grid;
+	gap: 10px;
+}
+.grid-block-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
