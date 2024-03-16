@@ -145,7 +145,7 @@ const Catalog = () => {
                                             By format
                                         </p>     
                                         <div className="catalog-details__inner-checkbox-block">                       
-                                            <input className="catalog-details__inner-checkbox" id="bouquet" type="checkbox" value="Bouquet" />
+                                            <input className="catalog-details__inner-checkbox" id="bouquet" type="checkbox" value="bouquet" />
                                             <label className="catalog-details__inner-lable" for="bouquet">Bouquet</label>
                                         </div>
                                         <div className="catalog-details__inner-checkbox-block">               
