@@ -1,0 +1,99 @@
+@import '../../styles/constants.scss';
+
+/*--------------------------404------------*/
+.not-found-main,
+.not-found-main__image {
+    position: relative;
+}
+.not-found-main::after,
+.not-found-main::before {
+    position: absolute;
+    content: '';
+    background-position: left center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../../public/images/404-top-right-image.webp);
+    z-index: 10;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 700px;
+}
+.not-found-main::before,
+.not-found-main__image::after,
+.not-found-main__image::before {
+    position: absolute;
+    content: '';
+    z-index: -1;
+    filter: blur(100px);
+    background-color: #163D8F;
+}
+.not-found-main::before {
+    transform: rotate(21deg);
+    width: 166px;
+    height: 353px;
+    right: 0;
+    top: -130px;
+}
+.not-found-main__image::before,
+.not-found-main__image::after {
+    transform: rotate(21deg);
+    width: 285px;
+    height: 300px;
+    left: 0;
+    bottom: -15px;
+    z-index: 1;
+}
+.not-found-main__image::after {
+    height: 600px;
+    left: unset;
+    right: -50px;
+    bottom: -100px;
+    z-index: -1;
+}
+.not-found-main__number {
+    font-family: Cormorant-Regular; 
+    font-size: 600px;
+    line-height: 727px;
+    background: -webkit-linear-gradient(#163D8F, #163D8F, #4F6CAB, #B6CDFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+    position: absolute; 
+}
+.not-found-main__number--first {
+    left: 15%;
+    top: -175px;
+    z-index: -1;
+}
+.not-found-main__number--second {
+    left: 38%;
+    top: -253px;
+    z-index: -1;
+}
+.not-found-main__number--third {
+    left: 29%;
+    top: 20px;
+    z-index: 5;
+}
+.not-found-main__text,
+.not-found-main__sign {
+    position: absolute;
+    right: 20%;
+    bottom: 10%;
+    text-transform: uppercase;
+}
+.not-found-main__text-error,
+.not-found-main__text-message {
+    margin-bottom: 20px;
+}
+.not-found-main__text-link {
+    text-decoration: underline;
+}
+.not-found-main__sign {
+    right: 15%;
+    bottom: unset;
+    top: 200px;
+}
+.not-found-main__sign img {
+    object-fit: cover;
+}

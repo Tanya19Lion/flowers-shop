@@ -1,0 +1,48 @@
+@import '../../styles/constants.scss';
+
+.header {
+    position: relative;
+    z-index: 5;    
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: $black;
+    margin-bottom: $chapter-margin-bottom;
+}
+.header.header-not-found {
+    margin-bottom: unset;
+}
+.header.header-main-page {
+    background-color: transparent;
+    margin-bottom: 50px;
+}
+.header-top,
+.header-middle {
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.header__menu-list {
+    gap: 30px;
+    margin-left: 70px;
+}
+.header__menu-item {
+    list-style: none;
+}
+.header__menu-link {
+    padding: 10px;
+}
+.header__menu-item:hover .header__menu-link,
+.header__menu-item:focus .header__menu-link,
+.header__menu-item:active .header__menu-link,
+.header__menu-link.active {
+    color: $green;
+}
+.header__menu-item--home,
+.header__mobile-btn {
+    display: none;
+}
+ 
+.header__mail,
+.header-middle {
+    text-align: right;
+}

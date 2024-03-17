@@ -1,18 +1,180 @@
 { 
-    "categories-top": ["all", "bouquets-with-camomiles", "bouquets-of-chrysanthemums", "monobouquets", "prefabricated-bouquets", "flower-arrangements", "bouquets-of-dried-flowers", "bouquets-of-roses", "popular" ],
-    "categories-colours": ["all", "white", "yellow", "green", "red", "orange", "pink", "blue"],
-    "categories-format": ["all", "bouquet", "vase", "envelope", "basket", "box"],
-    "categories-flowers": ["all", "roses", "camomole", "chrysanthemum", "gladiolus", "tulip", "dafodils", "lavender"],
+    "limit": 6,
+    "categories-top": [
+        {
+            "id": 1, 
+            "name": "all",
+            "value": "all"
+        },
+        {
+            "id": 2, 
+            "name": "Bouquets with camomiles",
+            "value": "bouquets-with-camomiles"
+        },
+        {
+            "id": 3, 
+            "name": "Bouquets of chrysanthemums",
+            "value": "bouquets-of-chrysanthemums"
+        },
+        {
+            "id": 4, 
+            "name": "Monobouquets",
+            "value": "monobouquets"
+        },
+        {
+            "id": 5, 
+            "name": "Prefabricated bouquets",
+            "value": "prefabricated-bouquets"
+        },
+        {
+            "id": 6, 
+            "name": "Flower arrangements",
+            "value": "flower-arrangements"
+        },
+        {
+            "id": 7, 
+            "name": "Bouquets of dried flowers",
+            "value": "bouquets-of-dried-flowers"
+        },
+        {
+            "id": 8, 
+            "name": "Bouquets of roses",
+            "value": "bouquets-of-roses"
+        },
+        {            
+            "id": 9, 
+            "name": "Popular",
+            "value": "popular"
+        }
+    ],
+    "categories-colours": 
+    [
+        {
+            "id": 1, 
+            "name": "all",
+            "value": "all"
+        },
+        {
+            "id": 2, 
+            "name": "White",
+            "value": "white"
+        },
+        {
+            "id": 3, 
+            "name": "Yellow",
+            "value": "yellow"
+        },
+        {
+            "id": 4, 
+            "name": "Green",
+            "value": "green"
+        },
+        {
+            "id": 5, 
+            "name": "Red",
+            "value": "red"
+        },
+        {
+            "id": 6, 
+            "name": "Orange",
+            "value": "orange"
+        },
+        {
+            "id": 7, 
+            "name": "Pink",
+            "value": "pink"
+        },
+        {
+            "id": 8, 
+            "name": "Blue",
+            "value": "blue"
+        }
+    ],
+    "categories-format": [
+        {
+            "id": 1, 
+            "name": "all",
+            "value": "all"
+        },
+        {
+            "id": 2, 
+            "name": "Bouquet",
+            "value": "bouquet"
+        },
+        {
+            "id": 3, 
+            "name": "Vase",
+            "value": "vase"
+        },
+        {
+            "id": 4, 
+            "name": "Envelope",
+            "value": "envelope"
+        },
+        {
+            "id": 5, 
+            "name": "Basket",
+            "value": "basket"
+        },
+        {
+            "id": 6, 
+            "name": "Box",
+            "value": "box"
+        }
+    ],
+    "categories-flowers": [
+        {
+            "id": 1, 
+            "name": "all",
+            "value": "all"
+        },
+        {
+            "id": 2, 
+            "name": "Roses",
+            "value": "roses"
+        },
+        {
+            "id": 3, 
+            "name": "Camomole",
+            "value": "camomole"
+        },
+        {
+            "id": 4, 
+            "name": "Chrysanthemum",
+            "value": "chrysanthemum"
+        },
+        {
+            "id": 5, 
+            "name": "Gladiolus",
+            "value": "gladiolus"
+        },
+        {
+            "id": 6, 
+            "name": "Tulip",
+            "value": "tulip"
+        },
+        {
+            "id": 7,
+            "name": "Dafodils",
+            "value": "dafodils"
+        },
+        {
+            "id": 8,
+            "name": "lavender",
+            "value": "lavender"
+        }
+    ],
     "bouquets": [
         {
             "id": 1,
             "name": "The orange sun",
             "price": "£138",
             "imageSrc": "../catalog-images/catalog-image-1.webp",
-            "popularity": false,
+            "altSign": "bouquet with orange roses",
+            "popularity": 101,
             "new": true,
             "sale": false,
-            "categories": ["all", "bouquets-of-roses", "prefabricated-bouquets"],
+            "categories": ["all", "bouquets-of-roses", "prefabricated-bouquets", "popular"],
             "colour": ["all", "orange", "red"],
             "format": ["all", "box"],
             "flowers": ["all", "roses"]
@@ -22,7 +184,8 @@
             "name": "The angel's widgs",
             "price": "£171",
             "imageSrc": "../catalog-images/catalog-image-2.webp",
-            "popularity": false,
+            "altSign": "bouquet with white rosesin blue cover",
+            "popularity": 102,
             "new": false,
             "sale": false,
             "categories": ["all", "bouquets-of-roses", "monobouquets", "prefabricated-bouquets"],
@@ -35,10 +198,11 @@
             "name": "The drops of heavens",
             "price": "£1188",
             "imageSrc": "../catalog-images/catalog-image-3.webp",
-            "popularity": false,
+            "altSign": "bouquet with pink and white roses in the lightpink cover",
+            "popularity": 118,
             "new": false,
             "sale": false,
-            "categories": ["all", "bouquets-of-roses", "prefabricated-bouquets", "flower-arrangements"],
+            "categories": ["all", "bouquets-of-roses", "prefabricated-bouquets", "flower-arrangements", "popular"],
             "colour": ["all", "white", "pink", "blue"],
             "format": ["all", "envelope"],
             "flowers": ["all", "roses"]
@@ -48,7 +212,8 @@
             "name": "Just great",
             "price": "£3138",
             "imageSrc": "../catalog-images/catalog-image-4.webp",
-            "popularity": false,
+            "altSign": "white gladioluses",
+            "popularity": 137,
             "new": false,
             "sale": false,
             "categories": ["all", "monobouquets"],
@@ -61,10 +226,11 @@
             "name": "The very best",
             "price": "£3999",
             "imageSrc": "../catalog-images/catalog-image-5.webp",
-            "popularity": true,
+            "altSign": "dark pink roses",
+            "popularity": 174,
             "new":  true,
             "sale": false,
-            "categories": ["all", "bouquets-of-roses", "monobouquets"],
+            "categories": ["all", "bouquets-of-roses", "monobouquets", "popular"],
             "colour": ["all", "pink", "red"],
             "format": ["all", "bouquet"],
             "flowers": ["all", "roses"]
@@ -74,10 +240,11 @@
             "name": "Various flowers",
             "price": "£1147",
             "imageSrc": "../catalog-images/catalog-image-6.webp",
-            "popularity": false,
+            "altSign": "camomiles and different roses in the box",
+            "popularity": 111,
             "new": false,
             "sale": false,
-            "categories": ["all", "bouquets-with-camomiles", "bouquets-of-roses", "flower-arrangements"],
+            "categories": ["all", "bouquets-with-camomiles", "bouquets-of-roses", "flower-arrangements", "popular"],
             "colour": ["all", "yellow", "green", "red", "orange", "pink"],
             "format": ["all", "basket"],
             "flowers": ["all", "roses", "camomiles"]
@@ -87,7 +254,8 @@
             "name": "White flowers",
             "price": "£1025",
             "imageSrc": "../catalog-images/catalog-image-7.webp",
-            "popularity": false,
+            "altSign": "bouquet with white and light pink roses",
+            "popularity": 152,
             "new": true,
             "sale": false,
             "categories": ["all", "bouquets-of-roses", "flower-arrangements"],
@@ -100,7 +268,8 @@
             "name": "Just fine",
             "price": "£517",
             "imageSrc": "../catalog-images/catalog-image-8.webp",
-            "popularity": true,
+            "altSign": "bouquet with pink lavender",
+            "popularity": 103,
             "new": false,
             "sale": false,
             "categories": ["all", "prefabricated-bouquets"],
@@ -113,7 +282,8 @@
             "name": "The best",
             "price": "£738",
             "imageSrc": "../catalog-images/catalog-image-9.webp",
-            "popularity": false,
+            "altSign": "bouquet with yellow and light violet gladioluses",
+            "popularity": 144,
             "new": false,
             "sale": false,
             "categories": ["all", "monobouquets"],
@@ -126,10 +296,11 @@
             "name": "Beautiful",
             "price": "£245",
             "imageSrc": "../catalog-images/catalog-image-10.webp",
-            "popularity": false,
+            "altSign": "bouquet with red roses in an envelope",
+            "popularity": 120,
             "new": false,
             "sale": false,
-            "categories": ["all", "bouquets-of-roses", "monobouquets"],
+            "categories": ["all", "bouquets-of-roses", "monobouquets", "popular"],
             "colour": ["all", "red"],
             "format": ["all", "envelope"],
             "flowers": ["all", "roses"]
@@ -139,7 +310,8 @@
             "name": "Good day",
             "price": "£379",
             "imageSrc": "../catalog-images/catalog-image-11.webp",
-            "popularity": false,
+            "altSign": "bouquet with yellow roses",
+            "popularity": 113,
             "new": true,
             "sale": false,
             "categories": ["all", "bouquets-of-roses", "monobouquets"],
@@ -152,7 +324,8 @@
             "name": "The finest",
             "price": "£413",
             "imageSrc": "../catalog-images/catalog-image-12.webp",
-            "popularity": true,
+            "altSign": "bouquet with blue lavender",
+            "popularity": 124,
             "new": false,
             "sale": false,
             "categories": ["all", "prefabricated-bouquets", "monobouquets", "bouquets-of-dried-flowers"],
@@ -165,10 +338,11 @@
             "name": "The ruby beauty",
             "price": "£888",
             "imageSrc": "../catalog-images/catalog-image-13.webp",
-            "popularity": false,
+            "altSign": "dry red and green flowers",
+            "popularity": 133,
             "new": false,
             "sale": false,
-            "categories": ["all", "prefabricated-bouquets", "flower-arrangements", "bouquets-of-dried-flowers"],
+            "categories": ["all", "prefabricated-bouquets", "flower-arrangements", "bouquets-of-dried-flowers", "popular"],
             "colour": ["all", "green", "red"],
             "format": ["all", "basket"],
             "flowers": ["all"]
@@ -178,7 +352,8 @@
             "name": "The small winter",
             "price": "£221",
             "imageSrc": "../catalog-images/catalog-image-14.webp",
-            "popularity": false,
+            "altSign": "a small Christmas tree with decorations",
+            "popularity": 118,
             "new": false,
             "sale": false,
             "categories": ["all", "prefabricated-bouquets"],
@@ -191,7 +366,8 @@
             "name": "The holiday",
             "price": "£1123",
             "imageSrc": "../catalog-images/catalog-image-15.webp",
-            "popularity": false,
+            "altSign": "a bouquet of Christmas tree branches with Christmas balls in a box",
+            "popularity": 141,
             "new": false,
             "sale": false,
             "categories": ["all", "prefabricated-bouquets"],
@@ -204,7 +380,8 @@
             "name": "White fairytale",
             "price": "£2732",
             "imageSrc": "../catalog-images/catalog-image-16.webp",
-            "popularity": false,
+            "altSign": "a bouquet of Christmas tree branches with white candle, small round white Christmas balls, and big round blue Christmas balls",
+            "popularity": 109,
             "new": true,
             "sale": true,
             "categories": ["all", "prefabricated-bouquets"],
@@ -217,7 +394,8 @@
             "name": "Small happiness",
             "price": "£1372",
             "imageSrc": "../catalog-images/catalog-image-17.webp",
-            "popularity": false,
+            "altSign": "dry golden flowers in the white basket",
+            "popularity": 153,
             "new": false,
             "sale": false,
             "categories": ["all", "prefabricated-bouquets", "bouquets-of-dried-flowers"],
@@ -230,7 +408,8 @@
             "name": "Shy beauty",
             "price": "£313",
             "imageSrc": "../catalog-images/catalog-image-18.webp",
-            "popularity": false,
+            "altSign": "Christmas wreath made of Christmas tree branches and golden Christmas balls",
+            "popularity": 148,
             "new": false,
             "sale": false,
             "categories": ["all", "prefabricated-bouquets"],
@@ -243,7 +422,8 @@
             "name": "Your joy",
             "price": "£415",
             "imageSrc": "../catalog-images/catalog-image-19.webp",
-            "popularity": true,
+            "altSign": "a bouquet with flowers and fruits",
+            "popularity": 111,
             "new": false,
             "sale": true,
             "categories": ["all", "prefabricated-bouquets"],

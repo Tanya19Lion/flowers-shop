@@ -1,0 +1,92 @@
+import React, { useState, useEffect } from 'react';
+import Slider from "react-slick";
+
+import './SimpleSlider.scss';
+
+import useFlowersService from '../../services/FlowersService';
+
+function NextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ 
+            ...style, 
+            display: "block", 
+            background: "transparent", 
+            backgroundImage: "url(../images/pink-arrow-right.svg",
+            backgroundPosition: "center",
+            backgroundSize: "contein",
+            backgroundRepeat: "no-repeat",
+            width: "40px",
+            height: "5px"
+        }}
+        onClick={onClick}
+      />
+    );
+}
+  
+function PrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ 
+            ...style, 
+            display: "block", 
+            background: "transparent", 
+            backgroundImage: "url(../images/pink-arrow-right.svg)",
+            backgroundPosition: "center",
+            backgroundSize: "contein",
+            backgroundRepeat: "no-repeat",
+            transform: "rotate(180deg)",
+            width: "40px",
+            height: "5px"
+        }}
+        onClick={onClick}
+      />
+    );
+}
+
+export default function SimpleSlider() {    
+    const { loadingStatus, getAllBouquets } = useFlowersService();
+	const [popularBouquets, setPopularBouquets] = useState([]);
+
+	useEffect(() => {
+		getAllBouquets().then(data => setPopularBouquets(data));
+	}, [])
+
+    var settings = {
+        dots: false,
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centralMode: true,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />
+    };
+    return (
+        <div className="slider-container">
+            <Slider {...settings}>
+                { popularBouquets
+                    .filter(item => item.categories.includes('popular'))
+                    .map(item => {
+                        const { id, name, price, imageSrc, altSign } = item;
+                        return (
+                            <div className="popular__inner-item" key={id}>
+                                <div className="popular__inner-item-image">
+                                    <img src={imageSrc} alt={altSign} width="350" height="450" />
+                                </div>
+                                <h3 className="popular__inner-item-title common-subtitle">{name}</h3>
+                                <p className="popular__inner-item-price">{price}</p>
+                                <button className="popular__inner-item-btn common-btn">Add to the order</button>
+                            </div>
+                        )
+                    })
+                }
+            </Slider>
+        </div>
+    );
+}
