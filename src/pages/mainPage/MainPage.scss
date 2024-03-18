@@ -243,6 +243,20 @@
     left: 20%;
     background-color: #7D2253;
 }
+.main-page .popular__inner-item {
+    max-width: 350px;
+    width: 100%;
+}
+.main-page .popular__inner-item-image {
+    max-width: 350px;
+    max-height: 460px;
+    margin-bottom: 10px;
+}
+.main-page .popular__inner-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .popular__inner-item-title {
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -269,7 +283,8 @@
     right: -50px;
     top: 7px;
 }
-  
+
+
 .make-order {
     position: relative;
 }

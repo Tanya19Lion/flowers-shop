@@ -7,6 +7,7 @@ import FAQ from "./faq/Faq";
 import MainPage from "./mainPage/MainPage";
 import Policy from "./policy/Policy";
 import Page404 from "./404/Page404";
+import OneBouquetPage from "./oneBouquetPage/OneBouquetPage";
 
 export {
     AboutUs,
@@ -17,5 +18,6 @@ export {
     FAQ,
     MainPage,
     Policy,
-    Page404
+    Page404,
+    OneBouquetPage
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Faq.scss';
+
 const FAQ = () => {
     return (
         <main className="faq-main"> 

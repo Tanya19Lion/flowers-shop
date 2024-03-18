@@ -36,7 +36,7 @@ const useFlowersService = () => {
         getCategoriesColours,
         getCategoriesFormat,
         getCategoriesFlowers,
-        getAllBouquets
+        getAllBouquets,
     }
     
 };

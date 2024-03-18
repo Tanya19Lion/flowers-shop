@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 
 import './SimpleSlider.scss';
@@ -19,7 +20,8 @@ function NextArrow(props) {
             backgroundSize: "contein",
             backgroundRepeat: "no-repeat",
             width: "40px",
-            height: "5px"
+            height: "5px",
+            padding: "10px"
         }}
         onClick={onClick}
       />
@@ -41,7 +43,8 @@ function PrevArrow(props) {
             backgroundRepeat: "no-repeat",
             transform: "rotate(180deg)",
             width: "40px",
-            height: "5px"
+            height: "5px",
+            padding: "10px"
         }}
         onClick={onClick}
       />
@@ -81,7 +84,7 @@ export default function SimpleSlider() {
                                 </div>
                                 <h3 className="popular__inner-item-title common-subtitle">{name}</h3>
                                 <p className="popular__inner-item-price">{price}</p>
-                                <button className="popular__inner-item-btn common-btn">Add to the order</button>
+                                <Link to={`catalog/${id}`} className="popular__inner-item-btn common-btn">Check more</Link>
                             </div>
                         )
                     })
