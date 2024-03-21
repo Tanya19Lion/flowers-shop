@@ -1,0 +1,38 @@
+@import '../../styles/constants.scss';
+
+.catalog-top__categories-btn {
+    display: none;
+}
+.catalog-top__categories-block {
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.catalog-top__categories-lable {
+    display: block;
+    font-size: 12px;
+    line-height: 17.78px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 1px solid $main-text-color;
+    border-radius: 40px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s;
+    font-family: inherit;
+}
+.catalog-top__categories-checkbox {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+.catalog-top__categories-checkbox-block input[type="checkbox"]:checked + .catalog-top__categories-lable { 
+    background-color: $green;
+    border-color: $green;
+    color: $main-bg-color;
+}
+.catalog-top__categories-checkbox-block input[type="checkbox"]:focus + .catalog-top__categories-lable { 
+    box-shadow: 0 0 0 1px $green;
+}

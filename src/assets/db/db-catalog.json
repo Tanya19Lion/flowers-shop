@@ -1,7 +1,4 @@
 { 
-    "limit": {
-        "limit":  6
-    },
     "categories-top": [
         {
             "id": 58, 
@@ -49,8 +46,7 @@
             "value": "popular"
         }
     ],
-    "categories-colours": 
-    [
+    "categories-colours": [
         {
             "id": 1, 
             "name": "all",

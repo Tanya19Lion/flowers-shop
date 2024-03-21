@@ -30,6 +30,11 @@ const useFlowersService = () => {
         return res;
     }
 
+    const getOneBouquet = async(id) => {
+        const res = await request(`${_apiBase}/bouquets/${id}`);
+        return res;
+    }
+
     return {
         loadingStatus,
         getCategoriesTop,
@@ -37,6 +42,7 @@ const useFlowersService = () => {
         getCategoriesFormat,
         getCategoriesFlowers,
         getAllBouquets,
+        getOneBouquet
     }
     
 };

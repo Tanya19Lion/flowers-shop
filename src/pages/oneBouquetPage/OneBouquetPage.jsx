@@ -7,15 +7,15 @@ import useFlowersService from '../../services/FlowersService';
 
 const OneBouquetPage = () => {
     const { id } = useParams();
-    const { loadingStatus, getAllBouquets } = useFlowersService();
+    const { getOneBouquet } = useFlowersService();
 
     const [oneBouquet, setOneBouquet] = useState([]);
 
-    useEffect(() => {
-        getAllBouquets().then(data => setOneBouquet(data.filter(item => item.id == id)));
-    }, []);
-    console.log(oneBouquet);
-    const { imageSrc, altSign, name, price } = oneBouquet[0];
+	useEffect(() => {
+		getOneBouquet(id).then(data => setOneBouquet(data));
+	}, []);
+
+    const { imageSrc, altSign, name, price } = oneBouquet;
 
     return (
         <main className="one-order">

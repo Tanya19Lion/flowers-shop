@@ -65,6 +65,7 @@
 .nav {
     width: 100%;
     padding-bottom: $main-margin-bottom;
+    transition: all 0.5s;
 }
 .nav::before {
     transform: rotate(21deg);
@@ -94,18 +95,12 @@
 .nav-item p + p {
     margin-top: 16px;
 }
-.nav-link {
+.accordion__heading {
+    cursor: pointer;
     text-decoration: none;
-    display: block;
 }
-.nav-submenu {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.5s;
-    margin-top: 20px;
-}
-.nav-submenu:target {
-    max-height: 40rem;
+.nav-submenu div {
+    padding-top: 24px;
 }
 .nav-submenu__list {
     padding-left: 30px;
@@ -113,4 +108,21 @@
 }
 .nav-submenu__list-item + .nav-submenu__list-item {
     margin-top: 6px;
+}
+
+.nav-link::before {
+    display: inline-block;
+    content: '';
+    height: 12px;
+    width: 12px;
+    margin-right: 24px;
+    margin-bottom: 3px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+.nav-link[aria-expanded='true']::before,
+.nav-link[aria-selected='true']::before {
+    transform: rotate(45deg);
+    margin-bottom: 7px;
 }

@@ -1,15 +1,19 @@
 @import '../../styles/constants.scss';
 
+.one-order {
+    padding-bottom: $chapter-margin-bottom;
+}
 .one-order__inner {
     gap: 60px;
-    align-items: flex-start;
+    align-items: flex-end;
+}
+.one-order__image img {
+    object-fit: cover;
 }
 .one-order__info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 460px;
-    padding-top: 35px;
+    padding-bottom: 5px;
 }
 .one-order__info-price {
     font-family: Oswald-Bold;
@@ -17,6 +21,10 @@
     font-size: 30px;
     line-height: 44.46px;
     letter-spacing: 1px;
+}
+.one-order__info-title,
+.one-order__info-price {
+    margin-bottom: 48px;
 }
 .one-order__info-buttons {
     gap: 30px;

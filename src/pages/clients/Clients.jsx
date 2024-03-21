@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Clients.scss';
 
@@ -121,7 +122,7 @@ const Clients = () => {
                         </div>
                         <button type="submit" className="employee-order__form-btn colored-btn">Send</button>
                         <p className="employee-order__form-policy">
-                            By clicking on the “Send” button, I consent to the processing of personal data in accordance with the <a href="#">Privacy Policy</a>.
+                            By clicking on the “Send” button, I consent to the processing of personal data in accordance with the <Link to='/policy'>Privacy Policy</Link>.
                         </p>
                     </form>
                 </div>

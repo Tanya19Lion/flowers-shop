@@ -52,7 +52,7 @@ function PrevArrow(props) {
 }
 
 export default function SimpleSlider() {    
-    const { loadingStatus, getAllBouquets } = useFlowersService();
+    const { getAllBouquets } = useFlowersService();
 	const [popularBouquets, setPopularBouquets] = useState([]);
 
 	useEffect(() => {

@@ -1,0 +1,83 @@
+@import '../../styles/constants.scss';
+
+.catalog-sort__select {
+    display: block;
+    font-size: 12px;
+    line-height: 17.78px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 11px 16px;
+    border: 1px solid $main-text-color;
+    border-radius: 40px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s;
+    font-family: inherit;
+}
+.catalog-sort__select {
+    display: block;
+    font-size: 12px;
+    line-height: 17.78px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: unset;
+    border: unset;
+    padding-left: 24px;
+    cursor: pointer;
+}
+.catalog-sort__select:focus { 
+    box-shadow: 0 0 0 1px $green;
+}
+.catalog-sort {
+    margin-bottom: 20px;    
+}
+.catalog-sort__select-block {
+    border-radius: 10px;
+    border: unset;    
+    max-width: 200px; 
+    margin-left: auto;
+    position: relative;
+}
+.catalog-sort__select-block::after {
+    position: absolute;
+    content: "";
+    pointer-events: none;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid $main-text-color;
+    top: 15px;
+    right: 20px;
+    pointer-events: none;
+}
+.catalog-sort__select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    outline: transparent;
+    border-radius: 10px;
+    border: none;    
+    color: $main-text-color;
+    padding: 11px 32px 11px 16px;
+}
+.catalog-sort__select-item {
+    display: block;
+    position: relative;
+    padding-left: 24px;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+.catalog-sort__select-item + .catalog-sort__select-item {
+    margin-top: 10px;
+}
+.catalog-sort__select-item::before {
+    position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    top: 0;
+    left: 0;
+    border-radius: 2px;
+    border: 1px solid $main-bg-color;
+}
