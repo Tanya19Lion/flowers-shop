@@ -5,8 +5,6 @@ const initialState = {
     orderList: [],
     sumTotal: 0,
     isOrderModalOpen: false,
-    filteredBouquets: [],
-
     isPhoneModalOpen: false
 }
 
@@ -103,6 +101,7 @@ const orderReducer = (state = initialState, action) => {
             return {
                 ...state,
                 bouquets: action.payload,
+                filteredBouquets: action.payload,
                 bouquetsLoadingStatus: 'initial',
                 error: null
             };
@@ -147,13 +146,6 @@ const orderReducer = (state = initialState, action) => {
                 ...state,
                 isOrderModalOpen: false
             }
-        
-        case 'FILTER_BOUQUETS':       
-            return {
-                ...state,
-                valueToFilter: action.value,
-                filteredBouquets: filterItems(state.bouquets, action.value)
-        };            
         
         default:
             return state;

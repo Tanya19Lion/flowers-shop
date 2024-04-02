@@ -109,10 +109,12 @@
 
 .catalog-page .top-info__right-block {
     position: static;
+    width: 100%;
 }
 .catalog-details__inner {
     display: flex;
     gap: 30px;
+    align-items: flex-start;
 }
 .catalog-details__inner-items {
     flex-wrap: wrap;

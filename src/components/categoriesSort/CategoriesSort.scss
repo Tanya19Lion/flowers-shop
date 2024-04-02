@@ -1,44 +1,30 @@
 @import '../../styles/constants.scss';
-
-.catalog-sort__select {
-    display: block;
-    font-size: 12px;
-    line-height: 17.78px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 11px 16px;
-    border: 1px solid $main-text-color;
-    border-radius: 40px;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.5s;
-    font-family: inherit;
-}
-.catalog-sort__select {
-    display: block;
-    font-size: 12px;
-    line-height: 17.78px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: unset;
-    border: unset;
-    padding-left: 24px;
-    cursor: pointer;
-}
-.catalog-sort__select:focus { 
-    box-shadow: 0 0 0 1px $green;
-}
 .catalog-sort {
     margin-bottom: 20px;    
 }
-.catalog-sort__select-block {
+.catalog-sort__select {
     border-radius: 10px;
     border: unset;    
-    max-width: 200px; 
+    max-width: 257px; 
     margin-left: auto;
     position: relative;
 }
-.catalog-sort__select-block::after {
+.catalog-sort__select-btn {
+    width: 100%;
+    text-align: left;
+    position: relative;
+    display: block;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    outline: transparent;
+    border-radius: 10px;
+    border: none;    
+    color: $main-text-color;
+    padding: 11px 32px 11px 16px;
+}
+.catalog-sort__select-btn::after {
     position: absolute;
     content: "";
     pointer-events: none;
@@ -49,35 +35,76 @@
     right: 20px;
     pointer-events: none;
 }
-.catalog-sort__select {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 100%;
-    background-color: transparent;
-    cursor: pointer;
-    outline: transparent;
-    border-radius: 10px;
-    border: none;    
-    color: $main-text-color;
-    padding: 11px 32px 11px 16px;
+.catalog-sort__select-btn:focus { 
+    box-shadow: 0 0 0 1px $green;
 }
-.catalog-sort__select-item {
-    display: block;
+.catalog-sort__buttons {
+    margin-top: 10px;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: height 0.5s;
+}
+.catalog-sort__buttons.open {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    transition: height 0.5s;
+}
+.catalog-sort__button + .catalog-sort__button {
+    margin-top: 4px;
+}
+.catalog-sort__button-label {
+    display: inline-block;
     position: relative;
-    padding-left: 24px;
+    font-size: 12px;
+    line-height: 17.78px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     background-color: transparent;
+    padding: 5px 10px 5px 24px;
+    color: $main-text-color;
+    outline: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 16px;
+    width: 100%;
+    text-align: left;
 }
-.catalog-sort__select-item + .catalog-sort__select-item {
-    margin-top: 10px;
-}
-.catalog-sort__select-item::before {
+.catalog-sort__button-label::before {
     position: absolute;
     content: '';
     width: 12px;
     height: 12px;
-    top: 0;
+    top: 8px;
     left: 0;
     border-radius: 2px;
-    border: 1px solid $main-bg-color;
+    border: 1px solid $main-text-color;
+}
+.catalog-sort__list-btn.active::before {
+    border-color: $green;
+    background-color: $green;
+}
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    bottom: 0;
+}
+input[type="radio"]:focus {
+    outline: none;
+}
+.catalog-sort__buttons input[type="radio"]:checked + .catalog-sort__button-label::before { 
+    background-color: $green;
+    border-color: $green;
+    color: $main-bg-color;
+}
+.catalog-sort__buttons input[type="radio"]:focus + .catalog-sort__button-label::before { 
+    box-shadow: 0 0 0 1px $green;
 }

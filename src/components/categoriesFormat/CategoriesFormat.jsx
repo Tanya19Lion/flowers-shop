@@ -71,5 +71,4 @@ const CategoriesFormat = () => {
     }
 };
 
-
 export default CategoriesFormat;

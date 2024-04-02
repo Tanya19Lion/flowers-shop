@@ -95,6 +95,13 @@ const activeTopCategoryChange = (value) => {
     }
 }
 
+const activeSortCategoryChange = (value) => {
+    return {
+        type: 'ACTIVE_SORT_CATEGORY_CHANGE',
+        payload: value
+    }
+}
+
 const bouquetAddedToOrder = (bouquetId) => {
     return {
         type: 'BOUQUET_ADDED_TO_ORDER',
@@ -145,11 +152,6 @@ const goBackToOrder = () => {
         type: 'GO_BACK_TO_ORDER'
     }
 }
-const filterBouquets = (payload) => {
-    return {
-        type: 'FILTER_BOUQUETS'
-    }
-}
 
 export {
     bouquetsFetching,
@@ -168,6 +170,7 @@ export {
     coloursCategoriesFetching,
     coloursCategoriesFetchingError,
     activeTopCategoryChange,
+    activeSortCategoryChange,
     bouquetAddedToOrder,
     bouquetRemovedFromOrder,
     bouquetDeletedFromOrder,
@@ -175,6 +178,5 @@ export {
     closePhoneModal,
     openOrderModal,
     closeOrderModal,
-    goBackToOrder,
-    filterBouquets
+    goBackToOrder
 }

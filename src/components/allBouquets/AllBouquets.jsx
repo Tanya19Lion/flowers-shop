@@ -9,6 +9,17 @@ import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../..
 import useFlowersService from '../../services/FlowersService';
 
 const AllBouquets = () => {
+    const bouquetsloadingStatus = useSelector(state => state.bouquets.bouquetsloadingStatus);
+    const dispatch = useDispatch();
+    const { getAllBouquets } = useFlowersService();
+
+    useEffect(() => {
+        dispatch(bouquetsFetching());
+        getAllBouquets()
+            .then(data => dispatch(bouquetsFetched(data)))
+            .catch(() => dispatch(bouquetsFetchingError()))
+    }, []);
+
     const filteredBouquetsSelector = createSelector(
         (state) => state.categories.activeTopCategories,
         (state) => state.bouquets.bouquets,
@@ -23,19 +34,27 @@ const AllBouquets = () => {
             }
         }
     );
+
     const filteredBouquets = useSelector(filteredBouquetsSelector);
 
-    const bouquetsloadingStatus = useSelector(state => state.bouquets.bouquetsloadingStatus);
-    const dispatch = useDispatch();
-    const { getAllBouquets } = useFlowersService();
+    const sortedFlowers = createSelector(
+        (state) => state.categories.activeSortCategory,
+        (activeSortCategory) => {
+            switch(activeSortCategory) {
+                case 'popularity':
+                    return [...filteredBouquets.sort((a, b) => a.popularity - b.popularity)];
+                case 'cheap-first':
+                    return [...filteredBouquets.sort((a, b) => a.price.slice(1) - b.price.slice(1))];
+                case 'expensive-first':
+                    return [...filteredBouquets.sort((a, b) => b.price.slice(1) - a.price.slice(1))];
+                default:
+                    return filteredBouquets;
+            }
+        }
+    );
 
-    useEffect(() => {
-        dispatch(bouquetsFetching());
-        getAllBouquets()
-            .then(data => dispatch(bouquetsFetched(data)))
-            .catch(() => dispatch(bouquetsFetchingError()))
-    }, []);
-
+    useSelector(sortedFlowers);
+    
     if (bouquetsloadingStatus === 'loading') {
         return <Spinner />;
     } else if (bouquetsloadingStatus === 'error') {

@@ -69,6 +69,6 @@ const CategoriesFlowers = () => {
             </div>
         )
     }
-}
+};
 
 export default CategoriesFlowers;

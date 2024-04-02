@@ -9,6 +9,7 @@ const initialState = {
     activeColoursCategories: 'all',
     activeFormatCategories: 'all',
     activeFlowersCategories: 'all',
+    activeSortCategory: 'idle'
 }
 
 const categoriesReducer = (state = initialState, action) => {
@@ -103,17 +104,20 @@ const categoriesReducer = (state = initialState, action) => {
             };
         
         case 'ACTIVE_TOP_CATEGORY_CHANGE':
-            console.log(action.payload);
-            console.log('TOP ', state.activeTopCategories);
             return {
                 ...state,
-                // activeTopCategories: Array.from(new Set([...state.activeTopCategories, action.payload].filter(item => item !== 'all')))
-                activeTopCategories: action.payload !== 'all' 
-                                    ? !state.activeTopCategories.includes(action.payload)
-                                        ? [...state.activeTopCategories, action.payload].filter(item => item !== 'all')
-                                        : [...state.activeTopCategories].filter(item => item !== 'all' && item !== action.payload) 
-                                    : [action.payload]  
+                 activeTopCategories: action.payload !== 'all' 
+                                        ? state.activeTopCategories.includes(action.payload)
+                                            ? state.activeTopCategories.filter( item => item !== action.payload)
+                                            : Array.from(new Set([...state.activeTopCategories, action.payload].filter(item => item !== 'all')))
+                                        : [action.payload]
             }
+
+        case 'ACTIVE_SORT_CATEGORY_CHANGE':
+            return {
+                ...state,
+                activeSortCategory: action.payload
+            } 
 
         default:
             return state;

@@ -5,17 +5,13 @@ import Spinner from '../spinner/Spinner';
 
 import { topCategoriesFetching, topCategoriesFetched, topCategoriesFetchingError, activeTopCategoryChange } from '../../redux/actions/actions';
 import useFlowersService from '../../services/FlowersService';
-import { useFilters } from '../../context/FiltersProvider';
-
+ 
 import './CategoriesTop.scss';
 
-// const classNames = require('classnames');
-
 export default function CategoriesTop() {
-    const { topCategories, categoriesLoadingStatus } = useSelector(state => state.categories);
+    const { topCategories, activeTopCategories, categoriesLoadingStatus } = useSelector(state => state.categories);
     const dispatch = useDispatch();
     const { getCategoriesTop } = useFlowersService();
-    const { filters, setFilters } = useFilters();
 
     useEffect(() => {
         dispatch(topCategoriesFetching());
@@ -23,18 +19,6 @@ export default function CategoriesTop() {
             .then(data => dispatch(topCategoriesFetched(data)))
             .catch(() => dispatch(topCategoriesFetchingError()))
     }, []);
-
-    const handleChange = (e, category) => {
-        if (e.target.checked) {
-            setFilters([...filters, category]);
-        } else {
-            const newValue = filters.filter((condition) => condition !== category);
-            setFilters(newValue);
-        }
-    };
-
-
-    console.log('ALL FILTERS ', filters);
 
     if (categoriesLoadingStatus === 'loading') {
         return <Spinner />;
@@ -52,17 +36,18 @@ export default function CategoriesTop() {
                     {
                         topCategories.map(item => {
                             const { id, name, value } = item;
-                            const checked = filters.some((category) => {
+                            const checked = activeTopCategories.some((category) => {
+                                if (category === 'all' && value === 'all') return true;
                                 return value === category;
                             });
-
+                            
                             return (
                                 <label className="catalog-top__categories-checkbox-block" key={id}>                            
                                     <input className="catalog-top__categories-checkbox" 
                                         type="checkbox" 
                                         value={value}
                                         checked={checked}
-                                        onChange={(e) => handleChange(e, value)} 
+                                        onChange={() => dispatch(activeTopCategoryChange(value))}
                                     />
                                     <span className="catalog-top__categories-lable">{name}</span>
                                 </label> 
@@ -73,7 +58,7 @@ export default function CategoriesTop() {
             </div>
         )
     }
-}
+};
 
 
 // onClick={() => dispatch(activeTopCategoryChange(value))
