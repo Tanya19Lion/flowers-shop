@@ -80,7 +80,7 @@ export default function SimpleSlider() {
                         return (
                             <div className="popular__inner-item" key={id}>
                                 <div className="popular__inner-item-image">
-                                    <img src={imageSrc} alt={altSign} width="350" height="450" />
+                                    <img src={imageSrc} alt={altSign} width="350" height="350" />
                                 </div>
                                 <h3 className="popular__inner-item-title common-subtitle">{name}</h3>
                                 <p className="popular__inner-item-price">{price}</p>

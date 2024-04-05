@@ -22,10 +22,10 @@ const CategoriesFormat = () => {
 
     const handleChange = (e, category) => {
         if (e.target.checked) {
-            setFilters([...filters, category]);
+            setFilters({...filters, formatFilters: [...filters.formatFilters, category]});
         } else {
-            const newValue = filters.filter((condition) => condition !== category);
-            setFilters(newValue);
+            const newValue = filters.formatFilters.filter((condition) => condition !== category);
+            setFilters({...filters, formatFilters: newValue});
         }
     };
 
@@ -46,11 +46,9 @@ const CategoriesFormat = () => {
                 {
                     formatCategories.map( (item, i) => {
                         const { id, name, value } = item;
-                        const checked = filters.some((category) => {
+                        const checked = filters.formatFilters.some(category => {
                             return value === category;
                         });
-
-                        if (name === 'all') return;
 
                         return (
                             <div className="catalog-details__inner-checkbox-block" key={id}>                       

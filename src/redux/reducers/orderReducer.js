@@ -82,9 +82,9 @@ const updateOrder = (state, bouquetId, quantity) => {
     }
 };
 
-const filterItems = (array, value) => {
-    return array.filter(item => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1 )
-};
+// const filterItems = (array, value) => {
+//     return array.filter(item => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1 )
+// };
 
 const orderReducer = (state = initialState, action) => {
 
@@ -101,7 +101,6 @@ const orderReducer = (state = initialState, action) => {
             return {
                 ...state,
                 bouquets: action.payload,
-                filteredBouquets: action.payload,
                 bouquetsLoadingStatus: 'initial',
                 error: null
             };

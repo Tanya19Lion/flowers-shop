@@ -5,7 +5,7 @@
 .catalog-details__inner-checkbox-block--price {
     padding-bottom: 20px;
     position: relative;
-    width: 223px;
+    width: 215px;
 }
 /*Range Reset*/
 input[type="range"] {
@@ -14,10 +14,11 @@ input[type="range"] {
     appearance: none;
     background: transparent;
     cursor: pointer;
-    width: 100%;
+    width: 80%;
     position: absolute;
     margin: auto;
-    left: 0;
+    left: 20px;
+    right: 20px;
     bottom: 0;
 }
  
@@ -76,4 +77,17 @@ input[type="range"]:focus::-moz-range-thumb {
    border: 1px solid $green;
    outline: 3px solid $green;
    outline-offset: 0.125rem; 
+}
+.catalog-details__inner-checkbox-label {
+    display: block;
+}
+.catalog-details__inner-checkbox-info {
+    position: absolute;
+    bottom: -9px;
+}
+.catalog-details__inner-checkbox-info--left {
+    left: -10px;
+}
+.catalog-details__inner-checkbox-info--right {
+    right: -13px;
 }

@@ -249,8 +249,9 @@
 }
 .main-page .popular__inner-item-image {
     max-width: 350px;
-    max-height: 460px;
+    max-height: 350px;
     margin-bottom: 10px;
+    overflow: hidden;
 }
 .main-page .popular__inner-item-image img {
     width: 100%;

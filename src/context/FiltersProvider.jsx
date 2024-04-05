@@ -3,10 +3,17 @@ import React, { createContext, useContext, useState } from 'react';
 export const FiltersContext = createContext(null);
 
 export const FiltersProvider = (props) => {
-    const [filters, setFilters] = useState([]);
+    const initialFilters = {
+        formatFilters: [],
+        flowersFilters: [],
+        coloursFilters: [],
+        lowerPriceLimit: null,
+        higherPriceLimit: null
+    }
+    const [filters, setFilters] = useState(initialFilters);
 
     return (
-        <FiltersContext.Provider value={{ filters, setFilters}}>
+        <FiltersContext.Provider value={{ filters, setFilters }}>
             {props.children}
         </FiltersContext.Provider>
     )

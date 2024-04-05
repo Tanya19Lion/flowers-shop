@@ -6,9 +6,6 @@ const initialState = {
     categoriesLoadingStatus: 'initial',
     error: null,
     activeTopCategories: ['all'],
-    activeColoursCategories: 'all',
-    activeFormatCategories: 'all',
-    activeFlowersCategories: 'all',
     activeSortCategory: 'idle'
 }
 
@@ -118,7 +115,7 @@ const categoriesReducer = (state = initialState, action) => {
                 ...state,
                 activeSortCategory: action.payload
             } 
-
+    
         default:
             return state;
     }

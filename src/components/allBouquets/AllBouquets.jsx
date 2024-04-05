@@ -6,12 +6,17 @@ import { createSelector } from 'reselect';
 import Spinner from '../spinner/Spinner';
 
 import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../../redux/actions/actions';
+import { useFilters } from '../../context/FiltersProvider';
 import useFlowersService from '../../services/FlowersService';
 
 const AllBouquets = () => {
     const bouquetsloadingStatus = useSelector(state => state.bouquets.bouquetsloadingStatus);
     const dispatch = useDispatch();
+
     const { getAllBouquets } = useFlowersService();
+    const { filters } = useFilters();
+
+    const includesAny = (arr, values) => values.some(v => arr.includes(v));
 
     useEffect(() => {
         dispatch(bouquetsFetching());
@@ -26,8 +31,8 @@ const AllBouquets = () => {
         (activeTopCategories, bouquets) => {
             if (activeTopCategories.includes('all')) {
                 return bouquets;
-           }
-           else {
+            }
+            else {
                 return Array.from(new Set( activeTopCategories.map(category => {
                     return bouquets.filter(item => item.categories.includes(category));                
                 }).flat() ));
@@ -35,14 +40,14 @@ const AllBouquets = () => {
         }
     );
 
-    const filteredBouquets = useSelector(filteredBouquetsSelector);
+    let filteredBouquets = useSelector(filteredBouquetsSelector);
 
     const sortedFlowers = createSelector(
         (state) => state.categories.activeSortCategory,
         (activeSortCategory) => {
             switch(activeSortCategory) {
                 case 'popularity':
-                    return [...filteredBouquets.sort((a, b) => a.popularity - b.popularity)];
+                    return [...filteredBouquets.sort((a, b) => b.popularity - a.popularity)];
                 case 'cheap-first':
                     return [...filteredBouquets.sort((a, b) => a.price.slice(1) - b.price.slice(1))];
                 case 'expensive-first':
@@ -52,8 +57,23 @@ const AllBouquets = () => {
             }
         }
     );
-
     useSelector(sortedFlowers);
+
+    const { coloursFilters, flowersFilters, formatFilters, lowerPriceLimit, higherPriceLimit } = filters;
+
+    if (coloursFilters.length) {
+        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.colour, coloursFilters));
+    } 
+
+    if (flowersFilters.length) {
+        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.flowers, flowersFilters));
+    }
+
+    if (formatFilters.length) {
+        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.format, formatFilters));
+    }
+
+    filteredBouquets = [...filteredBouquets].filter(bouquet => +(bouquet.price.slice(1)) > lowerPriceLimit && +(bouquet.price.slice(1)) < higherPriceLimit);
     
     if (bouquetsloadingStatus === 'loading') {
         return <Spinner />;

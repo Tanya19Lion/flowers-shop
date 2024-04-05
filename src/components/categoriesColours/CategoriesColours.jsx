@@ -22,10 +22,10 @@ const CategoriesColours = () => {
 
     const handleChange = (e, category) => {
         if (e.target.checked) {
-            setFilters([...filters, category]);
+            setFilters({...filters, coloursFilters: [...filters.coloursFilters, category]});
         } else {
-            const newValue = filters.filter((condition) => condition !== category);
-            setFilters(newValue);
+            const newValue = filters.coloursFilters.filter((condition) => condition !== category);
+            setFilters({...filters, coloursFilters: newValue});
         }
     };
 
@@ -46,11 +46,9 @@ const CategoriesColours = () => {
                 {
                     coloursCategories.map(item => {
                         const { id, name, value } = item;
-                        const checked = filters.some((category) => {
+                        const checked = filters.coloursFilters.some(category => {
                             return value === category;
                         });
-                        
-                        if (name === 'all') return;
 
                         return (
                             <div className="catalog-details__inner-checkbox-block" key={id}>
