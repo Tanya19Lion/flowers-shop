@@ -30,11 +30,6 @@ const OneBouquetPage = () => {
                             <p className="one-order__info-price green-text">{price}</p>
                             <div className="one-order__info-buttons flex">
                                 <button className="one-order__info-btn common-btn">Add to the basket</button>
-                                <div className="one-order__info-buy bigger-text">
-                                    <button className="one-order__info-buy-btn one-order__info-buy-btn--add">+</button>
-                                    <span className="one-order__info-buy-number">1</span>
-                                    <button className="one-order__info-buy-btn one-order__info-buy-btn--remove">-</button>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
@@ -9,14 +9,14 @@ import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../..
 import { useFilters } from '../../context/FiltersProvider';
 import useFlowersService from '../../services/FlowersService';
 
+import './AllBouquets.scss';
+
 const AllBouquets = () => {
     const bouquetsloadingStatus = useSelector(state => state.bouquets.bouquetsloadingStatus);
     const dispatch = useDispatch();
 
     const { getAllBouquets } = useFlowersService();
     const { filters } = useFilters();
-
-    const includesAny = (arr, values) => values.some(v => arr.includes(v));
 
     useEffect(() => {
         dispatch(bouquetsFetching());
@@ -42,6 +42,15 @@ const AllBouquets = () => {
 
     let filteredBouquets = useSelector(filteredBouquetsSelector);
 
+    const itemsForStart = 9;
+    const itemsToLoad = 6;
+
+    const [next, setNext] = useState(itemsForStart);
+
+    const handleMoreItems = () => {
+        setNext(next + itemsToLoad);
+    }
+
     const sortedFlowers = createSelector(
         (state) => state.categories.activeSortCategory,
         (activeSortCategory) => {
@@ -60,8 +69,10 @@ const AllBouquets = () => {
     useSelector(sortedFlowers);
 
     const { coloursFilters, flowersFilters, formatFilters, lowerPriceLimit, higherPriceLimit } = filters;
+    
+    const includesAny = (arr, values) => values.some(v => arr.includes(v));
 
-    if (coloursFilters.length) {
+     if (coloursFilters.length) {
         filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.colour, coloursFilters));
     } else {
         filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.colour.includes('all'));
@@ -91,21 +102,27 @@ const AllBouquets = () => {
         return 'No bouquets are available';
     } else {
         return (
-            <div className="catalog-details__inner-items flex">
-                {
-                    filteredBouquets.map(item => {
-                        const { id, name, price, imageSrc, altSign } = item;
-                        return (
-                            <div className="popular__inner-item" key={id}>
-                                <div className="popular__inner-item-image">
-                                    <img src={imageSrc} alt={altSign} width="255" height="255" />
+            <div className="catalog-details__inner-items-block">
+                <div className="catalog-details__inner-items flex">
+                    {
+                        filteredBouquets?.slice(0, next).map(item => {
+                            const { id, name, price, imageSrc, altSign } = item;
+                            return (
+                                <div className="popular__inner-item" key={id}>
+                                    <div className="popular__inner-item-image">
+                                        <img src={imageSrc} alt={altSign} width="255" height="255" />
+                                    </div>
+                                    <h3 className="popular__inner-item-title common-subtitle">{name}</h3>
+                                    <p className="popular__inner-item-price">{price}</p>
+                                    <Link to={`./${id}`} className="popular__inner-item-btn common-btn">Check more</Link>
                                 </div>
-                                <h3 className="popular__inner-item-title common-subtitle">{name}</h3>
-                                <p className="popular__inner-item-price">{price}</p>
-                                <Link to={`./${id}`} className="popular__inner-item-btn common-btn">Check more</Link>
-                            </div>
-                        )
-                    })
+                            )
+                        })
+                    }
+                </div>
+                {
+                    next < filteredBouquets?.length && 
+                    <button className="top-info__btn colored-btn" onClick={handleMoreItems}>Load more</button>
                 }
             </div>
         )
