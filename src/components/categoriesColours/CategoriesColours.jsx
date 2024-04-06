@@ -46,9 +46,9 @@ const CategoriesColours = () => {
                 {
                     coloursCategories.map(item => {
                         const { id, name, value } = item;
-                        const checked = filters.coloursFilters.some(category => {
-                            return value === category;
-                        });
+                        const checked = filters.coloursFilters.some(category => value === category);
+
+                        if (name === "All") return;
 
                         return (
                             <div className="catalog-details__inner-checkbox-block" key={id}>

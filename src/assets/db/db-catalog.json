@@ -48,6 +48,11 @@
     ],
     "categories-colours": [
         {
+            "id": 1, 
+            "name": "All",
+            "value": "all"
+        },
+        {
             "id": 2, 
             "name": "White",
             "value": "white"
@@ -85,6 +90,11 @@
     ],
     "categories-format": [
         {
+            "id": 1, 
+            "name": "All",
+            "value": "all"
+        },
+        {
             "id": 2, 
             "name": "Bouquet",
             "value": "bouquet"
@@ -116,6 +126,11 @@
         }
     ],
     "categories-flowers": [
+        {
+            "id": 1, 
+            "name": "All",
+            "value": "all"
+        },
         {
             "id": 2, 
             "name": "Roses",
@@ -166,9 +181,9 @@
             "altSign": "bouquet with orange roses",
             "popularity": 101,
             "categories": ["all", "bouquets-of-roses", "prefabricated-bouquets", "popular"],
-            "colour": ["orange", "red"],
-            "format": ["box"],
-            "flowers": ["roses"]
+            "colour": ["all","orange", "red"],
+            "format": ["all", "box"],
+            "flowers": ["all", "roses"]
         },
         {
             "id": 2,
@@ -178,9 +193,9 @@
             "altSign": "bouquet with white rosesin blue cover",
             "popularity": 102,
             "categories": ["all", "bouquets-of-roses", "monobouquets", "prefabricated-bouquets"],
-            "colour": ["white"],
-            "format": ["envelope"],
-            "flowers": ["roses"]
+            "colour": ["all", "white"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
         },
         {
             "id": 3,
@@ -190,9 +205,9 @@
             "altSign": "a bouquet with ears of corn and willow",
             "popularity": 1151,
             "categories": ["all", "prefabricated-bouquets", "bouquets-of-dried-flowers", "popular"],
-            "colour": ["orange", "white", "yellow", "green"],
-            "format": ["bouquet", "envelope"],
-            "flowers": [""]
+            "colour": ["all", "orange", "white", "yellow", "green"],
+            "format": ["all", "bouquet", "envelope"],
+            "flowers": ["all"]
         },
         {
             "id": 4,
@@ -202,9 +217,9 @@
             "altSign": "a bouquet with gerberas in different colors",
             "popularity": 551,
             "categories": ["all", "bouquets-with-camomiles", "monobouquets"],
-            "colour": ["red", "orange", "yellow", "pink"],
-            "format": ["bouquet"],
-            "flowers": ["camomiles"]
+            "colour": ["all", "red", "orange", "yellow", "pink"],
+            "format": ["all", "bouquet"],
+            "flowers": ["all", "camomiles"]
         },
         {
             "id": 5,
@@ -214,9 +229,9 @@
             "altSign": "a bouquet with tulips and roses in a lightviolet envelope",
             "popularity": 3451,
             "categories": ["all", "bouquets-of-roses", "flower-arrangements", "popular"],
-            "colour": ["white", "pink", "green"],
-            "format": ["envelope"],
-            "flowers": ["tulip", "roses"]
+            "colour": ["all", "white", "pink", "green"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "tulip", "roses"]
         },    
         {
             "id": 6,
@@ -226,9 +241,9 @@
             "altSign": "bouquet with pink and white roses in the lightpink cover",
             "popularity": 118,
             "categories": ["all", "bouquets-of-roses", "prefabricated-bouquets", "flower-arrangements", "popular"],
-            "colour": ["white", "pink", "blue"],
-            "format": ["envelope"],
-            "flowers": ["roses"]
+            "colour": ["all", "white", "pink", "blue"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
         }, 
         {
             "id": 7,
@@ -238,9 +253,9 @@
             "altSign": "white gladioluses",
             "popularity": 137,
             "categories": ["all", "monobouquets"],
-            "colour": ["white"],
-            "format": ["envelope"],
-            "flowers": ["gladiolus"]
+            "colour": ["all", "white"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "gladiolus"]
         },
         {
             "id": 8,
@@ -250,9 +265,9 @@
             "altSign": "dark pink roses",
             "popularity": 174,
             "categories": ["all", "bouquets-of-roses", "monobouquets", "popular"],
-            "colour": ["pink", "red"],
-            "format": ["bouquet"],
-            "flowers": ["roses"]
+            "colour": ["all", "pink", "red"],
+            "format": ["all", "bouquet"],
+            "flowers": ["all", "roses"]
         },
         {
             "id": 9,
@@ -262,9 +277,9 @@
             "altSign": "camomiles and different roses in the box",
             "popularity": 111,
             "categories": ["all", "bouquets-with-camomiles", "bouquets-of-roses", "flower-arrangements", "popular"],
-            "colour": ["yellow", "green", "red", "orange", "pink"],
-            "format": ["basket"],
-            "flowers": ["roses", "camomiles"]
+            "colour": ["all", "yellow", "green", "red", "orange", "pink"],
+            "format": ["all", "basket"],
+            "flowers": ["all", "roses", "camomiles"]
         },
         {
             "id": 10,
@@ -274,9 +289,9 @@
             "altSign": "a bouquet with red tulips and lightpink roses",
             "popularity": 1852,
             "categories": ["all", "bouquets-of-roses"],
-            "colour": ["pink", "white", "green"],
-            "format": ["vase"],
-            "flowers": ["tulip", "roses"]
+            "colour": ["all", "pink", "white", "green"],
+            "format": ["all", "vase"],
+            "flowers": ["all", "tulip", "roses"]
         },
         {
             "id": 11,
@@ -286,9 +301,9 @@
             "altSign": "bouquet with white and light pink roses",
             "popularity": 152,
             "categories": ["all", "bouquets-of-roses", "flower-arrangements"],
-            "colour": ["white", "pink"],
-            "format": ["envelope"],
-            "flowers": ["roses"]
+            "colour": ["all", "white", "pink"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
         },
         {
             "id": 12,
@@ -298,9 +313,9 @@
             "altSign": "bouquet with pink lavender",
             "popularity": 103,
             "categories": ["all", "prefabricated-bouquets"],
-            "colour": ["pink"],
-            "format": ["envelope"],
-            "flowers": ["lavender"]
+            "colour": ["all", "pink"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "lavender"]
         },
         {
             "id": 13,
@@ -310,9 +325,9 @@
             "altSign": "bouquet with yellow and light violet gladioluses",
             "popularity": 144,
             "categories": ["all", "monobouquets"],
-            "colour": ["yellow"],
-            "format": ["envelope"],
-            "flowers": ["gladiolus"]
+            "colour": ["all", "yellow"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "gladiolus"]
         },
         {
             "id": 14,
@@ -322,9 +337,9 @@
             "altSign": "bouquet with red roses in an envelope",
             "popularity": 120,
             "categories": ["all", "bouquets-of-roses", "monobouquets", "popular"],
-            "colour": ["red"],
-            "format": ["envelope"],
-            "flowers": ["roses"]
+            "colour": ["all", "red"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
         },
         {
             "id": 15,
@@ -334,9 +349,9 @@
             "altSign": "a bouquet with chrysanthemum in a pink envelope",
             "popularity": 551,
             "categories": ["all", "bouquets-with-camomiles", "popular"],
-            "colour": ["white", "yellow", "pink"],
-            "format": ["envelope"],
-            "flowers": ["camomiles"]
+            "colour": ["all", "white", "yellow", "pink"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "camomiles"]
         },
         {
             "id": 16,
@@ -346,9 +361,9 @@
             "altSign": "bouquet with yellow roses",
             "popularity": 113,
             "categories": ["all", "bouquets-of-roses", "monobouquets"],
-            "colour": ["yellow"],
-            "format": ["vase"],
-            "flowers": ["roses"]
+            "colour": ["all", "yellow"],
+            "format": ["all", "vase"],
+            "flowers": ["all", "roses"]
         },
         {
             "id": 17,
@@ -358,9 +373,9 @@
             "altSign": "bouquet with blue lavender",
             "popularity": 124,
             "categories": ["all", "prefabricated-bouquets", "monobouquets", "bouquets-of-dried-flowers"],
-            "colour": ["blue"],
-            "format": ["envelope"],
-            "flowers": ["lavender", "bouquets-of-dried-flowers"]
+            "colour": ["all", "blue"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "lavender", "bouquets-of-dried-flowers"]
         },
         {
             "id": 18,
@@ -370,9 +385,9 @@
             "altSign": "dry red and green flowers",
             "popularity": 133,
             "categories": ["all", "prefabricated-bouquets", "flower-arrangements", "bouquets-of-dried-flowers", "popular"],
-            "colour": ["green", "red"],
-            "format": ["basket"],
-            "flowers": ["bouquets-of-dried-flowers"]
+            "colour": ["all", "green", "red"],
+            "format": ["all", "basket"],
+            "flowers": ["all", "bouquets-of-dried-flowers"]
         },
         {
             "id": 19,
@@ -382,9 +397,9 @@
             "altSign": "a small Christmas tree with decorations",
             "popularity": 118,
             "categories": ["all", "prefabricated-bouquets"],
-            "colour": ["green", "red", "white"],
-            "format": ["box", "winter"],
-            "flowers": [""]
+            "colour": ["all", "green", "red", "white"],
+            "format": ["all", "box", "winter"],
+            "flowers": ["all"]
         },
         {
             "id": 20,
@@ -394,9 +409,9 @@
             "altSign": "a bouquet with white tulips",
             "popularity": 1352,
             "categories": ["all", "monobouquets", "flower-arrangements", "popular"],
-            "colour": ["white"],
-            "format": ["envelope"],
-            "flowers": ["tulip"]
+            "colour": ["all", "white"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "tulip"]
         },
         {
             "id": 21,
@@ -406,9 +421,9 @@
             "altSign": "a bouquet of Christmas tree branches with Christmas balls in a box",
             "popularity": 141,
             "categories": ["all", "prefabricated-bouquets"],
-            "colour": ["orange", "green", "white"],
-            "format": ["box", "winter"],
-            "flowers": [""]
+            "colour": ["all", "orange", "green", "white"],
+            "format": ["all", "box", "winter"],
+            "flowers": ["all"]
         },
         {
             "id": 22,
@@ -418,9 +433,9 @@
             "altSign": "a bouquet of Christmas tree branches with white candle, small round white Christmas balls, and big round blue Christmas balls",
             "popularity": 109,
             "categories": ["all", "prefabricated-bouquets"],
-            "colour": ["blue", "white", "green"],
-            "format": ["bouquet", "winter"],
-            "flowers": [""]
+            "colour": ["all", "blue", "white", "green"],
+            "format": ["all", "bouquet", "winter"],
+            "flowers": ["all"]
         },
         {
             "id": 23,
@@ -430,9 +445,9 @@
             "altSign": "a bouquet with chrysanthemum in a green envelope",
             "popularity": 1142,
             "categories": ["all", "bouquets-with-camomiles", "monobouquets"],
-            "colour": ["white", "yellow", "red", "orange"],
-            "format": ["envelope"],
-            "flowers": ["camomiles"]
+            "colour": ["all", "white", "yellow", "red", "orange"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "camomiles"]
         },
         {
             "id": 24,
@@ -442,9 +457,9 @@
             "altSign": "dry golden flowers in the white basket",
             "popularity": 153,
             "categories": ["all", "prefabricated-bouquets", "bouquets-of-dried-flowers"],
-            "colour": ["white", "green"],
-            "format": ["basket", "winter"],
-            "flowers": ["bouquets-of-dried-flowers"]
+            "colour": ["all", "white", "green"],
+            "format": ["all", "basket", "winter"],
+            "flowers": ["all", "bouquets-of-dried-flowers"]
         },
         {
             "id": 25,
@@ -454,9 +469,9 @@
             "altSign": "Christmas wreath made of Christmas tree branches and golden Christmas balls",
             "popularity": 148,
             "categories": ["all", "prefabricated-bouquets"],
-            "colour": ["green", "red"],
-            "format": ["envelope", "winter"],
-            "flowers": [""]
+            "colour": ["all", "green", "red"],
+            "format": ["all", "envelope", "winter"],
+            "flowers": ["all"]
         },
         {
             "id": 26,
@@ -466,9 +481,9 @@
             "altSign": "a bouquet with flowers and fruits",
             "popularity": 151,
             "categories": ["all", "prefabricated-bouquets"],
-            "colour": ["pink", "red", "yellow", "green"],
-            "format": ["bouquet", "winter"],
-            "flowers": [""]
+            "colour": ["all", "pink", "red", "yellow", "green"],
+            "format": ["all", "bouquet", "winter"],
+            "flowers": ["all"]
         },
        
         {
@@ -479,9 +494,9 @@
             "altSign": "a bouquet with tulips in a blue box",
             "popularity": 165,
             "categories": ["all", "prefabricated-bouquets", "popular"],
-            "colour": ["white", "pink"],
-            "format": ["bouquet", "box"],
-            "flowers": ["tulip"]
+            "colour": ["all", "white", "pink"],
+            "format": ["all", "bouquet", "box"],
+            "flowers": ["all", "tulip"]
         },
         {
             "id": 28,
@@ -491,9 +506,9 @@
             "altSign": "a bouquet with different roses",
             "popularity": 1900,
             "categories": ["all", "prefabricated-bouquets", "bouquets-of-roses"],
-            "colour": ["red", "pink", "yellow", "orange"],
-            "format": ["envelope"],
-            "flowers": ["roses"]
+            "colour": ["all", "red", "pink", "yellow", "orange"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
         },
         {
             "id": 29,
@@ -503,9 +518,9 @@
             "altSign": "a bouquet with white chrysanthemums in lightpink envelope",
             "popularity": 1001,
             "categories": ["all", "bouquets-with-camomiles", "monobouquets"],
-            "colour": ["white"],
-            "format": ["envelope"],
-            "flowers": ["camomiles"]
+            "colour": ["all", "white"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "camomiles"]
         }           
     ]
 }

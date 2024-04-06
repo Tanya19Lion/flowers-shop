@@ -10,14 +10,22 @@ const CategoryPrice = () => {
     const timerRef = useRef(null);
 
     const { filters, setFilters } = useFilters();
+    const { coloursFilters, flowersFilters, formatFilters } = filters;
 
     useEffect( () => {
         clearTimeout(timerRef.current);
 
         timerRef.current = setTimeout(() => {
-            setFilters({...filters, lowerPriceLimit: leftData, higherPriceLimit: rightData });
+            setFilters({...filters, lowerPriceLimit: leftData, higherPriceLimit: rightData });                  
         }, 250);
-     }, [leftData, rightData])
+    }, [leftData, rightData]);
+
+     useEffect( () => {
+        if (!coloursFilters.length && !flowersFilters.length && !formatFilters.length) {
+            setLeftData(filters.lowerPriceLimit);
+            setRightData(filters.higherPriceLimit);
+        }    
+    }, [coloursFilters.length, flowersFilters.length, formatFilters.length]);
 
     return (
         <div className="catalog-details__inner-price">

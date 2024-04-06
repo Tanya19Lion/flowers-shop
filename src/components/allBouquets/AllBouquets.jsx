@@ -63,14 +63,20 @@ const AllBouquets = () => {
 
     if (coloursFilters.length) {
         filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.colour, coloursFilters));
-    } 
+    } else {
+        filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.colour.includes('all'));
+    }
 
     if (flowersFilters.length) {
         filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.flowers, flowersFilters));
+    } else {
+        filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.flowers.includes('all'));
     }
 
     if (formatFilters.length) {
         filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.format, formatFilters));
+    } else {
+        filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.format.includes('all'));
     }
 
     filteredBouquets = [...filteredBouquets].filter(bouquet => +(bouquet.price.slice(1)) > lowerPriceLimit && +(bouquet.price.slice(1)) < higherPriceLimit);

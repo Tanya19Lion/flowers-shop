@@ -2,14 +2,15 @@ import React, { createContext, useContext, useState } from 'react';
 
 export const FiltersContext = createContext(null);
 
+export const initialFilters = {
+    formatFilters: [],
+    flowersFilters: [],
+    coloursFilters: [],
+    lowerPriceLimit: 0,
+    higherPriceLimit: 4000
+}
+
 export const FiltersProvider = (props) => {
-    const initialFilters = {
-        formatFilters: [],
-        flowersFilters: [],
-        coloursFilters: [],
-        lowerPriceLimit: null,
-        higherPriceLimit: null
-    }
     const [filters, setFilters] = useState(initialFilters);
 
     return (

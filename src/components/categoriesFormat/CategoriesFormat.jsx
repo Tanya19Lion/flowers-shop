@@ -46,9 +46,9 @@ const CategoriesFormat = () => {
                 {
                     formatCategories.map( (item, i) => {
                         const { id, name, value } = item;
-                        const checked = filters.formatFilters.some(category => {
-                            return value === category;
-                        });
+                        const checked = filters.formatFilters.some(category => value === category);
+
+                        if (name === "All") return
 
                         return (
                             <div className="catalog-details__inner-checkbox-block" key={id}>                       
