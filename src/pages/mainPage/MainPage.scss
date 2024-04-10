@@ -92,6 +92,23 @@
     width: 60px;
     height: 60px;
     margin-left: auto;
+    position: relative;
+}
+.top-info__right-block-basket-order {
+    position: absolute;
+    content: '';
+    right: 7px;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $green;
+    color: #142B2B;
+    font-size: 11px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .top-info__sign {
     position: absolute;

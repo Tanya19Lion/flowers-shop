@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './MainPage.scss';
 
 import Popup from '../../components/popup/Popup';
+import Basket from '../../components/basket/Basket';
 import SimpleSlider from '../../components/simpleSlider/SimpleSlider';
 
 const MainPage = () => {
@@ -37,9 +38,7 @@ const MainPage = () => {
 							</span>
 							Order the call
 						</span>
-						<div className="top-info__right-block-basket main-block">
-							<img src="images/basket-icon.svg" alt="basket icon" width="30" height="30" />
-						</div>
+						<Basket />
 					</div>
 					<div className="top-info__sign">
 						<img src="images/main-page-top-lover-flower.webp" alt="sight lower flower" width="245" height="180" />

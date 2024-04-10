@@ -1,14 +1,12 @@
 const initialState = {
     orderList: [],
     sumTotal: 0,
+    countTotal: 0,
     isOrderModalOpen: false,
     isPhoneModalOpen: false
 }
 
 const updateOrderList = (orderList, item, index) => {
-    console.log(orderList);
-    console.log(item);
-    console.log(index);
     if (item.count === 0) {
         return [
             ...orderList.slice(0, index),
@@ -49,6 +47,16 @@ const updateTotal = (total, bouquet, item, array, quantity) => {
     }
 };
 
+const updateCountTotal = (orderList, quantity) => {
+    let counter = quantity;
+
+    orderList.forEach(item => {
+        counter += item.count;
+    });
+
+    return counter;
+}
+
 const updateOrder = (state, data, quantity) => {
     const { orderList, sumTotal } = state;
     const { bouquets, id: bouquetId } = data;
@@ -63,7 +71,8 @@ const updateOrder = (state, data, quantity) => {
         ...state,
         isOrderModalOpen: true,
         orderList: updateOrderList(state.orderList, newItem, itemIndex),
-        sumTotal: updateTotal(sumTotal, bouquet, item, orderList, quantity)
+        sumTotal: updateTotal(sumTotal, bouquet, item, orderList, quantity),
+        countTotal: updateCountTotal(state.orderList, quantity)
     }
 };
 
