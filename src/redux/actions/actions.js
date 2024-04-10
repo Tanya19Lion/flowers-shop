@@ -147,12 +147,6 @@ const closeOrderModal = () => {
     }
 };
 
-const goBackToOrder = () => {
-    return {
-        type: 'GO_BACK_TO_ORDER'
-    }
-}
-
 export {
     bouquetsFetching,
     bouquetsFetched,
@@ -177,6 +171,5 @@ export {
     openPhoneModal,
     closePhoneModal,
     openOrderModal,
-    closeOrderModal,
-    goBackToOrder
+    closeOrderModal
 }

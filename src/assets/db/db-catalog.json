@@ -176,7 +176,7 @@
         {
             "id": 1,
             "name": "The orange sun",
-            "price": "£138",
+            "price": 138,
             "imageSrc": "../catalog-images/catalog-image-1.webp",
             "altSign": "bouquet with orange roses",
             "popularity": 101,
@@ -188,7 +188,7 @@
         {
             "id": 2,
             "name": "The angel's widgs",
-            "price": "£171",
+            "price": 171,
             "imageSrc": "../catalog-images/catalog-image-2.webp",
             "altSign": "bouquet with white rosesin blue cover",
             "popularity": 102,
@@ -200,7 +200,7 @@
         {
             "id": 3,
             "name": "Beautiful spring",
-            "price": "£1415",
+            "price": 1415,
             "imageSrc": "../catalog-images/catalog-image-20.webp",
             "altSign": "a bouquet with ears of corn and willow",
             "popularity": 1151,
@@ -212,7 +212,7 @@
         {
             "id": 4,
             "name": "Flower rainbow",
-            "price": "£845",
+            "price": 845,
             "imageSrc": "../catalog-images/catalog-image-24.webp",
             "altSign": "a bouquet with gerberas in different colors",
             "popularity": 551,
@@ -224,7 +224,7 @@
         {
             "id": 5,
             "name": "Amazing joy",
-            "price": "£1287",
+            "price": 1287,
             "imageSrc": "../catalog-images/catalog-image-29.webp",
             "altSign": "a bouquet with tulips and roses in a lightviolet envelope",
             "popularity": 3451,
@@ -236,7 +236,7 @@
         {
             "id": 6,
             "name": "The drops of heavens",
-            "price": "£1188",
+            "price": 1188,
             "imageSrc": "../catalog-images/catalog-image-3.webp",
             "altSign": "bouquet with pink and white roses in the lightpink cover",
             "popularity": 118,
@@ -248,7 +248,7 @@
         {
             "id": 7,
             "name": "Just great",
-            "price": "£3138",
+            "price": 3138,
             "imageSrc": "../catalog-images/catalog-image-4.webp",
             "altSign": "white gladioluses",
             "popularity": 137,
@@ -260,7 +260,7 @@
         {
             "id": 8,
             "name": "The very best",
-            "price": "£3999",
+            "price": 3999,
             "imageSrc": "../catalog-images/catalog-image-5.webp",
             "altSign": "dark pink roses",
             "popularity": 174,
@@ -272,7 +272,7 @@
         {
             "id": 9,
             "name": "Various flowers",
-            "price": "£1147",
+            "price": 1147,
             "imageSrc": "../catalog-images/catalog-image-6.webp",
             "altSign": "camomiles and different roses in the box",
             "popularity": 111,
@@ -284,7 +284,7 @@
         {
             "id": 10,
             "name": "Something incredible",
-            "price": "£3111",
+            "price": 3111,
             "imageSrc": "../catalog-images/catalog-image-31.webp",
             "altSign": "a bouquet with red tulips and lightpink roses",
             "popularity": 1852,
@@ -296,7 +296,7 @@
         {
             "id": 11,
             "name": "White flowers",
-            "price": "£1025",
+            "price": 1025,
             "imageSrc": "../catalog-images/catalog-image-7.webp",
             "altSign": "bouquet with white and light pink roses",
             "popularity": 152,
@@ -308,7 +308,7 @@
         {
             "id": 12,
             "name": "Just fine",
-            "price": "£517",
+            "price": 517,
             "imageSrc": "../catalog-images/catalog-image-8.webp",
             "altSign": "bouquet with pink lavender",
             "popularity": 103,
@@ -320,7 +320,7 @@
         {
             "id": 13,
             "name": "The best",
-            "price": "£738",
+            "price": 738,
             "imageSrc": "../catalog-images/catalog-image-9.webp",
             "altSign": "bouquet with yellow and light violet gladioluses",
             "popularity": 144,
@@ -332,7 +332,7 @@
         {
             "id": 14,
             "name": "Beautiful",
-            "price": "£245",
+            "price": 245,
             "imageSrc": "../catalog-images/catalog-image-10.webp",
             "altSign": "bouquet with red roses in an envelope",
             "popularity": 120,
@@ -344,7 +344,7 @@
         {
             "id": 15,
             "name": "Your happiness",
-            "price": "£2345",
+            "price": 2345,
             "imageSrc": "../catalog-images/catalog-image-27.webp",
             "altSign": "a bouquet with chrysanthemum in a pink envelope",
             "popularity": 551,
@@ -356,7 +356,7 @@
         {
             "id": 16,
             "name": "Good day",
-            "price": "£379",
+            "price": 379,
             "imageSrc": "../catalog-images/catalog-image-11.webp",
             "altSign": "bouquet with yellow roses",
             "popularity": 113,
@@ -368,7 +368,7 @@
         {
             "id": 17,
             "name": "The finest",
-            "price": "£413",
+            "price": 413,
             "imageSrc": "../catalog-images/catalog-image-12.webp",
             "altSign": "bouquet with blue lavender",
             "popularity": 124,
@@ -380,7 +380,7 @@
         {
             "id": 18,
             "name": "The ruby beauty",
-            "price": "£888",
+            "price": 888,
             "imageSrc": "../catalog-images/catalog-image-13.webp",
             "altSign": "dry red and green flowers",
             "popularity": 133,
@@ -392,7 +392,7 @@
         {
             "id": 19,
             "name": "The small winter",
-            "price": "£221",
+            "price": 221,
             "imageSrc": "../catalog-images/catalog-image-14.webp",
             "altSign": "a small Christmas tree with decorations",
             "popularity": 118,
@@ -404,7 +404,7 @@
         {
             "id": 20,
             "name": "Tulips",
-            "price": "£111",
+            "price": 111,
             "imageSrc": "../catalog-images/catalog-image-30.webp",
             "altSign": "a bouquet with white tulips",
             "popularity": 1352,
@@ -416,7 +416,7 @@
         {
             "id": 21,
             "name": "The holiday",
-            "price": "£1123",
+            "price": 1123,
             "imageSrc": "../catalog-images/catalog-image-15.webp",
             "altSign": "a bouquet of Christmas tree branches with Christmas balls in a box",
             "popularity": 141,
@@ -428,7 +428,7 @@
         {
             "id": 22,
             "name": "White fairytale",
-            "price": "£2732",
+            "price": 2732,
             "imageSrc": "../catalog-images/catalog-image-16.webp",
             "altSign": "a bouquet of Christmas tree branches with white candle, small round white Christmas balls, and big round blue Christmas balls",
             "popularity": 109,
@@ -440,7 +440,7 @@
         {
             "id": 23,
             "name": "For you",
-            "price": "£618",
+            "price": 618,
             "imageSrc": "../catalog-images/catalog-image-28.webp",
             "altSign": "a bouquet with chrysanthemum in a green envelope",
             "popularity": 1142,
@@ -452,7 +452,7 @@
         {
             "id": 24,
             "name": "Small happiness",
-            "price": "£1372",
+            "price": 1372,
             "imageSrc": "../catalog-images/catalog-image-17.webp",
             "altSign": "dry golden flowers in the white basket",
             "popularity": 153,
@@ -464,7 +464,7 @@
         {
             "id": 25,
             "name": "Shy beauty",
-            "price": "£313",
+            "price": 313,
             "imageSrc": "../catalog-images/catalog-image-18.webp",
             "altSign": "Christmas wreath made of Christmas tree branches and golden Christmas balls",
             "popularity": 148,
@@ -476,7 +476,7 @@
         {
             "id": 26,
             "name": "Your joy",
-            "price": "£415",
+            "price": 415,
             "imageSrc": "../catalog-images/catalog-image-19.webp",
             "altSign": "a bouquet with flowers and fruits",
             "popularity": 151,
@@ -489,7 +489,7 @@
         {
             "id": 27,
             "name": "Spring joy",
-            "price": "£1415",
+            "price": 1415,
             "imageSrc": "../catalog-images/catalog-image-21.webp",
             "altSign": "a bouquet with tulips in a blue box",
             "popularity": 165,
@@ -501,7 +501,7 @@
         {
             "id": 28,
             "name": "A lot of rouses",
-            "price": "£1815",
+            "price": 1815,
             "imageSrc": "../catalog-images/catalog-image-22.webp",
             "altSign": "a bouquet with different roses",
             "popularity": 1900,
@@ -513,7 +513,7 @@
         {
             "id": 29,
             "name": "White beauty",
-            "price": "£1734",
+            "price": 1734,
             "imageSrc": "../catalog-images/catalog-image-23.webp",
             "altSign": "a bouquet with white chrysanthemums in lightpink envelope",
             "popularity": 1001,

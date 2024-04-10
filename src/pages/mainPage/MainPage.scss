@@ -75,6 +75,7 @@
 .top-info__right-block-text {
     margin-bottom: 20px;
     display: inline-block;
+    cursor: pointer;
 }
 .top-info__right-block-text,
 .top-info__right-block-basket {
@@ -418,6 +419,9 @@
 .special-occasion__item-list-detail + .special-occasion__item-list-detail {
     margin-top: 12px;
 }
+.special-occasion__btn {
+    cursor: pointer;
+}
 .questions {
     background-color: rgba(15, 34, 34, 1);
     padding-top: 56px;
@@ -526,8 +530,8 @@
     font-family: Oswald-Light;
     font-weight: 300;
     letter-spacing: 1px;
-    font-size: 10px;
-    line-height: 11.72px;
+    font-size: 11px;
+    line-height: 15.72px;
 }
 .questions__form-policy a {
     color: $pink;

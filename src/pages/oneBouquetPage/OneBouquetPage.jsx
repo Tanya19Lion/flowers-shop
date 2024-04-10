@@ -1,19 +1,38 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
+import OrderPopup from '../../components/orderPopup/OrderPopup';
 
 import './OneBouquetPage.scss';
 
+import { bouquetAddedToOrder, openOrderModal, bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../../redux/actions/actions';
 import useFlowersService from '../../services/FlowersService';
 
 const OneBouquetPage = () => {
     const { id } = useParams();
-    const { getOneBouquet } = useFlowersService();
+    const { getOneBouquet, getAllBouquets } = useFlowersService(); 
+    const dispatch = useDispatch();
+    const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
 
     const [oneBouquet, setOneBouquet] = useState([]);
 
-	useEffect(() => {
+    useEffect(() => {
 		getOneBouquet(id).then(data => setOneBouquet(data));
 	}, []);
+
+    useEffect(() => {
+        dispatch(bouquetsFetching());
+        getAllBouquets()
+            .then(data => dispatch(bouquetsFetched(data)))
+            .catch(() => dispatch(bouquetsFetchingError()))
+    }, []);
+    const bouquets = useSelector(state => state.bouquets.bouquets);
+
+    const handlePopupOpen = (id) => {
+        dispatch(openOrderModal());  
+        dispatch(bouquetAddedToOrder({bouquets, id}));
+    }
 
     const { imageSrc, altSign, name, price } = oneBouquet;
 
@@ -27,14 +46,19 @@ const OneBouquetPage = () => {
                         </div>
                         <div className="one-order__info">
                             <h1 className="one-order__info-title top-subtitle">{name}</h1>
-                            <p className="one-order__info-price green-text">{price}</p>
+                            <p className="one-order__info-price green-text">£{price}</p>
                             <div className="one-order__info-buttons flex">
-                                <button className="one-order__info-btn common-btn">Add to the basket</button>
+                                <button 
+                                    className="one-order__info-btn common-btn" 
+                                    onClick={() => handlePopupOpen(+id)}
+                                >Add to the basket</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            { isOrderModalOpen && <OrderPopup bouquets={bouquets}/> }
 
             <section className="one-order__addition chapter-margin">
                 <div className="container">

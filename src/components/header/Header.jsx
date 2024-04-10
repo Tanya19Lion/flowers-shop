@@ -12,7 +12,7 @@ const Header = () => {
                     <nav className="header__menu flex">           
                         <div className="header__menu-logo">
                             <NavLink end to="/" className="header__menu-logo-link">
-                                <img src="images/main-company-logo.webp" alt="logo of the company" width="34" height="75" />
+                                <img src="../images/main-company-logo.webp" alt="logo of the company" width="34" height="75" />
                             </NavLink>
                         </div>
                         <ul className="header__menu-list flex">

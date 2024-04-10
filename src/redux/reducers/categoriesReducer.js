@@ -1,12 +1,12 @@
 const initialState = {
     topCategories: [],
+    activeTopCategories: ['all'],
+    activeSortCategory: 'idle',
     coloursCategories: [],
     formatCategories: [],
     flowersCategories: [],
     categoriesLoadingStatus: 'initial',
-    error: null,
-    activeTopCategories: ['all'],
-    activeSortCategory: 'idle'
+    error: null
 }
 
 const categoriesReducer = (state = initialState, action) => {

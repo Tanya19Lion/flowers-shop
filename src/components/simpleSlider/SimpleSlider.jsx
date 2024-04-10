@@ -83,7 +83,7 @@ export default function SimpleSlider() {
                                     <img src={imageSrc} alt={altSign} width="350" height="350" />
                                 </div>
                                 <h3 className="popular__inner-item-title common-subtitle">{name}</h3>
-                                <p className="popular__inner-item-price">{price}</p>
+                                <p className="popular__inner-item-price">£{price}</p>
                                 <Link to={`catalog/${id}`} className="popular__inner-item-btn common-btn">Check more</Link>
                             </div>
                         )

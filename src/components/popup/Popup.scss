@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $blackscale-1;
     position: fixed;
     top: 0;
     left: 0;
@@ -15,13 +14,16 @@
     height: 100%;
     z-index: 999;
     overflow: hidden;
+    background-color: $blackscale-1;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
 }
 .popup {
     max-width: 540px;    
     width: 100%;
     padding: 30px;
     position: relative;
-    background: url(../public/images/popup-background.webp) center / cover no-repeat;
+    background: url(../../../public/images/popup-background.webp) center / cover no-repeat;
 }
 .popup__title {
     margin-bottom: 30px;

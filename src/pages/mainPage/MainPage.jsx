@@ -1,11 +1,19 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 import './MainPage.scss';
 
+import Popup from '../../components/popup/Popup';
 import SimpleSlider from '../../components/simpleSlider/SimpleSlider';
 
 const MainPage = () => {
+	const [openModal, setOpenModal] = useState(false);
+
+	const handleOpenModal = () => {
+		setOpenModal(true);
+	}
+
     return (    
         <main className="main-page">        
 			<section className="top-info"> 
@@ -23,12 +31,12 @@ const MainPage = () => {
 						<div className="top-info__right-block-phone">
 							<Link to="tel:+44171552948" className="top-info__right-block-link">+44 171 552948</Link>
 						</div>
-						<a className="top-info__right-block-text main-block">
+						<span className="top-info__right-block-text main-block" onClick={handleOpenModal}>
 							<span className="top-info__right-block-img">
 								<img src="images/order-phone-icon.svg" alt="phone icon" width="12" height="12" />
 							</span>
 							Order the call
-						</a>
+						</span>
 						<div className="top-info__right-block-basket main-block">
 							<img src="images/basket-icon.svg" alt="basket icon" width="30" height="30" />
 						</div>
@@ -181,11 +189,11 @@ const MainPage = () => {
 						</div>
 					</div>
 
-					<button className="special-occasion__btn colored-btn">Collect an individual bouquet</button>
+					<button className="special-occasion__btn colored-btn" onClick={handleOpenModal}>Collect an individual bouquet</button>
 				</div>
 			</section>
 
-			{/* <section className="questions">
+			<section className="questions">
 				<div className="container">
 					<div className="questions__block">
 						<h2 className="questions__title top-title">
@@ -203,8 +211,8 @@ const MainPage = () => {
 							</svg>                            
 						</div>
 						<form className="questions__form">
-							<input type="text" className="questions__form-name" placeholder="Your name">
-							<input type="phone" className="questions__form-phone" placeholder="+44 171 77-77-77">
+							<input type="text" className="questions__form-name" placeholder="Your name" />
+							<input type="phone" className="questions__form-phone" placeholder="+44 171 77-77-77" />
 							<textarea className="questions__form-textarea" placeholder="Your comment"></textarea>
 							<button type="submit" className="questions__form-btn colored-btn">Send</button>
 							<p className="questions__form-policy">
@@ -213,8 +221,8 @@ const MainPage = () => {
 						</form>  
 					</div>              
 				</div>
-			</section> */}
-
+			</section>
+			{ openModal && <Popup handleOpenModal={setOpenModal}/> }
 		</main> 
     )
 }

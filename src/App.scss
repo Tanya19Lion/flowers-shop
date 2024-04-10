@@ -6,9 +6,9 @@
 } */
 
 .menu-contacts {
-  text-transform: uppercase;
-  color: $green;
-  letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $green;
+    letter-spacing: 2px;
 }
 a.menu-contacts:hover,
 a.menu-contacts:focus,
@@ -16,14 +16,14 @@ a.menu-contacts:active,
 a.menu-contacts.active {
   color: $pink;
 }
-.menu-contacts-info,
 .menu-contacts-info {
-  font-family: Oswald-Light;
-  font-weight: 300;
-  font-size: 10px;
-  line-height: 14.82px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+    font-family: Oswald-Light;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 14.82px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: end;
 }
 
 

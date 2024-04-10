@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className="footer-top flex">                          
                     <div className="footer__logo">
                         <NavLink to="/">
-                            <img src="images/main-company-logo.webp" alt="logo of the company" width="34" height="75" />
+                            <img src="../images/main-company-logo.webp" alt="logo of the company" width="34" height="75" />
                         </NavLink>
                     </div>
                     <nav className="footer__menu flex"> 

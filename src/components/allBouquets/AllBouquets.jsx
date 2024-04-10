@@ -58,9 +58,9 @@ const AllBouquets = () => {
                 case 'popularity':
                     return [...filteredBouquets.sort((a, b) => b.popularity - a.popularity)];
                 case 'cheap-first':
-                    return [...filteredBouquets.sort((a, b) => a.price.slice(1) - b.price.slice(1))];
+                    return [...filteredBouquets.sort((a, b) => a.price - b.price)];
                 case 'expensive-first':
-                    return [...filteredBouquets.sort((a, b) => b.price.slice(1) - a.price.slice(1))];
+                    return [...filteredBouquets.sort((a, b) => b.price - a.price)];
                 default:
                     return filteredBouquets;
             }
@@ -90,7 +90,7 @@ const AllBouquets = () => {
         filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.format.includes('all'));
     }
 
-    filteredBouquets = [...filteredBouquets].filter(bouquet => +(bouquet.price.slice(1)) > lowerPriceLimit && +(bouquet.price.slice(1)) < higherPriceLimit);
+    filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.price > lowerPriceLimit && bouquet.price < higherPriceLimit);
     
     if (bouquetsloadingStatus === 'loading') {
         return <Spinner />;
@@ -113,7 +113,7 @@ const AllBouquets = () => {
                                         <img src={imageSrc} alt={altSign} width="255" height="255" />
                                     </div>
                                     <h3 className="popular__inner-item-title common-subtitle">{name}</h3>
-                                    <p className="popular__inner-item-price">{price}</p>
+                                    <p className="popular__inner-item-price">£{price}</p>
                                     <Link to={`./${id}`} className="popular__inner-item-btn common-btn">Check more</Link>
                                 </div>
                             )
