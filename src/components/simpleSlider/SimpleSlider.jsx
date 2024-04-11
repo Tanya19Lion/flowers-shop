@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import Slider from "react-slick";
 
 import './SimpleSlider.scss';
-
-import useFlowersService from '../../services/FlowersService';
 
 function NextArrow(props) {
     const { className, style, onClick } = props;
@@ -51,13 +51,8 @@ function PrevArrow(props) {
     );
 }
 
-export default function SimpleSlider() {    
-    const { getAllBouquets } = useFlowersService();
-	const [popularBouquets, setPopularBouquets] = useState([]);
-
-	useEffect(() => {
-		getAllBouquets().then(data => setPopularBouquets(data));
-	}, [])
+export default function SimpleSlider() {  
+    const bouquets = useSelector(state => state.bouquets.bouquets);
 
     var settings = {
         dots: false,
@@ -73,7 +68,7 @@ export default function SimpleSlider() {
     return (
         <div className="slider-container">
             <Slider {...settings}>
-                { popularBouquets
+                { bouquets
                     .filter(item => item.categories.includes('popular'))
                     .map(item => {
                         const { id, name, price, imageSrc, altSign } = item;

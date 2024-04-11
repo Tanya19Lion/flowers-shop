@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import Spinner from '../spinner/Spinner';
-
-import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../../redux/actions/actions';
 import { useFilters } from '../../context/FiltersProvider';
-import useFlowersService from '../../services/FlowersService';
 
 import './AllBouquets.scss';
 
 const AllBouquets = () => {
-    const bouquetsloadingStatus = useSelector(state => state.bouquets.bouquetsloadingStatus);
-    const dispatch = useDispatch();
-
-    const { getAllBouquets } = useFlowersService();
     const { filters } = useFilters();
-
-    useEffect(() => {
-        dispatch(bouquetsFetching());
-        getAllBouquets()
-            .then(data => dispatch(bouquetsFetched(data)))
-            .catch(() => dispatch(bouquetsFetchingError()))
-    }, []);
 
     const filteredBouquetsSelector = createSelector(
         (state) => state.categories.activeTopCategories,
@@ -91,12 +76,6 @@ const AllBouquets = () => {
     }
 
     filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.price > lowerPriceLimit && bouquet.price < higherPriceLimit);
-    
-    if (bouquetsloadingStatus === 'loading') {
-        return <Spinner />;
-    } else if (bouquetsloadingStatus === 'error') {
-        return <h3>Something went wrong</h3>
-    }
 
     if (filteredBouquets.length === 0) {
         return 'No bouquets are available';

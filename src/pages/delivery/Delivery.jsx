@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './Delivery.scss';
 
 const Delivery = () => { 
+
+    useEffect(() => {		
+		const pageHeader = document.querySelector('.header');
+		pageHeader.style.backgroundColor = '#000000';
+		pageHeader.style.marginBottom = '100px';
+        pageHeader.classList.remove('header-with-basket');    
+	}, []);
+
     return (
         <main className="delivery-main chapter-margin"> 
             <section className="delivery-main-title-block chapter-margin">

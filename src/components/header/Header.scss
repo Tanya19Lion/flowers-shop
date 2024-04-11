@@ -1,48 +1,72 @@
 @import '../../styles/constants.scss';
 
 .header {
-    position: relative;
+    position: sticky;
     z-index: 5;    
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: $black;
-    margin-bottom: $chapter-margin-bottom;
+    top: 0;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+
+    &-top,
+    &-middle {
+        justify-content: space-between;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    &__menu-list {
+        gap: 30px;
+        margin-left: 70px;
+    }
+    &__menu-item {
+        list-style: none;
+    }
+    &__menu-link {
+        padding: 10px;
+    }
+    &__menu-item:hover .header__menu-link,
+    &__menu-item:focus .header__menu-link,
+    &__menu-item:active .header__menu-link,
+    &__menu-link.active {
+        color: $green;
+    }
+    &__menu-item--home,
+    &__mobile-btn {
+        display: none;
+    }
+     
+    &__mail,
+    &-middle {
+        text-align: right;
+    }
+    &__mail {
+        display: none;
+    }
+    &__phone {
+        margin-left: auto;
+        margin-right: 22px;
+    }
+    &__phone-link {
+        color: $green;
+    }
+    &__phone-img {
+        display: inline-block;
+        margin-right: 12px;
+    }
+    .info-basket {
+        margin-left: unset;
+        -webkit-backdrop-filter: unset;
+        backdrop-filter: unset;
+    }
+
+    &.header-with-basket .header__phone,
+    &.header-with-basket .info-basket {
+        display: none;
+    }
+
+    &.header-with-basket .header__mail {
+        display: block;
+    }
 }
-.header.header-not-found {
-    margin-bottom: unset;
-}
-.header.header-main-page {
-    background-color: transparent;
-    margin-bottom: 50px;
-}
-.header-top,
-.header-middle {
-    justify-content: space-between;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.header__menu-list {
-    gap: 30px;
-    margin-left: 70px;
-}
-.header__menu-item {
-    list-style: none;
-}
-.header__menu-link {
-    padding: 10px;
-}
-.header__menu-item:hover .header__menu-link,
-.header__menu-item:focus .header__menu-link,
-.header__menu-item:active .header__menu-link,
-.header__menu-link.active {
-    color: $green;
-}
-.header__menu-item--home,
-.header__mobile-btn {
-    display: none;
-}
- 
-.header__mail,
-.header-middle {
-    text-align: right;
-}
+

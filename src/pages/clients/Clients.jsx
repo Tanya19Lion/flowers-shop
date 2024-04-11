@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Clients.scss';
 
 const Clients = () => {
+
+    useEffect(() => {		
+		const pageHeader = document.querySelector('.header');
+		pageHeader.style.backgroundColor = '#000000';
+		pageHeader.style.marginBottom = '100px';
+        pageHeader.classList.remove('header-with-basket');    
+	}, []);
+
     return (
         <main className="employee-main-block chapter-margin">
 

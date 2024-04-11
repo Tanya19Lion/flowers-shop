@@ -58,21 +58,22 @@
     background: -webkit-linear-gradient(#163D8F, #163D8F, #4F6CAB, #B6CDFF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;   
-    position: absolute; 
+    // position: absolute; 
+    position: relative;
 }
 .not-found-main__number--first {
-    left: 15%;
-    top: -175px;
+    left: 100px;
+    top: 205px;
     z-index: -1;
 }
 .not-found-main__number--second {
-    left: 38%;
-    top: -253px;
+    left: 600px;
+    top: 0px;
     z-index: -1;
 }
 .not-found-main__number--third {
-    left: 29%;
-    top: 20px;
+    left: 450px;
+    top: 320px;
     z-index: 5;
 }
 .not-found-main__text,

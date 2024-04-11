@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     Accordion,
     AccordionItem,
@@ -11,6 +11,14 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import './Faq.scss';
 
 const FAQ = () => {
+
+    useEffect(() => {		
+		const pageHeader = document.querySelector('.header');
+		pageHeader.style.backgroundColor = '#000000';
+		pageHeader.style.marginBottom = '100px';
+        pageHeader.classList.remove('header-with-basket');    
+	}, []);
+
     return (
         <main className="faq-main"> 
             <div className="faq-main-title-block">

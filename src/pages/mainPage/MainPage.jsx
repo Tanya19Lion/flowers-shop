@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
@@ -10,10 +10,32 @@ import SimpleSlider from '../../components/simpleSlider/SimpleSlider';
 
 const MainPage = () => {
 	const [openModal, setOpenModal] = useState(false);
+	const [scroll, setScroll] = useState(0);
+
+	useEffect(() => {		
+		const pageHeader = document.querySelector('.header');
+		pageHeader.style.backgroundColor = 'transparent';
+		pageHeader.style.marginBottom = '50px';
+		pageHeader.classList.add('header-with-basket');		
+	}, []);
 
 	const handleOpenModal = () => {
 		setOpenModal(true);
 	}
+
+	const handleScroll = () => {
+		setScroll(window.scrollY);
+	}
+
+	{ scroll > ( document.documentElement.clientHeight - 200 ) 
+		? document.querySelector('.header').classList.remove('header-with-basket') 
+		: document.querySelector('.header').classList.add('header-with-basket')
+	}	
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
     return (    
         <main className="main-page">        
@@ -64,7 +86,6 @@ const MainPage = () => {
 								<li className="catalog-info__inner-list-item">Bouquets</li>
 							</ul>
 							<Link to='/catalog' className="catalog-info__inner-btn common-link-btn">Check catalog</Link>
-							<p className="catalog-info__inner-item-decor">bouquets</p>
 						</div>
 						<div className="catalog-info__inner-item catalog-info__inner-item--bouquet main-block">
 							<h3 className="catalog-info__inner-title common-title">Flowers</h3>
@@ -76,7 +97,6 @@ const MainPage = () => {
 								<li className="catalog-info__inner-list-item">Wedding</li>
 							</ul>
 							<Link to='/catalog' className="catalog-info__inner-btn common-link-btn">Check catalog</Link>
-							<p className="catalog-info__inner-item-decor">Flowers</p>
 						</div>
 						<div className="catalog-info__inner-item catalog-info__inner-item--addition main-block">
 							<h3 className="catalog-info__inner-title common-title">Additionally</h3>
@@ -87,7 +107,6 @@ const MainPage = () => {
 								<li className="catalog-info__inner-list-item">Package</li>
 							</ul>
 							<Link to='/catalog' className="catalog-info__inner-btn common-link-btn">Check catalog</Link>
-							<p className="catalog-info__inner-item-decor">Additionally</p>
 						</div>
 					</div>
 				</div>

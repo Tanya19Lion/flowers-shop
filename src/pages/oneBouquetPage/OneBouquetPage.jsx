@@ -6,28 +6,30 @@ import OrderPopup from '../../components/orderPopup/OrderPopup';
 
 import './OneBouquetPage.scss';
 
-import { bouquetAddedToOrder, openOrderModal, bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../../redux/actions/actions';
+import { bouquetAddedToOrder, openOrderModal } from '../../redux/actions/actions';
 import useFlowersService from '../../services/FlowersService';
 
 const OneBouquetPage = () => {
+
+    useEffect(() => {		
+		const pageHeader = document.querySelector('.header');
+		pageHeader.style.backgroundColor = '#000000';
+		pageHeader.style.marginBottom = '100px';
+        pageHeader.classList.remove('header-with-basket');    
+	}, []);
+
     const { id } = useParams();
-    const { getOneBouquet, getAllBouquets } = useFlowersService(); 
+    const { getOneBouquet } = useFlowersService(); 
+    
     const dispatch = useDispatch();
     const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
+    const bouquets = useSelector(state => state.bouquets.bouquets);
 
     const [oneBouquet, setOneBouquet] = useState([]);
 
     useEffect(() => {
 		getOneBouquet(id).then(data => setOneBouquet(data));
 	}, []);
-
-    useEffect(() => {
-        dispatch(bouquetsFetching());
-        getAllBouquets()
-            .then(data => dispatch(bouquetsFetched(data)))
-            .catch(() => dispatch(bouquetsFetchingError()))
-    }, []);
-    const bouquets = useSelector(state => state.bouquets.bouquets);
 
     const handlePopupOpen = (id) => {
         dispatch(openOrderModal());  

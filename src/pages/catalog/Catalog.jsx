@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { Link } from 'react-router-dom';
 import { initialFilters, useFilters } from '../../context/FiltersProvider';
 
@@ -14,6 +14,29 @@ import AllBouquets from '../../components/allBouquets/AllBouquets';
 import './Catalog.scss';
 
 const Catalog = () => {
+	const [scroll, setScroll] = useState(0);
+
+	useEffect(() => {		
+		const pageHeader = document.querySelector('.header');
+		pageHeader.style.backgroundColor = 'transparent';
+		pageHeader.style.marginBottom = '50px';
+		pageHeader.classList.add('header-with-basket');		
+	}, []);
+
+    const handleScroll = () => {
+		setScroll(window.scrollY);
+	}
+
+	{ scroll > ( document.documentElement.clientHeight - 200 ) 
+		? document.querySelector('.header').classList.remove('header-with-basket') 
+		: document.querySelector('.header').classList.add('header-with-basket')
+	}	
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
     const { setFilters } = useFilters();
 
     return (

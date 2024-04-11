@@ -4,6 +4,8 @@ import { Link, NavLink } from 'react-router-dom';
 
 import './Header.scss';
 
+import Basket from '../basket/Basket';
+
 const Header = () => {
     return (
         <header className="header">       	{/* <header className="header header-main-page">  */}    {/* <header className="header header-not-found">        */}             
@@ -40,21 +42,22 @@ const Header = () => {
                         </ul>
                         <button className="header__mobile-btn" id="toggle">Menu</button>
                     </nav>
-                    {/* <!-- <div className="header__phone"><a href="tel:+44171552948">+44 171 552948</a></div> -->
-                    <!-- <div className="header__basket">
-                        <img src="images/basket-icon.svg" alt="basket icon" width="30" height="30">
-                    </div> --> */}
+
+                    <Link className="header__phone" to="tel:+44171552948">
+                        <span className="header__phone-img">
+                            <img src="../images/order-phone-icon.svg" alt="phone icon" width="12" height="12" />
+                        </span>
+                        <span className="header__phone-link" >+44 171 552948</span>
+                    </Link>
+                    <Basket />
+
                     <div className="header__mail">
                         <Link to="mailto:order@loverflower.com" className="header__mail-email menu-contacts">
                             order@loverflower.com
                         </Link>
                         <p className="header__mail-info menu-contacts-info">Delivery 24/7 by agreement with the operator</p>
                     </div>
-                </div>
-                {/* <!-- <div className="header-middle">
-                    <p className="header-address menu-contacts">221B Baker St, London NW1 6XE</p>
-                    <p className="header-address-info menu-contacts-info">10:00 to 21:00<br>seven days a week</p>
-                </div> --> */}
+                </div>              
             </div>             
         </header>
     )

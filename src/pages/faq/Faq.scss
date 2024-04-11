@@ -99,7 +99,8 @@
     cursor: pointer;
     text-decoration: none;
 }
-.nav-submenu div {
+.nav-submenu div:first-child, 
+.nav-submenu p:first-child {
     padding-top: 24px;
 }
 .nav-submenu__list {
