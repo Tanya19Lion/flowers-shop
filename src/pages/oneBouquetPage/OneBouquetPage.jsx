@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -16,6 +17,8 @@ const OneBouquetPage = () => {
 		pageHeader.style.backgroundColor = '#000000';
 		pageHeader.style.marginBottom = '100px';
         pageHeader.classList.remove('header-with-basket');    
+
+        window.scrollTo(0, 0);
 	}, []);
 
     const { id } = useParams();
@@ -60,7 +63,7 @@ const OneBouquetPage = () => {
                 </div>
             </section>
 
-            { isOrderModalOpen && <OrderPopup bouquets={bouquets}/> }
+            { isOrderModalOpen && createPortal(<OrderPopup bouquets={bouquets}/>, document.querySelector('#portal-wrapper')) }
 
             <section className="one-order__addition chapter-margin">
                 <div className="container">

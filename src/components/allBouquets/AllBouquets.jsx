@@ -78,7 +78,7 @@ const AllBouquets = () => {
     filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.price > lowerPriceLimit && bouquet.price < higherPriceLimit);
 
     if (filteredBouquets.length === 0) {
-        return 'No bouquets are available';
+        return <div className='catalog-details__no-data'>No bouquets are available</div>;
     } else {
         return (
             <div className="catalog-details__inner-items-block">

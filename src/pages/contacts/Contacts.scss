@@ -1,80 +1,108 @@
 @import '../../styles/constants.scss';
 
 /*---------------------------------CONTACTS PAGE ------------------------------*/
-.contacts-main,
-.contacts-main-title-block,
-.contacts-info__details,
-.contacts-map {
-    position: relative;
+
+.contacts {
+    &-main,
+    &-main-title-block,
+    &-info__details,
+    &-map {
+        position: relative;
+    }
+    &-main::after,
+    &-main::before,
+    &-info__details::before,
+    &-main-title-block::before,
+    &-map::before,
+    &-map::after {
+        position: absolute;
+        content: '';
+        background-image: url(../../../public/images/contacts-top-right-image.webp);
+        background-position: left center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 650px;
+        height: 800px;
+        right: 0px;
+        top: -110px;
+        z-index: -1;
+    }
+    &-main::before,
+    &-info__details::before,
+    &-main-title-block::before,
+    &-map::before,
+    &-map::after {
+        filter: blur(100px);
+        transform: rotate(71deg);
+        width: 465px;
+        height: 220px;
+        top: -96px;
+        left: -116px;
+        background-color: #922D2D;
+        z-index: -1;
+    }
+    &-main {
+        padding-bottom: 160px;
+
+        &-title-block::before {
+            width: 341px;
+            height: 274px;
+            top: -96px;
+            left: unset;
+            right: 0;
+        }
+        &-title {
+            margin-left: 95px;
+        }
+    }
+    &-info__details {
+        gap: 30px;
+        align-items: baseline;
+
+        &::before {
+            transform: rotate(-165deg);
+            width: 1005px;
+            height: 125px;
+            top: 150px;
+            left: 0px;
+        }
+        &-item {
+            text-align: center;
+            letter-spacing: 1px;
+            padding: 50px;
+            min-height: 215px;
+
+            &-title {
+                text-transform: uppercase;
+                margin-bottom: 30px;
+                font-family: Oswald-Bold;
+                font-weight: 700;
+            }
+        }
+    }
+
+    &-map::before {
+        width: 206px;
+        height: 436px;
+        top: unset;
+        bottom: -350px;
+        left: 0;
+        transform: rotate(21deg);
+    }
+    &-map::after {
+        width: 354px;
+        height: 364px;
+        top: unset;
+        left: unset;
+        bottom: -350px;
+        right: 0;
+        transform: rotate(-32deg);
+    }
 }
-.contacts-main::after,
-.contacts-main::before,
-.contacts-info__details::before,
-.contacts-main-title-block::before,
-.contacts-map::before,
-.contacts-map::after {
-    position: absolute;
-    content: '';
-    background-image: url(../../../public/images/contacts-top-right-image.webp);
-    background-position: left center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 650px;
-    height: 800px;
-    right: 0px;
-    top: -110px;
-    z-index: -1;
-}
-.contacts-main::before,
-.contacts-info__details::before,
-.contacts-main-title-block::before,
-.contacts-map::before,
-.contacts-map::after {
-    filter: blur(100px);
-    transform: rotate(71deg);
-    width: 465px;
-    height: 220px;
-    top: -96px;
-    left: -116px;
-    background-color: #922D2D;
-    z-index: -1;
-}
-.contacts-main {
-    padding-bottom: 160px;
-}
-.contacts-main-title-block::before {
-    width: 341px;
-    height: 274px;
-    top: -96px;
-    left: unset;
-    right: 0;
-}
-.contacts-main-title {
-    margin-left: 95px;
-}
-.contacts-info__details {
-    gap: 30px;
-    align-items: baseline;
-}
-.contacts-info__details::before {
-    transform: rotate(-165deg);
-    width: 1005px;
-    height: 125px;
-    top: 150px;
-    left: 0px;
-}
-.contacts-info__details-item {
-    text-align: center;
-    letter-spacing: 1px;
-    padding: 50px;
-    min-height: 215px;
-}
-.contacts-info__details-item-title {
-    text-transform: uppercase;
-    margin-bottom: 30px;
-    font-family: Oswald-Bold;
-    font-weight: 700;
-}
+
+
+
+
 .questions.contacts-questions {
     background-color: unset;
 }
@@ -91,29 +119,12 @@
 }  
 .questions.contacts-questions .questions__form input,
 .questions.contacts-questions .questions__form textarea {
-    border-color: #555;
+    border-color: $grey;
 }
 .questions.contacts-questions .questions__form input::placeholder,
 .questions.contacts-questions .questions__form textarea::placeholder {
-    color: #555;
+    color: $grey;
 }
 .questions.contacts-questions .questions__form-policy a {
     color: $pink;
-}
-.contacts-map::before {
-    width: 206px;
-    height: 436px;
-    top: unset;
-    bottom: -350px;
-    left: 0;
-    transform: rotate(21deg);
-}
-.contacts-map::after {
-    width: 354px;
-    height: 364px;
-    top: unset;
-    left: unset;
-    bottom: -350px;
-    right: 0;
-    transform: rotate(-32deg);
 }

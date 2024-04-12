@@ -66,34 +66,35 @@
     width: 100%;
     padding-bottom: $main-margin-bottom;
     transition: all 0.5s;
-}
-.nav::before {
-    transform: rotate(21deg);
-    width: 205px;
-    height: 436px;
-    top: unset;
-    left: 0;
-    bottom: -200px;
-}
-.nav::after {
-    transform: rotate(118deg);
-    width: 355px;
-    height: 365px;
-    top: unset;
-    left: unset;
-    right: 0px;
-    bottom: -200px;
-}
-.nav-item {
-    border: 1px solid $green;
-    padding: 20px;
-    max-width: 825px;
-}
-.nav-item + .nav-item {
-    margin-top: 10px;
-}
-.nav-item p + p {
-    margin-top: 16px;
+
+    &::before {
+        transform: rotate(21deg);
+        width: 205px;
+        height: 436px;
+        top: unset;
+        left: 0;
+        bottom: -200px;
+    }
+    &::after {
+        transform: rotate(118deg);
+        width: 355px;
+        height: 365px;
+        top: unset;
+        left: unset;
+        right: 0px;
+        bottom: -200px;
+    }
+    &-item {
+        border: 1px solid $green;
+        padding: 20px;
+        max-width: 825px;
+        & p + p {
+            margin-top: 16px;
+        }
+    }
+    &-item + .nav-item {
+        margin-top: 10px;
+    }    
 }
 .accordion__heading {
     cursor: pointer;

@@ -7,7 +7,7 @@ import { bouquetAddedToOrder, bouquetRemovedFromOrder, bouquetDeletedFromOrder, 
 
 const OrderPopup = ({ bouquets }) => {
     const dispatch = useDispatch();
-    const { orderList, sumTotal } = useSelector(state => state.order);
+    const { orderList, sumTotal, countTotal } = useSelector(state => state.order);
 
     return (
         <div className="order-popup__wrapper">
@@ -15,7 +15,10 @@ const OrderPopup = ({ bouquets }) => {
                 <div className="order-popup__close-btn" onClick={() => dispatch(closeOrderModal())}>
                     <img src="../images/popup-close-btn.svg" alt="green close sign" width="30" height="30" />
                 </div>
-                <h1 className="order-popup__title common-title green-text">Your order</h1>
+                {   countTotal > 0 
+                    ? <h1 className="order-popup__title common-title green-text">Your order</h1>
+                    : <h1 className="order-popup__title common-title green-text">You have no order</h1>
+                }
 
                 {
                     orderList.map(selectedBouquet => {

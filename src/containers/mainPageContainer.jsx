@@ -12,6 +12,7 @@ export const MainPageContainer = () => {
     const { getAllBouquets } = useFlowersService();
 
     const bouquetsloadingStatus = useSelector(state => state.bouquets.bouquetsloadingStatus);
+    const bouquets = useSelector(state => state.bouquets.bouquets);
 
     const dispatch = useDispatch();
 
@@ -31,5 +32,5 @@ export const MainPageContainer = () => {
         return <h3>Something went wrong</h3>
     }
 
-    return <MainPage />
+    return <MainPage bouquets={bouquets}/>
 }

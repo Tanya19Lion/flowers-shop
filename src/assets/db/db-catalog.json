@@ -11,11 +11,6 @@
             "value": "bouquets-with-camomiles"
         },
         {
-            "id": 60, 
-            "name": "Bouquets of chrysanthemums",
-            "value": "bouquets-of-chrysanthemums"
-        },
-        {
             "id": 61, 
             "name": "Monobouquets",
             "value": "monobouquets"
@@ -140,11 +135,6 @@
             "id": 3, 
             "name": "Camomiles",
             "value": "camomiles"
-        },
-        {
-            "id": 4, 
-            "name": "Chrysanthemum",
-            "value": "chrysanthemum"
         },
         {
             "id": 5, 

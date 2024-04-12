@@ -1,6 +1,7 @@
 @import '../../styles/constants.scss';
 
 .info-basket {
+    display: block;
     padding: 15px;
     width: 60px;
     height: 60px;
@@ -12,20 +13,23 @@
     backdrop-filter: blur(20px);
     cursor: pointer;
     position: relative;
-}
-.info-basket__order {
-    position: absolute;
-    content: '';
-    right: 7px;
-    top: 12px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: $green;
-    color: #142B2B;
-    font-size: 11px;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: unset;
+    outline: transparent;
+
+    &__order {
+        position: absolute;
+        content: '';
+        right: 7px;
+        top: 12px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: $green;
+        color: #142B2B;
+        font-size: 11px;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

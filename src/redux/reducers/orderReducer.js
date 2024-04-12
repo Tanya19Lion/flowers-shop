@@ -3,7 +3,6 @@ const initialState = {
     sumTotal: 0,
     countTotal: 0,
     isOrderModalOpen: false,
-    isPhoneModalOpen: false
 }
 
 const updateOrderList = (orderList, item, index) => {

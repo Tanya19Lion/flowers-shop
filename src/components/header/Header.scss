@@ -46,13 +46,14 @@
     &__phone {
         margin-left: auto;
         margin-right: 22px;
-    }
-    &__phone-link {
-        color: $green;
-    }
-    &__phone-img {
-        display: inline-block;
-        margin-right: 12px;
+
+        &-link {
+            color: $green;
+        }
+        &-img {
+            display: inline-block;
+            margin-right: 12px;
+        }
     }
     .info-basket {
         margin-left: unset;

@@ -27,7 +27,7 @@ export default function CategoriesTop() {
     }
 
     if (topCategories.length === 0) {
-        return 'No categories are available';
+        return  <div className='catalog-details__no-data'>No categories are available</div>;
     } else {
         return (
             <div className="catalog-top__categories">

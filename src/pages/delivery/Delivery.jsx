@@ -9,6 +9,8 @@ const Delivery = () => {
 		pageHeader.style.backgroundColor = '#000000';
 		pageHeader.style.marginBottom = '100px';
         pageHeader.classList.remove('header-with-basket');    
+
+        window.scrollTo(0, 0);
 	}, []);
 
     return (

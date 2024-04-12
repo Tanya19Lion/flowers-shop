@@ -1,14 +1,29 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 import './Header.scss';
 
 import Basket from '../basket/Basket';
+import OrderPopup from '../orderPopup/OrderPopup';
+
+import { openOrderModal } from '../../redux/actions/actions';
 
 const Header = () => {
+    const dispatch = useDispatch();
+
+    const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
+	const bouquets = useSelector(state => state.bouquets.bouquets);
+
+	const handleOpenOrderModal = () => {
+		dispatch(openOrderModal());  
+	}
+
     return (
-        <header className="header">       	{/* <header className="header header-main-page">  */}    {/* <header className="header header-not-found">        */}             
+        <>
+        <header className="header">   {/* <header className="header header-not-found">        */}             
             <div className="container">
                 <div className="header-top flex">
                     <nav className="header__menu flex">           
@@ -49,7 +64,7 @@ const Header = () => {
                         </span>
                         <span className="header__phone-link" >+44 171 552948</span>
                     </Link>
-                    <Basket />
+                    <Basket handleOpenOrderModal={handleOpenOrderModal}/>
 
                     <div className="header__mail">
                         <Link to="mailto:order@loverflower.com" className="header__mail-email menu-contacts">
@@ -58,8 +73,10 @@ const Header = () => {
                         <p className="header__mail-info menu-contacts-info">Delivery 24/7 by agreement with the operator</p>
                     </div>
                 </div>              
-            </div>             
+            </div>              
         </header>
+        { isOrderModalOpen && createPortal(<OrderPopup bouquets={bouquets}/>, document.querySelector('#portal-wrapper') ) }
+        </>
     )
 };
 

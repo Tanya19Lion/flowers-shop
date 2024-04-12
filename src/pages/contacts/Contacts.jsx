@@ -10,6 +10,8 @@ const Contacts = () => {
 		pageHeader.style.backgroundColor = '#000000';
 		pageHeader.style.marginBottom = '100px';
         pageHeader.classList.remove('header-with-basket');    
+
+        window.scrollTo(0, 0);
 	}, []);
 
     return (
@@ -82,9 +84,16 @@ const Contacts = () => {
             </section>
 
             <section className="contacts-map">
-                <div className="container">
-                    <iframe title="The map shows the place where the shop is situated" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.4248513434086!2d-0.1585557!3d51.523767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761acf33628211%3A0x445d7677a88322e1!2s221B%20Baker%20St%2C%20London%20NW1%206XE%2C%20UK!5e0!3m2!1sen!2sua!4v1709474892255!5m2!1sen!2sua" width="100%" height="427" style={{border: '0'}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>    
-                </div>            
+                <iframe 
+                    title="The map shows the place where the shop is situated"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.4248513434086!2d-0.1585557!3d51.523767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761acf33628211%3A0x445d7677a88322e1!2s221B%20Baker%20St%2C%20London%20NW1%206XE%2C%20UK!5e0!3m2!1sen!2sua!4v1709474892255!5m2!1sen!2sua"
+                    width="100%" 
+                    height="427"
+                    style={{border: '0'}}
+                    allowFullScreen=""
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>               
             </section>
         </main> 
     )
