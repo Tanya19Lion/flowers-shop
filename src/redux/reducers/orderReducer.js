@@ -1,4 +1,8 @@
 const initialState = {
+    bouquets: [],
+    bouquetsLoadingStatus: 'initial',
+    error: null,
+
     orderList: [],
     sumTotal: 0,
     countTotal: 0,
@@ -56,9 +60,8 @@ const updateCountTotal = (orderList, quantity) => {
     return counter;
 }
 
-const updateOrder = (state, data, quantity) => {
-    const { orderList, sumTotal } = state;
-    const { bouquets, id: bouquetId } = data;
+const updateOrder = (state, bouquetId , quantity) => {
+    const { bouquets, orderList, sumTotal } = state;
 
     const bouquet = bouquets.find( item => item.id === bouquetId);
     const itemIndex = orderList.findIndex(({ id }) => id === bouquetId);
@@ -94,15 +97,42 @@ const updateOrderItem = (bouquet, item = {}, quantity) => {
 };
 
 const orderReducer = (state = initialState, action) => {
+
     switch(action.type) {
-        case 'BOUQUET_ADDED_TO_ORDER':    
+
+        case 'BOUQUETS_FETCHING':
+            return {
+                ...state,
+                bouquets: [],
+                bouquetsLoadingStatus: 'loading', 
+                error: null
+            };
+
+        case 'BOUQUETS_FETCHED':
+            return {
+                ...state,
+                bouquets: action.payload,
+                bouquetsLoadingStatus: 'initial',
+                error: null
+            };
+
+        case 'BOUQUETS_FETCHING_ERROR':
+            return {
+                ...state,
+                bouquets: [],
+                bouquetsLoadingStatus: 'error',
+                orderList: state.orderList,
+                error: action.payload
+            };
+
+        case 'BOUQUET_ADDED_TO_ORDER': 
             return updateOrder(state, action.payload, 1);
 
         case 'BOUQUET_REMOVED_FROM_ORDER':
             return updateOrder(state, action.payload, -1);
 
         case 'BOUQUET_DELETED':
-            const deletedItem = state.orderList.find( ({ id }) => id === action.payload.id );
+            const deletedItem = state.orderList.find( ({ id }) => id === action.payload );
             return updateOrder(state, action.payload, -deletedItem.count);
         
         case 'OPEN_ORDER_MODAL': 

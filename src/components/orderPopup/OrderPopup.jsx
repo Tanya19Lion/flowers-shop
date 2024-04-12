@@ -5,7 +5,7 @@ import './OrderPopup.scss';
 
 import { bouquetAddedToOrder, bouquetRemovedFromOrder, bouquetDeletedFromOrder, closeOrderModal } from '../../redux/actions/actions';
 
-const OrderPopup = ({ bouquets }) => {
+const OrderPopup = () => {
     const dispatch = useDispatch();
     const { orderList, sumTotal, countTotal } = useSelector(state => state.order);
 
@@ -34,12 +34,12 @@ const OrderPopup = ({ bouquets }) => {
                                         <div className="order-popup__info-buttons flex">
                                             <button 
                                                 className="order-popup__info-btn order-popup__info-btn--increase" 
-                                                onClick={() => dispatch(bouquetAddedToOrder({bouquets, id}))}
+                                                onClick={() => dispatch(bouquetAddedToOrder(id))}
                                             >+</button>
                                             <span className="order-popup__info-number">{count}</span>
                                             <button 
                                                 className="order-popup__info-btn order-popup__info-btn--decrease" 
-                                                onClick={() => dispatch(bouquetRemovedFromOrder({bouquets, id}))}
+                                                onClick={() => dispatch(bouquetRemovedFromOrder(id))}
                                             ><div></div></button>
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@ const OrderPopup = ({ bouquets }) => {
                                         <p className="order-popup__info-price green-text">£{price}</p>
                                         <button 
                                             className="order-popup__info-remove" 
-                                            onClick={() => dispatch(bouquetDeletedFromOrder({bouquets, id}))}
+                                            onClick={() => dispatch(bouquetDeletedFromOrder(id))}
                                         >Remove</button>
                                     </div>
                                 </div>

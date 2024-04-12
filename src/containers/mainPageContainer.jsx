@@ -5,14 +5,13 @@ import useFlowersService from '../services/FlowersService';
 
 import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../redux/actions/actions';
 
-import MainPage from '../pages/mainPage/MainPage';
+import { MainPage } from '../pages';
 import Spinner from '../components/spinner/Spinner';
 
 export const MainPageContainer = () => {
     const { getAllBouquets } = useFlowersService();
 
-    const bouquetsloadingStatus = useSelector(state => state.bouquets.bouquetsloadingStatus);
-    const bouquets = useSelector(state => state.bouquets.bouquets);
+    const bouquetsloadingStatus = useSelector(state => state.order.bouquetsloadingStatus);
 
     const dispatch = useDispatch();
 
@@ -32,5 +31,5 @@ export const MainPageContainer = () => {
         return <h3>Something went wrong</h3>
     }
 
-    return <MainPage bouquets={bouquets}/>
+    return <MainPage/>
 }

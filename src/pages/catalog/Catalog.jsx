@@ -24,6 +24,7 @@ const Catalog = () => {
     const dispatch = useDispatch();
 	const [scroll, setScroll] = useState(0);
     const [openModal, setOpenModal] = useState(false);
+    const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
 
 	useEffect(() => {		
 		const pageHeader = document.querySelector('.header');
@@ -53,13 +54,6 @@ const Catalog = () => {
 		setOpenModal(true);
 	}
 
-    const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
-	const bouquets = useSelector(state => state.bouquets.bouquets);
-
-	const handleOpenOrderModal = () => {
-		dispatch(openOrderModal());  
-	}
-
     const { setFilters } = useFilters();
 
     return (
@@ -82,13 +76,13 @@ const Catalog = () => {
                                 <Link to="tel:+44171552948" className="top-info__right-block-link">+44 171 552948</Link>
                             </div>
                             <OrderPhoneElement handleOpenModal={handleOpenModal}/>
-                            <Basket handleOpenOrderModal={handleOpenOrderModal}/>
+                            <Basket handleOpenOrderModal={() => dispatch(openOrderModal())}/>
                         </div>
                     </div>                 
                 </div>
             </section>
 
-            { isOrderModalOpen && createPortal(<OrderPopup bouquets={bouquets}/>, document.querySelector('#portal-wrapper') ) }
+            { isOrderModalOpen && createPortal(<OrderPopup/>, document.querySelector('#portal-wrapper') ) }
 
             <CategoriesSort />
 

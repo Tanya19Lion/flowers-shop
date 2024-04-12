@@ -23,20 +23,18 @@ const OneBouquetPage = () => {
 
     const { id } = useParams();
     const { getOneBouquet } = useFlowersService(); 
-    
-    const dispatch = useDispatch();
-    const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
-    const bouquets = useSelector(state => state.bouquets.bouquets);
-
     const [oneBouquet, setOneBouquet] = useState([]);
 
     useEffect(() => {
 		getOneBouquet(id).then(data => setOneBouquet(data));
-	}, []);
+	}, [id]);
+
+    const dispatch = useDispatch();
+    const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
 
     const handlePopupOpen = (id) => {
         dispatch(openOrderModal());  
-        dispatch(bouquetAddedToOrder({bouquets, id}));
+        dispatch(bouquetAddedToOrder(id));
     }
 
     const { imageSrc, altSign, name, price } = oneBouquet;
@@ -63,7 +61,7 @@ const OneBouquetPage = () => {
                 </div>
             </section>
 
-            { isOrderModalOpen && createPortal(<OrderPopup bouquets={bouquets}/>, document.querySelector('#portal-wrapper')) }
+            { isOrderModalOpen && createPortal(<OrderPopup/>, document.querySelector('#portal-wrapper')) }
 
             <section className="one-order__addition chapter-margin">
                 <div className="container">

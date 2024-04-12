@@ -8,8 +8,9 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Spinner from './components/spinner/Spinner';
 
-import {MainPage, AboutUs, Clients, Contacts, Delivery, FAQ, Policy, Page404, OneBouquetPage} from './pages/index';
-import { CatalogContainer } from './containers/catalogContainer';
+import {AboutUs, Clients, Contacts, Delivery, FAQ, Policy, Page404, OneBouquetPage} from './pages/index';
+import { CatalogContainer } from './containers/CatalogContainer';
+import { MainPageContainer } from './containers/MainPageContainer';
 
 function App() {
 	return (
@@ -18,7 +19,7 @@ function App() {
 				<Header />
 				<Suspense fallback={<Spinner />}>
 					<Routes>
-						<Route path='/' element={<MainPage />} />
+						<Route path='/' element={<MainPageContainer />} />
 						<Route path='about-us' element={<AboutUs />} />
 						<Route path='catalog' element={<CatalogContainer />} />
 						<Route path='catalog/:id/' element={<OneBouquetPage />} />

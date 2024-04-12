@@ -12,7 +12,7 @@ const AllBouquets = () => {
 
     const filteredBouquetsSelector = createSelector(
         (state) => state.categories.activeTopCategories,
-        (state) => state.bouquets.bouquets,
+        (state) => state.order.bouquets,
         (activeTopCategories, bouquets) => {
             if (activeTopCategories.includes('all')) {
                 return bouquets;

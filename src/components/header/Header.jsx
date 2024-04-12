@@ -15,11 +15,6 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
-	const bouquets = useSelector(state => state.bouquets.bouquets);
-
-	const handleOpenOrderModal = () => {
-		dispatch(openOrderModal());  
-	}
 
     return (
         <>
@@ -64,7 +59,7 @@ const Header = () => {
                         </span>
                         <span className="header__phone-link" >+44 171 552948</span>
                     </Link>
-                    <Basket handleOpenOrderModal={handleOpenOrderModal}/>
+                    <Basket handleOpenOrderModal={() => dispatch(openOrderModal())}/>
 
                     <div className="header__mail">
                         <Link to="mailto:order@loverflower.com" className="header__mail-email menu-contacts">
@@ -75,7 +70,7 @@ const Header = () => {
                 </div>              
             </div>              
         </header>
-        { isOrderModalOpen && createPortal(<OrderPopup bouquets={bouquets}/>, document.querySelector('#portal-wrapper') ) }
+        { isOrderModalOpen && createPortal(<OrderPopup/>, document.querySelector('#portal-wrapper') ) }
         </>
     )
 };
