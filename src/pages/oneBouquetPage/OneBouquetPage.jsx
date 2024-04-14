@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 
 import Portal from '../../components/portal/Portal';
 import OrderPopup from '../../components/orderPopup/OrderPopup';
@@ -12,14 +13,7 @@ import useFlowersService from '../../services/FlowersService';
 
 const OneBouquetPage = () => {
 
-    useEffect(() => {		
-		const pageHeader = document.querySelector('.header');
-		pageHeader.style.backgroundColor = '#000000';
-		pageHeader.style.marginBottom = '100px';
-        pageHeader.classList.remove('header-with-basket');    
-
-        window.scrollTo(0, 0);
-	}, []);
+    useChangeHeaderColor('#000000', '100px');
 
     const { id } = useParams();
     const { getOneBouquet } = useFlowersService(); 

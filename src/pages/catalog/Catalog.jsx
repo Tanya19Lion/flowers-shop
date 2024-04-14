@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'; 
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { initialFilters, useFilters } from '../../context/FiltersProvider';
+import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useScroll } from '../../hooks/handleScroll.hook';
 
 import Portal from '../../components/portal/Portal';
 import Basket from '../../components/basket/Basket';
@@ -18,43 +19,32 @@ import AllBouquets from '../../components/allBouquets/AllBouquets';
 
 import './Catalog.scss';
 
-import { openOrderModal } from '../../redux/actions/actions';
+import { openOrderModal, lowLimitChange, highLimitChange, activeFlowersCategoryChange, activeFormatCategoryChange, activeColorsCategoryChange, resetAllFilters } from '../../redux/actions/actions';
 
 const Catalog = () => {
     const dispatch = useDispatch();
-	const [scroll, setScroll] = useState(0);
     const [openModal, setOpenModal] = useState(false);
     const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
 
-	useEffect(() => {		
-		const pageHeader = document.querySelector('.header');
-		pageHeader.style.backgroundColor = 'transparent';
-		pageHeader.style.marginBottom = '50px';
-		pageHeader.classList.add('header-with-basket');		
+    const resetSidebarFilters = () => {
+        dispatch(lowLimitChange(0));
+        dispatch(highLimitChange(4000));
+        dispatch(activeFlowersCategoryChange('all'));
+        dispatch(activeFormatCategoryChange('all'));
+        dispatch(activeColorsCategoryChange('all'));
+        dispatch(resetAllFilters());
+    }
 
-        window.scrollTo(0, 0);
-	}, []);
-
-    const handleScroll = () => {
-		setScroll(window.scrollY);
-	}
-
-    if (document.querySelector('.header')) {
-        scroll > 700 
-            ? document.querySelector('.header').classList.remove('header-with-basket') 
-            : document.querySelector('.header').classList.add('header-with-basket')
-	}	
-
-	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+    useChangeHeaderColor('transparent', '50px', 'header-with-basket');
+    useScroll();
 
     const handleOpenModal = () => {
 		setOpenModal(true);
 	}
 
-    const { setFilters } = useFilters();
+    openModal || isOrderModalOpen 
+        ? document.body.classList.add('lock')
+        : document.body.classList.remove('lock')
 
     return (
         <main className="catalog-page page-margin">
@@ -95,7 +85,7 @@ const Catalog = () => {
                                 <CategoriesFormat />
                                 <CategoryPrice />
                                 <CategoriesFlowers />
-                                <button className="catalog-details__inner-btn common-btn" onClick={() => setFilters(initialFilters)}>Reset filters</button>
+                                <button className="catalog-details__inner-btn common-btn" onClick={() => resetSidebarFilters()}>Reset filters</button>
                             </div>
                         </div>
                         <AllBouquets />

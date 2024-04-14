@@ -7,8 +7,6 @@ import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../re
 import { Catalog } from '../pages';
 import Spinner from '../components/spinner/Spinner';
 
-import { FiltersProvider } from '../context/FiltersProvider';
-
 export const CatalogContainer = () => {
     const { getAllBouquets } = useFlowersService();
 
@@ -32,9 +30,5 @@ export const CatalogContainer = () => {
         return <h3>Something went wrong</h3>
     }
 
-    return (
-        <FiltersProvider>
-            <Catalog/>
-        </FiltersProvider>
-    )
+    return <Catalog />
 }

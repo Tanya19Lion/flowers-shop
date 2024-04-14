@@ -6,21 +6,15 @@ import {
     AccordionItemButton,
     AccordionItemPanel,
 } from 'react-accessible-accordion';
+import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 
 import 'react-accessible-accordion/dist/fancy-example.css';
 import './Faq.scss';
 
 const FAQ = () => {
 
-    useEffect(() => {		
-		const pageHeader = document.querySelector('.header');
-		pageHeader.style.backgroundColor = '#000000';
-		pageHeader.style.marginBottom = '100px';
-        pageHeader.classList.remove('header-with-basket');    
-
-        window.scrollTo(0, 0);
-	}, []);
-
+    useChangeHeaderColor('#000000', '100px');
+    
     return (
         <main className="faq-main"> 
             <div className="faq-main-title-block">

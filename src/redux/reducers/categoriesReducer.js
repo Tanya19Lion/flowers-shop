@@ -3,9 +3,15 @@ const initialState = {
     activeTopCategories: ['all'],
     activeSortCategory: 'idle',
     coloursCategories: [],
+    activeColorCategories: ['all'],
     formatCategories: [],
+    activeFormatCategories: ['all'],
     flowersCategories: [],
+    activeFlowersCategories: ['all'],
+    lowPriceLimit: 0,
+    highPriceLimit: 4000,
     categoriesLoadingStatus: 'initial',
+    resetFilters: false,
     error: null
 }
 
@@ -100,10 +106,10 @@ const categoriesReducer = (state = initialState, action) => {
                 error: action.payload
             };
         
-        case 'ACTIVE_TOP_CATEGORY_CHANGE':
+        case 'ACTIVE_TOP_CATEGORY_CHANGE': 
             return {
                 ...state,
-                 activeTopCategories: action.payload !== 'all' 
+                activeTopCategories: action.payload !== 'all' 
                                         ? state.activeTopCategories.includes(action.payload)
                                             ? state.activeTopCategories.filter( item => item !== action.payload)
                                             : Array.from(new Set([...state.activeTopCategories, action.payload].filter(item => item !== 'all')))
@@ -115,7 +121,55 @@ const categoriesReducer = (state = initialState, action) => {
                 ...state,
                 activeSortCategory: action.payload
             } 
-    
+
+        case 'ACTIVE_COLOR_CATEGORY_CHANGE': 
+            return {
+                ...state,
+                activeColorCategories: action.payload !== 'all' 
+                    ? state.activeColorCategories.includes(action.payload)
+                        ? state.activeColorCategories.filter( item => item !== action.payload)
+                        : Array.from(new Set([...state.activeColorCategories, action.payload].filter(item => item !== 'all')))
+                    : ['all']
+            }
+
+        case 'ACTIVE_FORMAT_CATEGORY_CHANGE': 
+            return {
+                ...state,
+                activeFormatCategories: action.payload !== 'all' 
+                    ? state.activeFormatCategories.includes(action.payload)
+                        ? state.activeFormatCategories.filter( item => item !== action.payload)
+                        : Array.from(new Set([...state.activeFormatCategories, action.payload].filter(item => item !== 'all')))
+                    : ['all']
+            }
+        
+        case 'ACTIVE_FLOWERS_CATEGORY_CHANGE': 
+            return {
+                ...state,
+                activeFlowersCategories: action.payload !== 'all' 
+                    ? state.activeFlowersCategories.includes(action.payload)
+                        ? state.activeFlowersCategories.filter( item => item !== action.payload)
+                        : Array.from(new Set([...state.activeFlowersCategories, action.payload].filter(item => item !== 'all')))
+                    : ['all']
+            }
+
+        case 'LOW_LIMIT_CHANGE': 
+            return {
+                ...state,
+                lowPriceLimit: action.payload
+            }
+
+        case 'HIGH_LIMIT_CHANGE': 
+            return {
+                ...state,
+                highPriceLimit: action.payload
+            }
+            
+        case 'RESET_ALL_FILTERS':
+            return {
+                ...state,
+                resetFilters: !state.resetFilters
+            }
+
         default:
             return state;
     }

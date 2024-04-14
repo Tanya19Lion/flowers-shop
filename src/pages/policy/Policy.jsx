@@ -1,8 +1,11 @@
-import React from 'react';
+import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 
 import './Policy.scss';
 
 const Policy = () => {
+
+    useChangeHeaderColor('#000000', '100px');
+
     return (
         <main className="main-policy bigger-text page-margin"> 
             <section className="policy-title-block chapter-margin">

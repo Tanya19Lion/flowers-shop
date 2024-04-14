@@ -1,31 +1,29 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './CategoryPrice.scss';
 
-import { useFilters } from '../../context/FiltersProvider';
+import { lowLimitChange, highLimitChange } from '../../redux/actions/actions';
 
 const CategoryPrice = () => {
-    const [leftData, setLeftData] = useState(0);
-    const [rightData, setRightData] = useState(4000);
-    const timerRef = useRef(null);
+    const dispatch = useDispatch();
+    const [lowData, setLowData] = useState(0);
+    const [highData, setHighData] = useState(4000);
 
-    const { filters, setFilters } = useFilters();
-    const { coloursFilters, flowersFilters, formatFilters } = filters;
+    const { lowPriceLimit, highPriceLimit, resetFilters } = useSelector(state => state.categories);
 
     useEffect( () => {
-        clearTimeout(timerRef.current);
+        dispatch(lowLimitChange(lowData));                  
+    }, [lowData]);
 
-        timerRef.current = setTimeout(() => {
-            setFilters({...filters, lowerPriceLimit: leftData, higherPriceLimit: rightData });                  
-        }, 250);
-    }, [leftData, rightData]);
+    useEffect( () => {
+        dispatch(highLimitChange(highData));                  
+    }, [highData]);
 
-     useEffect( () => {
-        if (!coloursFilters.length && !flowersFilters.length && !formatFilters.length) {
-            setLeftData(filters.lowerPriceLimit);
-            setRightData(filters.higherPriceLimit);
-        }    
-    }, [coloursFilters.length, flowersFilters.length, formatFilters.length]);
+    useEffect( () => {
+        setLowData(lowPriceLimit);
+        setHighData(highPriceLimit);
+    }, [resetFilters]);
 
     return (
         <div className="catalog-details__inner-price">
@@ -33,15 +31,15 @@ const CategoryPrice = () => {
                 Cost
             </p>  
             <div className="catalog-details__inner-checkbox-block catalog-details__inner-checkbox-block--price">     
-                <span className='catalog-details__inner-checkbox-info catalog-details__inner-checkbox-info--left'>{leftData}</span>                    
+                <span className='catalog-details__inner-checkbox-info catalog-details__inner-checkbox-info--left'>{lowData}</span>                    
                 <input 
                     type="range" 
                     id="range-price-left" 
                     name="range-price" 
                     min="0" 
                     max="4000" 
-                    value={leftData} 
-                    onChange={(e) => setLeftData(+(e.target.value))}
+                    value={lowData} 
+                    onChange={(e) => setLowData(+(e.target.value))}
                 />
                 <input 
                     type="range" 
@@ -49,10 +47,10 @@ const CategoryPrice = () => {
                     name="range-price" 
                     min="0" 
                     max="4000"
-                    value={rightData}
-                    onChange={(e) => setRightData(+(e.target.value))}
+                    value={highData}
+                    onChange={(e) => setHighData(+(e.target.value))}
                 />
-                <span className='catalog-details__inner-checkbox-info catalog-details__inner-checkbox-info--right'>{rightData}</span>
+                <span className='catalog-details__inner-checkbox-info catalog-details__inner-checkbox-info--right'>{highData}</span>
                 <label className='catalog-details__inner-checkbox-label'>Price from £0 to £4000</label>
             </div>                                                 
         </div>

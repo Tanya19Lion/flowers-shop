@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useScroll } from '../../hooks/handleScroll.hook';
 // import PropTypes from 'prop-types';
 
 import './MainPage.scss';
@@ -16,37 +18,19 @@ import { openOrderModal } from '../../redux/actions/actions';
 
 const MainPage = () => {
 	const dispatch = useDispatch();
-	const [scroll, setScroll] = useState(0);
 	const [openModal, setOpenModal] = useState(false);
 	const { bouquets, isOrderModalOpen } = useSelector(state => state.order);
 
-	useEffect(() => {		
-		const pageHeader = document.querySelector('.header');
-		pageHeader.style.backgroundColor = 'transparent';
-		pageHeader.style.marginBottom = '50px';
-		pageHeader.classList.add('header-with-basket');		
-
-		window.scrollTo(0, 0);
-	}, []);
-
-	const handleScroll = () => {
-		setScroll(window.scrollY);
-	}
-
-	if (document.querySelector('.header')) {
-		scroll > 700
-		? document.querySelector('.header').classList.remove('header-with-basket') 
-		: document.querySelector('.header').classList.add('header-with-basket')
-	}
-	
-	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+	useChangeHeaderColor('transparent', '50px', 'header-with-basket');
+	useScroll();
 
 	const handleOpenModal = () => {
 		setOpenModal(true);
 	}	
+
+	openModal || isOrderModalOpen 
+		? document.body.classList.add('lock')
+		: document.body.classList.remove('lock');
 
 	return (    
         <main className="main-page">        
@@ -122,7 +106,7 @@ const MainPage = () => {
 			</section>
 
 			{
-				bouquets && <section className="popular page-margin">
+				bouquets.length && <section className="popular page-margin">
 					<div className="container">
 						<h2 className="popular__title top-title">
 							<p className="popular__title-first">Popular</p>

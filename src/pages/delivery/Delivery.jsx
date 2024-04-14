@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react';
+import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 
 import './Delivery.scss';
 
 const Delivery = () => { 
 
-    useEffect(() => {		
-		const pageHeader = document.querySelector('.header');
-		pageHeader.style.backgroundColor = '#000000';
-		pageHeader.style.marginBottom = '100px';
-        pageHeader.classList.remove('header-with-basket');    
-
-        window.scrollTo(0, 0);
-	}, []);
+    useChangeHeaderColor('#000000', '100px');
 
     return (
         <main className="delivery-main chapter-margin"> 

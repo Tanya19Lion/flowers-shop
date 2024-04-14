@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import { useFilters } from '../../context/FiltersProvider';
-
 import './AllBouquets.scss';
 
 const AllBouquets = () => {
-    const { filters } = useFilters();
+    const { activeColorCategories, activeFormatCategories, activeFlowersCategories, lowPriceLimit, highPriceLimit } = useSelector(state => state.categories);
 
     const filteredBouquetsSelector = createSelector(
         (state) => state.categories.activeTopCategories,
@@ -27,15 +25,6 @@ const AllBouquets = () => {
 
     let filteredBouquets = useSelector(filteredBouquetsSelector);
 
-    const itemsForStart = 9;
-    const itemsToLoad = 6;
-
-    const [next, setNext] = useState(itemsForStart);
-
-    const handleMoreItems = () => {
-        setNext(next + itemsToLoad);
-    }
-
     const sortedFlowers = createSelector(
         (state) => state.categories.activeSortCategory,
         (activeSortCategory) => {
@@ -53,29 +42,35 @@ const AllBouquets = () => {
     );
     useSelector(sortedFlowers);
 
-    const { coloursFilters, flowersFilters, formatFilters, lowerPriceLimit, higherPriceLimit } = filters;
-    
     const includesAny = (arr, values) => values.some(v => arr.includes(v));
-
-     if (coloursFilters.length) {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.colour, coloursFilters));
+    if (activeColorCategories.length) {
+        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.colour, activeColorCategories));   
     } else {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.colour.includes('all'));
+        filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.colour.includes('all'));    
     }
 
-    if (flowersFilters.length) {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.flowers, flowersFilters));
+    if (activeFlowersCategories.length) {
+        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.flowers, activeFlowersCategories));
     } else {
         filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.flowers.includes('all'));
     }
 
-    if (formatFilters.length) {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.format, formatFilters));
+    if (activeFormatCategories.length) {
+        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.format, activeFormatCategories));
     } else {
         filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.format.includes('all'));
     }
 
-    filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.price > lowerPriceLimit && bouquet.price < higherPriceLimit);
+    filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.price > lowPriceLimit && bouquet.price < highPriceLimit);
+    
+    const itemsForStart = 9;
+    const itemsToLoad = 6;
+
+    const [next, setNext] = useState(itemsForStart);
+
+    const handleMoreItems = () => {
+        setNext(next + itemsToLoad);
+    }
 
     if (filteredBouquets.length === 0) {
         return <div className='catalog-details__no-data'>No bouquets are available</div>;

@@ -20,7 +20,7 @@ export default function CategoriesTop() {
             .catch(() => dispatch(topCategoriesFetchingError()))
     }, []);
 
-    if (categoriesLoadingStatus === 'loading') {
+    if (categoriesLoadingStatus === 'loading') { 
         return <Spinner />;
     } else if (categoriesLoadingStatus === 'error') {
         return <h3>Something went wrong</h3>
@@ -61,4 +61,3 @@ export default function CategoriesTop() {
 };
 
 
-// onClick={() => dispatch(activeTopCategoryChange(value))

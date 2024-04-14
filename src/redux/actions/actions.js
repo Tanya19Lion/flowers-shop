@@ -95,9 +95,44 @@ const activeTopCategoryChange = (value) => {
     }
 }
 
+const activeColorsCategoryChange = (value) => {
+    return {
+        type: 'ACTIVE_COLOR_CATEGORY_CHANGE',
+        payload: value
+    }
+}
+
+const activeFormatCategoryChange = (value) => {
+    return {
+        type: 'ACTIVE_FORMAT_CATEGORY_CHANGE',
+        payload: value
+    }
+}
+
+const activeFlowersCategoryChange = (value) => {
+    return {
+        type: 'ACTIVE_FLOWERS_CATEGORY_CHANGE',
+        payload: value
+    }
+}
+
 const activeSortCategoryChange = (value) => {
     return {
         type: 'ACTIVE_SORT_CATEGORY_CHANGE',
+        payload: value
+    }
+}
+
+const lowLimitChange = (value) => {
+    return {
+        type: 'LOW_LIMIT_CHANGE',
+        payload: value
+    }
+}
+
+const highLimitChange = (value) => {
+    return {
+        type: 'HIGH_LIMIT_CHANGE',
         payload: value
     }
 }
@@ -123,18 +158,6 @@ const bouquetDeletedFromOrder = (bouquetId) => {
     };
 };
 
-const openPhoneModal = () => {
-    return {
-        type: 'OPEN_PHONE_MODAL'
-    }
-};
-
-const closePhoneModal = () => {
-    return {
-        type: 'CLOSE_PHONE_MODAL'
-    }
-};
-
 const openOrderModal = () => {
     return {
         type: 'OPEN_ORDER_MODAL'
@@ -146,6 +169,12 @@ const closeOrderModal = () => {
         type: 'CLOSE_ORDER_MODAL'
     }
 };
+
+const resetAllFilters = () => {
+    return {
+        type: 'RESET_ALL_FILTERS'
+    }
+}
 
 export {
     bouquetsFetching,
@@ -165,11 +194,15 @@ export {
     coloursCategoriesFetchingError,
     activeTopCategoryChange,
     activeSortCategoryChange,
+    activeColorsCategoryChange,
+    activeFormatCategoryChange,
+    activeFlowersCategoryChange,
+    lowLimitChange,
+    highLimitChange,
     bouquetAddedToOrder,
     bouquetRemovedFromOrder,
     bouquetDeletedFromOrder,
-    openPhoneModal,
-    closePhoneModal,
     openOrderModal,
-    closeOrderModal
+    closeOrderModal,
+    resetAllFilters
 }

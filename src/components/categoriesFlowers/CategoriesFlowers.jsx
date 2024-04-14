@@ -3,15 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Spinner from '../spinner/Spinner';
 
-import { flowersCategoriesFetching, flowersCategoriesFetched, flowersCategoriesFetchingError } from '../../redux/actions/actions';
+import { flowersCategoriesFetching, flowersCategoriesFetched, flowersCategoriesFetchingError, activeFlowersCategoryChange } from '../../redux/actions/actions';
 import useFlowersService from '../../services/FlowersService';
-import { useFilters } from '../../context/FiltersProvider';
 
 const CategoriesFlowers = () => {
-    const { flowersCategories, categoriesLoadingStatus } = useSelector(state => state.categories);
+    const { flowersCategories, categoriesLoadingStatus, activeFlowersCategories } = useSelector(state => state.categories);
     const dispatch = useDispatch();
     const { getCategoriesFlowers } = useFlowersService();
-    const { filters, setFilters } = useFilters();
 
     useEffect(() => {
         dispatch(flowersCategoriesFetching());
@@ -20,15 +18,6 @@ const CategoriesFlowers = () => {
             .catch(() => dispatch(flowersCategoriesFetchingError()))
     }, []);
 
-    const handleChange = (e, category) => {
-        if (e.target.checked) {
-            setFilters({...filters, flowersFilters: [...filters.flowersFilters, category]});
-        } else {
-            const newValue = filters.flowersFilters.filter((condition) => condition !== category);
-            setFilters({...filters, flowersFilters: newValue});
-        }
-    };
-
     if (categoriesLoadingStatus === 'loading') {
         return <Spinner />;
     } else if (categoriesLoadingStatus === 'error') {
@@ -36,7 +25,7 @@ const CategoriesFlowers = () => {
     }
 
     if (flowersCategories.length === 0) {
-        return 'No categories are available';
+        return <div className='catalog-details__no-data'>No categories are available</div>;
     } else {
         return (
             <div className="catalog-details__inner-price">
@@ -46,7 +35,7 @@ const CategoriesFlowers = () => {
                 {
                     flowersCategories.map(item => {
                         const { id, name, value } = item;
-                        const checked = filters.flowersFilters.some(category => value === category);
+                        const checked = activeFlowersCategories.some(category => value === category);
 
                         if (name === "All") return;
 
@@ -57,7 +46,7 @@ const CategoriesFlowers = () => {
                                     id={value} 
                                     value={value}
                                     checked={checked}
-                                    onChange={(e) => handleChange(e, value)} 
+                                    onChange={() => dispatch(activeFlowersCategoryChange(value))} 
                                 />
                                 <label className="catalog-details__inner-lable" htmlFor={value}>{name}</label>
                             </div>

@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 
 import './Page404.scss';
 
 const Page404 = () => { 
-
-    useEffect(() => {		
-		const pageHeader = document.querySelector('.header');
-		pageHeader.style.backgroundColor = '#000000';
-		pageHeader.style.marginBottom = '100px';
-        pageHeader.classList.remove('header-with-basket');    
-
-        window.scrollTo(0, 0);
-	}, []);
+    useChangeHeaderColor('#000000', '100px');
 
     let navigate = useNavigate();
 
