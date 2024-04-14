@@ -1,0 +1,60 @@
+@import '../../styles/constants.scss';
+
+/*-------------------POLICY-------------------*/
+.policy-info__text + .policy-info__text {
+    margin-top: 12px;
+}
+  /* .policy-info__list {
+    margin: 20px 20px 20px 36px;
+  } */
+.main-policy,
+.policy-title-block {
+    position: relative;
+}
+.main-policy::before,
+.policy-title-block::before,
+.main-policy::after,
+.policy-title-block::after {
+    position: absolute;
+    content: '';
+}
+.main-policy::after {
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../../../public/images/policy-bottom-bg.webp);
+    right: -193px;
+    bottom: -100px;
+    width: 999px;
+    height: 754px;
+    z-index: -1;  
+}
+.main-policy::before,
+.policy-title-block::before,
+.policy-title-block::after {
+    z-index: -1;
+    filter: blur(100px);
+    background-color: #7D2253;
+}
+.main-policy::before {
+    transform: rotate(21deg);
+    width: 166px;
+    height: 353px;
+    left: -50px;
+    bottom: -170px;
+}
+.policy-title-block::before {
+    transform: rotate(71deg);
+    width: 217px;
+    height: 174px;
+    left: -50px;
+    top: -150px;
+    background-color: #43FFD2;
+}
+.policy-title-block::after {
+    transform: rotate(32deg);
+    width: 504px;
+    height: 625px;
+    right: 0px;
+    top: -350px;
+}

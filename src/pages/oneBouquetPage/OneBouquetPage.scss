@@ -1,0 +1,210 @@
+@import '../../styles/constants.scss';
+
+.one-order {
+    padding-bottom: $chapter-margin-bottom;
+
+    &__inner {
+        gap: 60px;
+        align-items: flex-end;
+    }
+    &__image img {
+        object-fit: cover;
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 5px;
+
+        &-price {
+            font-family: Oswald-Bold;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 44.46px;
+            letter-spacing: 1px;
+        }
+        &-title,
+        &-price {
+            margin-bottom: 48px;
+        }
+        &-buttons {
+            gap: 30px;
+            color: $grey;
+        }
+        &,
+        &-btn {
+            flex-shrink: 0;
+        }
+        &-buy {
+            width: 160px;
+            max-height: 50px;
+            border: 1px solid $grey;
+            flex-shrink: 0;
+            font-family: Oswald-Regular;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 29.64px;
+
+            &-btn {
+                max-width: 32.5%;
+                width: 100%;
+                height: 100%;
+                outline: transparent;
+                background: transparent;    
+                cursor: pointer;
+                display: inline-block;
+                padding-top: 13px;
+                padding-bottom: 13px;
+                border: none;
+                text-align: center;
+            }
+            &-number {
+                display: inline-block;
+                width: 27%;
+                text-align: center;
+            }
+        }
+    }
+
+    &__addition-title,
+    &__delivery-title  {
+        margin-bottom: 45px;
+        letter-spacing: 1px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__addition-inner {
+        gap: 30px;
+    }
+    &__addition-item {
+        max-width: 255px;
+        min-height: 215px;
+        width: 100%;
+        height: 100%;
+        letter-spacing: 1px;
+        text-align: center;
+        padding: 30px 16px 24px;
+        position: relative;
+        align-items: flex-start;
+        font-size: 14px;
+        font-weight: 400;
+
+        &:before {
+            position: absolute;
+            content: '';
+            background-color: $black;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            top: -15px;
+            left: calc(50% - 15px);
+        }
+        &-title {
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            padding: 0 35px;
+        }
+        &:last-child .one-order__addition-item-title {
+            padding: 0 55px;
+        }
+    }
+    &__delivery-info,
+    &__delivery-cost {
+        margin-bottom: 60px;
+    }
+    &__delivery-list {
+        margin-left: 60px;
+        text-transform: uppercase;
+    }
+    &__delivery-list-item + .one-order__delivery-list-item,
+    &__delivery-text + .one-order__delivery-text {
+        margin-top: 10px;
+    }
+    &__delivery-text {
+        text-transform: uppercase;
+    }
+
+    &,
+    &__main,
+    &__addition,
+    &__delivery {
+        position: relative;
+    }
+    &::before,
+    &::after,
+    &__main::after,
+    &__addition::before,
+    &__addition::after,
+    &__delivery::before,
+    &__delivery::after {
+        position: absolute;
+        content: '';
+    }
+    &::before,
+    &__main::after,
+    &__addition::before,
+    &__addition::after,
+    &__delivery::before {
+        z-index: -1;
+        filter: blur(100px);
+    }
+    &::before,
+    &__addition::after {
+        background-color: #43FFD2;
+    }
+    &__main::after,
+    &__addition::before,
+    &__delivery::before {
+        background-color: #7D2253;
+    }
+    &::before {
+        transform: rotate(72deg);
+        width: 217px;
+        height: 174px;
+        left: -50px;
+        top: -50px;
+    }
+    &::after {
+        background-image: url(../../../public/images/one-order-top-right-bg.webp);
+        background-position: right center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 780px;
+        height: 1170px;
+        right: 0px;
+        top: -100px;
+    }
+    &__main::after {
+        transform: rotate(-33deg);
+        width: 590px;
+        height: 360px;
+        left: -50px;
+        top: -50px;
+    }
+    &__addition::before {
+        transform: rotate(22deg);
+        width: 560px;
+        height: 255px;
+        top: 40px;
+        left: 395px;
+    }
+    &__addition::after {
+        transform: rotate(21deg);
+        width: 711px;
+        height: 218px;
+        right: 0px;
+        top: 135px;
+    }
+    &__delivery::after {
+        background-image: url(../../../public/images/catalog-item-right-background.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right center;
+        width: 682px;
+        height: 1022px;
+        right: 0;
+        top: -200px;
+    }
+}
+

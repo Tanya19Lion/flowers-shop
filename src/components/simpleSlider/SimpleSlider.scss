@@ -1,0 +1,14 @@
+.slick-track {
+    display: flex;
+    align-items: baseline;
+}
+.slick-next::before,
+.slick-prev::before {
+    display: none;
+}
+.slick-next {
+    right: -40px;
+}
+.slick-prev {
+    left: -60px;
+}

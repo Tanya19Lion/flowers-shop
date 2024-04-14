@@ -1,0 +1,130 @@
+@import '../../styles/constants.scss';
+
+/*------------------------FAQ-------------------*/
+.faq-main,
+.faq-main-title-block,
+.nav {
+    position: relative;
+}
+.faq-main::before,
+.faq-main::after { 
+    position: absolute;
+    content: '';
+    background-image: url(../../../public/images/faq-top-left-image.webp);
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 262px;
+    height: 239px;
+    left: 0px;
+    top: -210px;
+    z-index: 8;
+}
+.faq-main::after { 
+    background-image: url(../../../public/images/faq-top-right-image.webp);
+    background-position: right center;
+    width: 624px;
+    height: 542px;
+    left: unset;
+    right: 0;    
+    top: -200px;
+}
+.faq-main-title-block::before,
+.faq-main-title-block::after,
+.nav::before,
+.nav::after {
+    position: absolute;
+    content: '';
+    z-index: 0;
+    filter: blur(100px);
+    transform: rotate(71deg);
+    width: 465px;
+    height: 220px;
+    top: -200px;
+    left: -165px;
+    background-color: #3D5279;
+    z-index: -1;
+}
+.faq-main-title-block::after {
+    transform: rotate(118deg);
+    width: 328px;
+    height: 220px;
+    top: -200px;
+    left: unset;
+    right: 170px;
+}
+.faq-main-title-block {
+    margin-bottom: 40px;
+}
+.faq-green-block {
+    background-color: $green;
+    width: 65px;
+    height: 1px;
+    margin-right: 30px;
+}
+.nav {
+    width: 100%;
+    padding-bottom: $main-margin-bottom;
+    transition: all 0.5s;
+
+    &::before {
+        transform: rotate(21deg);
+        width: 205px;
+        height: 436px;
+        top: unset;
+        left: 0;
+        bottom: -200px;
+    }
+    &::after {
+        transform: rotate(118deg);
+        width: 355px;
+        height: 365px;
+        top: unset;
+        left: unset;
+        right: 0px;
+        bottom: -200px;
+    }
+    &-item {
+        border: 1px solid $green;
+        padding: 20px;
+        max-width: 825px;
+        & p + p {
+            margin-top: 16px;
+        }
+    }
+    &-item + .nav-item {
+        margin-top: 10px;
+    }    
+}
+.accordion__heading {
+    cursor: pointer;
+    text-decoration: none;
+}
+.nav-submenu div:first-child, 
+.nav-submenu p:first-child {
+    padding-top: 24px;
+}
+.nav-submenu__list {
+    padding-left: 30px;
+    margin-top: 10px;
+}
+.nav-submenu__list-item + .nav-submenu__list-item {
+    margin-top: 6px;
+}
+
+.nav-link::before {
+    display: inline-block;
+    content: '';
+    height: 12px;
+    width: 12px;
+    margin-right: 24px;
+    margin-bottom: 3px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+.nav-link[aria-expanded='true']::before,
+.nav-link[aria-selected='true']::before {
+    transform: rotate(45deg);
+    margin-bottom: 7px;
+}

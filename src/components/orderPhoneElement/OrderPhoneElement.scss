@@ -1,0 +1,17 @@
+@import '../../styles/constants.scss';
+
+
+.order-phone {
+    margin-bottom: 20px;
+    display: inline-block;
+    cursor: pointer;
+    color: $green;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 10px;
+
+    &__img {
+        display: inline-block;
+        margin-right: 10px;
+    }
+}

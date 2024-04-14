@@ -1,0 +1,516 @@
+{ 
+    "categories-top": [
+        {
+            "id": 58, 
+            "name": "all",
+            "value": "all"
+        },
+        {
+            "id": 59, 
+            "name": "Bouquets with camomiles",
+            "value": "bouquets-with-camomiles"
+        },
+        {
+            "id": 61, 
+            "name": "Monobouquets",
+            "value": "monobouquets"
+        },
+        {
+            "id": 62, 
+            "name": "Prefabricated bouquets",
+            "value": "prefabricated-bouquets"
+        },
+        {
+            "id": 63, 
+            "name": "Flower arrangements",
+            "value": "flower-arrangements"
+        },
+        {
+            "id": 64, 
+            "name": "Bouquets of dried flowers",
+            "value": "bouquets-of-dried-flowers"
+        },
+        {
+            "id": 65, 
+            "name": "Bouquets of roses",
+            "value": "bouquets-of-roses"
+        },
+        {            
+            "id": 66, 
+            "name": "Popular",
+            "value": "popular"
+        }
+    ],
+    "categories-colours": [
+        {
+            "id": 1, 
+            "name": "All",
+            "value": "all"
+        },
+        {
+            "id": 2, 
+            "name": "White",
+            "value": "white"
+        },
+        {
+            "id": 3, 
+            "name": "Yellow",
+            "value": "yellow"
+        },
+        {
+            "id": 4, 
+            "name": "Green",
+            "value": "green"
+        },
+        {
+            "id": 5, 
+            "name": "Red",
+            "value": "red"
+        },
+        {
+            "id": 6, 
+            "name": "Orange",
+            "value": "orange"
+        },
+        {
+            "id": 7, 
+            "name": "Pink",
+            "value": "pink"
+        },
+        {
+            "id": 8, 
+            "name": "Blue",
+            "value": "blue"
+        }
+    ],
+    "categories-format": [
+        {
+            "id": 1, 
+            "name": "All",
+            "value": "all"
+        },
+        {
+            "id": 2, 
+            "name": "Bouquet",
+            "value": "bouquet"
+        },
+        {
+            "id": 3, 
+            "name": "Vase",
+            "value": "vase"
+        },
+        {
+            "id": 4, 
+            "name": "Envelope",
+            "value": "envelope"
+        },
+        {
+            "id": 5, 
+            "name": "Basket",
+            "value": "basket"
+        },
+        {
+            "id": 6, 
+            "name": "Box",
+            "value": "box"
+        },
+        {
+            "id": 7, 
+            "name": "Winter",
+            "value": "winter"
+        }
+    ],
+    "categories-flowers": [
+        {
+            "id": 1, 
+            "name": "All",
+            "value": "all"
+        },
+        {
+            "id": 2, 
+            "name": "Roses",
+            "value": "roses"
+        },
+        {
+            "id": 3, 
+            "name": "Camomiles",
+            "value": "camomiles"
+        },
+        {
+            "id": 5, 
+            "name": "Gladiolus",
+            "value": "gladiolus"
+        },
+        {
+            "id": 6, 
+            "name": "Tulip",
+            "value": "tulip"
+        },
+        {
+            "id": 7,
+            "name": "Dafodils",
+            "value": "dafodils"
+        },
+        {
+            "id": 8,
+            "name": "lavender",
+            "value": "lavender"
+        },
+        {
+            "id": 9,
+            "name": "Dried flowers",
+            "value": "bouquets-of-dried-flowers"
+        }
+    ],
+    "bouquets": [
+        {
+            "id": 1,
+            "name": "The orange sun",
+            "price": 138,
+            "imageSrc": "../catalog-images/catalog-image-1.webp",
+            "altSign": "bouquet with orange roses",
+            "popularity": 101,
+            "categories": ["all", "bouquets-of-roses", "prefabricated-bouquets", "popular"],
+            "colour": ["all","orange", "red"],
+            "format": ["all", "box"],
+            "flowers": ["all", "roses"]
+        },
+        {
+            "id": 2,
+            "name": "The angel's widgs",
+            "price": 171,
+            "imageSrc": "../catalog-images/catalog-image-2.webp",
+            "altSign": "bouquet with white rosesin blue cover",
+            "popularity": 102,
+            "categories": ["all", "bouquets-of-roses", "monobouquets", "prefabricated-bouquets"],
+            "colour": ["all", "white"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
+        },
+        {
+            "id": 3,
+            "name": "Beautiful spring",
+            "price": 1415,
+            "imageSrc": "../catalog-images/catalog-image-20.webp",
+            "altSign": "a bouquet with ears of corn and willow",
+            "popularity": 1151,
+            "categories": ["all", "prefabricated-bouquets", "bouquets-of-dried-flowers", "popular"],
+            "colour": ["all", "orange", "white", "yellow", "green"],
+            "format": ["all", "bouquet", "envelope"],
+            "flowers": ["all"]
+        },
+        {
+            "id": 4,
+            "name": "Flower rainbow",
+            "price": 845,
+            "imageSrc": "../catalog-images/catalog-image-24.webp",
+            "altSign": "a bouquet with gerberas in different colors",
+            "popularity": 551,
+            "categories": ["all", "bouquets-with-camomiles", "monobouquets"],
+            "colour": ["all", "red", "orange", "yellow", "pink"],
+            "format": ["all", "bouquet"],
+            "flowers": ["all", "camomiles"]
+        },
+        {
+            "id": 5,
+            "name": "Amazing joy",
+            "price": 1287,
+            "imageSrc": "../catalog-images/catalog-image-29.webp",
+            "altSign": "a bouquet with tulips and roses in a lightviolet envelope",
+            "popularity": 3451,
+            "categories": ["all", "bouquets-of-roses", "flower-arrangements", "popular"],
+            "colour": ["all", "white", "pink", "green"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "tulip", "roses"]
+        },    
+        {
+            "id": 6,
+            "name": "The drops of heavens",
+            "price": 1188,
+            "imageSrc": "../catalog-images/catalog-image-3.webp",
+            "altSign": "bouquet with pink and white roses in the lightpink cover",
+            "popularity": 118,
+            "categories": ["all", "bouquets-of-roses", "prefabricated-bouquets", "flower-arrangements", "popular"],
+            "colour": ["all", "white", "pink", "blue"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
+        }, 
+        {
+            "id": 7,
+            "name": "Just great",
+            "price": 3138,
+            "imageSrc": "../catalog-images/catalog-image-4.webp",
+            "altSign": "white gladioluses",
+            "popularity": 137,
+            "categories": ["all", "monobouquets"],
+            "colour": ["all", "white"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "gladiolus"]
+        },
+        {
+            "id": 8,
+            "name": "The very best",
+            "price": 3999,
+            "imageSrc": "../catalog-images/catalog-image-5.webp",
+            "altSign": "dark pink roses",
+            "popularity": 174,
+            "categories": ["all", "bouquets-of-roses", "monobouquets", "popular"],
+            "colour": ["all", "pink", "red"],
+            "format": ["all", "bouquet"],
+            "flowers": ["all", "roses"]
+        },
+        {
+            "id": 9,
+            "name": "Various flowers",
+            "price": 1147,
+            "imageSrc": "../catalog-images/catalog-image-6.webp",
+            "altSign": "camomiles and different roses in the box",
+            "popularity": 111,
+            "categories": ["all", "bouquets-with-camomiles", "bouquets-of-roses", "flower-arrangements", "popular"],
+            "colour": ["all", "yellow", "green", "red", "orange", "pink"],
+            "format": ["all", "basket"],
+            "flowers": ["all", "roses", "camomiles"]
+        },
+        {
+            "id": 10,
+            "name": "Something incredible",
+            "price": 3111,
+            "imageSrc": "../catalog-images/catalog-image-31.webp",
+            "altSign": "a bouquet with red tulips and lightpink roses",
+            "popularity": 1852,
+            "categories": ["all", "bouquets-of-roses"],
+            "colour": ["all", "pink", "white", "green"],
+            "format": ["all", "vase"],
+            "flowers": ["all", "tulip", "roses"]
+        },
+        {
+            "id": 11,
+            "name": "White flowers",
+            "price": 1025,
+            "imageSrc": "../catalog-images/catalog-image-7.webp",
+            "altSign": "bouquet with white and light pink roses",
+            "popularity": 152,
+            "categories": ["all", "bouquets-of-roses", "flower-arrangements"],
+            "colour": ["all", "white", "pink"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
+        },
+        {
+            "id": 12,
+            "name": "Just fine",
+            "price": 517,
+            "imageSrc": "../catalog-images/catalog-image-8.webp",
+            "altSign": "bouquet with pink lavender",
+            "popularity": 103,
+            "categories": ["all", "prefabricated-bouquets"],
+            "colour": ["all", "pink"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "lavender"]
+        },
+        {
+            "id": 13,
+            "name": "The best",
+            "price": 738,
+            "imageSrc": "../catalog-images/catalog-image-9.webp",
+            "altSign": "bouquet with yellow and light violet gladioluses",
+            "popularity": 144,
+            "categories": ["all", "monobouquets"],
+            "colour": ["all", "yellow"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "gladiolus"]
+        },
+        {
+            "id": 14,
+            "name": "Beautiful",
+            "price": 245,
+            "imageSrc": "../catalog-images/catalog-image-10.webp",
+            "altSign": "bouquet with red roses in an envelope",
+            "popularity": 120,
+            "categories": ["all", "bouquets-of-roses", "monobouquets", "popular"],
+            "colour": ["all", "red"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
+        },
+        {
+            "id": 15,
+            "name": "Your happiness",
+            "price": 2345,
+            "imageSrc": "../catalog-images/catalog-image-27.webp",
+            "altSign": "a bouquet with chrysanthemum in a pink envelope",
+            "popularity": 551,
+            "categories": ["all", "bouquets-with-camomiles", "popular"],
+            "colour": ["all", "white", "yellow", "pink"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "camomiles"]
+        },
+        {
+            "id": 16,
+            "name": "Good day",
+            "price": 379,
+            "imageSrc": "../catalog-images/catalog-image-11.webp",
+            "altSign": "bouquet with yellow roses",
+            "popularity": 113,
+            "categories": ["all", "bouquets-of-roses", "monobouquets"],
+            "colour": ["all", "yellow"],
+            "format": ["all", "vase"],
+            "flowers": ["all", "roses"]
+        },
+        {
+            "id": 17,
+            "name": "The finest",
+            "price": 413,
+            "imageSrc": "../catalog-images/catalog-image-12.webp",
+            "altSign": "bouquet with blue lavender",
+            "popularity": 124,
+            "categories": ["all", "prefabricated-bouquets", "monobouquets", "bouquets-of-dried-flowers"],
+            "colour": ["all", "blue"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "lavender", "bouquets-of-dried-flowers"]
+        },
+        {
+            "id": 18,
+            "name": "The ruby beauty",
+            "price": 888,
+            "imageSrc": "../catalog-images/catalog-image-13.webp",
+            "altSign": "dry red and green flowers",
+            "popularity": 133,
+            "categories": ["all", "prefabricated-bouquets", "flower-arrangements", "bouquets-of-dried-flowers", "popular"],
+            "colour": ["all", "green", "red"],
+            "format": ["all", "basket"],
+            "flowers": ["all", "bouquets-of-dried-flowers"]
+        },
+        {
+            "id": 19,
+            "name": "The small winter",
+            "price": 221,
+            "imageSrc": "../catalog-images/catalog-image-14.webp",
+            "altSign": "a small Christmas tree with decorations",
+            "popularity": 118,
+            "categories": ["all", "prefabricated-bouquets"],
+            "colour": ["all", "green", "red", "white"],
+            "format": ["all", "box", "winter"],
+            "flowers": ["all"]
+        },
+        {
+            "id": 20,
+            "name": "Tulips",
+            "price": 111,
+            "imageSrc": "../catalog-images/catalog-image-30.webp",
+            "altSign": "a bouquet with white tulips",
+            "popularity": 1352,
+            "categories": ["all", "monobouquets", "flower-arrangements", "popular"],
+            "colour": ["all", "white"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "tulip"]
+        },
+        {
+            "id": 21,
+            "name": "The holiday",
+            "price": 1123,
+            "imageSrc": "../catalog-images/catalog-image-15.webp",
+            "altSign": "a bouquet of Christmas tree branches with Christmas balls in a box",
+            "popularity": 141,
+            "categories": ["all", "prefabricated-bouquets"],
+            "colour": ["all", "orange", "green", "white"],
+            "format": ["all", "box", "winter"],
+            "flowers": ["all"]
+        },
+        {
+            "id": 22,
+            "name": "White fairytale",
+            "price": 2732,
+            "imageSrc": "../catalog-images/catalog-image-16.webp",
+            "altSign": "a bouquet of Christmas tree branches with white candle, small round white Christmas balls, and big round blue Christmas balls",
+            "popularity": 109,
+            "categories": ["all", "prefabricated-bouquets"],
+            "colour": ["all", "blue", "white", "green"],
+            "format": ["all", "bouquet", "winter"],
+            "flowers": ["all"]
+        },
+        {
+            "id": 23,
+            "name": "For you",
+            "price": 618,
+            "imageSrc": "../catalog-images/catalog-image-28.webp",
+            "altSign": "a bouquet with chrysanthemum in a green envelope",
+            "popularity": 1142,
+            "categories": ["all", "bouquets-with-camomiles", "monobouquets"],
+            "colour": ["all", "white", "yellow", "red", "orange"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "camomiles"]
+        },
+        {
+            "id": 24,
+            "name": "Small happiness",
+            "price": 1372,
+            "imageSrc": "../catalog-images/catalog-image-17.webp",
+            "altSign": "dry golden flowers in the white basket",
+            "popularity": 153,
+            "categories": ["all", "prefabricated-bouquets", "bouquets-of-dried-flowers"],
+            "colour": ["all", "white", "green"],
+            "format": ["all", "basket", "winter"],
+            "flowers": ["all", "bouquets-of-dried-flowers"]
+        },
+        {
+            "id": 25,
+            "name": "Shy beauty",
+            "price": 313,
+            "imageSrc": "../catalog-images/catalog-image-18.webp",
+            "altSign": "Christmas wreath made of Christmas tree branches and golden Christmas balls",
+            "popularity": 148,
+            "categories": ["all", "prefabricated-bouquets"],
+            "colour": ["all", "green", "red"],
+            "format": ["all", "envelope", "winter"],
+            "flowers": ["all"]
+        },
+        {
+            "id": 26,
+            "name": "Your joy",
+            "price": 415,
+            "imageSrc": "../catalog-images/catalog-image-19.webp",
+            "altSign": "a bouquet with flowers and fruits",
+            "popularity": 151,
+            "categories": ["all", "prefabricated-bouquets"],
+            "colour": ["all", "pink", "red", "yellow", "green"],
+            "format": ["all", "bouquet", "winter"],
+            "flowers": ["all"]
+        },
+       
+        {
+            "id": 27,
+            "name": "Spring joy",
+            "price": 1415,
+            "imageSrc": "../catalog-images/catalog-image-21.webp",
+            "altSign": "a bouquet with tulips in a blue box",
+            "popularity": 165,
+            "categories": ["all", "prefabricated-bouquets", "popular"],
+            "colour": ["all", "white", "pink"],
+            "format": ["all", "bouquet", "box"],
+            "flowers": ["all", "tulip"]
+        },
+        {
+            "id": 28,
+            "name": "A lot of rouses",
+            "price": 1815,
+            "imageSrc": "../catalog-images/catalog-image-22.webp",
+            "altSign": "a bouquet with different roses",
+            "popularity": 1900,
+            "categories": ["all", "prefabricated-bouquets", "bouquets-of-roses"],
+            "colour": ["all", "red", "pink", "yellow", "orange"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "roses"]
+        },
+        {
+            "id": 29,
+            "name": "White beauty",
+            "price": 1734,
+            "imageSrc": "../catalog-images/catalog-image-23.webp",
+            "altSign": "a bouquet with white chrysanthemums in lightpink envelope",
+            "popularity": 1001,
+            "categories": ["all", "bouquets-with-camomiles", "monobouquets"],
+            "colour": ["all", "white"],
+            "format": ["all", "envelope"],
+            "flowers": ["all", "camomiles"]
+        }           
+    ]
+}

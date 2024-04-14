@@ -1,0 +1,114 @@
+@import '../../styles/constants.scss';
+
+.catalog-sort {
+    margin-bottom: 20px;  
+
+    &__select {
+        border-radius: 10px;
+        border: unset;    
+        max-width: 257px; 
+        margin-left: auto;
+        position: relative;
+    }
+    &__select-btn {
+        width: 100%;
+        text-align: left;
+        position: relative;
+        display: block;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background-color: transparent;
+        cursor: pointer;
+        outline: transparent;
+        border-radius: 10px;
+        border: none;    
+        color: $main-text-color;
+        padding: 11px 32px 11px 16px;
+
+        &::after {
+            position: absolute;
+            content: "";
+            pointer-events: none;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid $main-text-color;
+            top: 15px;
+            right: 20px;
+            pointer-events: none;
+        }
+        &:focus {
+            box-shadow: 0 0 0 1px $green;
+        }
+    }
+    &__buttons {
+        margin-top: 10px;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        transition: height 0.5s;
+    }
+    &__buttons.open {
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+        transition: height 0.5s;
+    }
+    &__button + .catalog-sort__button {
+        margin-top: 4px;
+    }
+    &__button-label {
+        display: inline-block;
+        position: relative;
+        font-size: 12px;
+        line-height: 17.78px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background-color: transparent;
+        padding: 5px 10px 5px 24px;
+        color: $main-text-color;
+        outline: transparent;
+        border: none;
+        cursor: pointer;
+        margin-left: 16px;
+        width: 100%;
+        text-align: left;
+        &::before {
+            position: absolute;
+            content: '';
+            width: 12px;
+            height: 12px;
+            top: 8px;
+            left: 0;
+            border-radius: 2px;
+            border: 1px solid $main-text-color;
+        }   
+    }
+    &__list-btn.active::before {
+        border-color: $green;
+        background-color: $green;
+    }
+
+    input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: transparent;
+        cursor: pointer;
+        width: 100%;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        bottom: 0;
+    }
+    input[type="radio"]:focus {
+        outline: none;
+    }
+    &__buttons input[type="radio"]:checked + .catalog-sort__button-label::before { 
+        background-color: $green;
+        border-color: $green;
+        color: $main-bg-color;
+    }
+    &__buttons input[type="radio"]:focus + .catalog-sort__button-label::before { 
+        box-shadow: 0 0 0 1px $green;
+    }
+}

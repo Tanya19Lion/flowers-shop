@@ -1,0 +1,193 @@
+@import '../../styles/constants.scss';
+
+/*---------------------DELIVERY PAGE -----------------*/
+.delivery {
+    letter-spacing: 1px;
+
+    &-main-title__second-part,
+    &-cost {
+        margin-left: 95px;
+    }
+    &-info__inner {
+        gap: 30px;
+
+        &-item {
+            padding: 54px 32px;
+            position: relative;
+            min-height: 238px;
+            max-width: 255px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+
+            &::before {
+                position: absolute;
+                content: '';
+                width: 11px;
+                height: 11px;
+                border-radius: 50%;
+                background-color: $pink;
+                top: 20px;
+                left: calc(50% - 6px);
+            }
+        }
+    }
+
+    &-cost,
+    &-term {
+        text-transform: uppercase;;
+    }
+
+    &-cost__list-item + .delivery-cost__list-item,
+    &-term__list-item + .delivery-term__list-item {
+        margin-top: 10px;
+    }
+
+    &-term {
+        max-width: 880px;
+        &_list {
+            margin-left: 22px;
+        }
+    }
+
+    &-about-info {
+        padding: 30px 33px;
+        max-width: 961px;
+        line-height: 29px;
+    }
+    &-about__list {
+        margin-left: 36px;
+        margin-bottom: 20px;
+    }
+    &-about__text--four-sentence,
+    &-about__text--five-sentence {
+        margin-bottom: 20px;
+    }
+
+    &-main,
+    &-main-title-block,
+    &,
+    &-info,
+    &-about,
+    &-image {
+        position: relative;
+    }
+    &-main::before,
+    &-main-title-block::before,
+    &::before,
+    &-info::before,
+    &-main::after,
+    &-main-title-block::after,
+    &::after,
+    &-info::after,
+    &-about::after,
+    &-image::before,
+    &-image::after {
+        position: absolute;
+        content: '';
+    }
+    &-main::before,
+    &-main::after,
+    &::before {
+        background-position: left center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 10;
+    }
+    &-main::before {
+        background-image: url(../../../public/images/delivery-top-right-image.webp);
+        right: 0;
+        top: -55px;
+        width: 530px;
+        height: 664px;    
+    }
+    &-main::after {
+        background-image: url(../../../public/images/delivery-bottom-image.webp);
+        right: 0;
+        bottom: -290px;
+        width: 530px;
+        height: 664px; 
+        z-index: -1;   
+    }
+    &::before {
+        background-image: url(../../../public/images/delivery-middle-image.webp);
+        left: 0;
+        top: 500px;
+        width: 440px;
+        height: 1000px;
+    }
+    &-main-title-block::before,
+    &-main-title-block::after,
+    &-info::before,
+    &-info::after,
+    &::after,
+    &-about::after,
+    &-image::before,
+    &-image::after {
+        z-index: -1;
+        filter: blur(100px);
+        background-color: #6B535F;
+    }
+    &-main-title-block::before {
+        transform: rotate(71deg);
+        width: 275px;
+        height: 220px;
+        left: -50px;
+        top: -170px;
+    }
+    &-main-title-block::after {
+        transform: rotate(32deg);
+        width: 504px;
+        height: 625px;
+        right: 0;
+        top: -357px;
+    }
+    &-info::before,
+    &-info::after {
+        width: 345px;
+        height: 220px;
+        transform: rotate(72deg);
+        top: 36px;
+        right: 130px;
+    }
+    &-info::after {
+        width: 275px;
+        height: 220px;
+        right: unset;
+        left: 92px;
+        top: 106px;    
+    }
+    &::after {
+        width: 538px;
+        height: 431px;
+        transform: rotate(-72deg);
+        left: -203px;
+        top: 650px;   
+    }
+    &-about::after {
+        width: 538px;
+        height: 431px;
+        right: 350px;
+        top: -76px;    
+    }
+    &-image::before {
+        width: 205px;
+        height: 436px;
+        left: 92px;
+        top: 106px;    
+    }
+    &-image::after {
+        width: 355px;
+        height: 364px;
+        right: 75px;
+        top: 106px;   
+    }
+
+}
+
+
+
+

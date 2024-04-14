@@ -1,0 +1,149 @@
+@import '../../styles/constants.scss';
+
+/*----------------------------ABOUT US---------------------*/
+
+.about-us {
+    &-main-title {
+        margin-left: 95px;
+    }
+    &-info {
+        margin-left: 180px;
+        
+        &__title {
+            margin-bottom: 41px;
+            max-width: 625px;
+        }
+        &__title-second-part {
+            position: relative;
+        }
+        &__title-second-part::after {
+            position: absolute;
+            content: '';
+            background-color: $green;
+            width: 60px;
+            height: 1px;
+            left: 270px;
+            top: 50%;
+        }
+        &__team {
+            margin-left: 242px;
+            padding: 40px 20px;
+            border-radius: unset;
+        }
+        &__team-values {
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        &__guarantees {
+            max-width: 825px;
+        }
+        &__list {
+            margin-left: 282px;
+        }
+        &__list-item + .about-us-info__list-item {
+            margin-top: 10px;
+        }
+    }
+
+    &-harmony__info {
+        margin-bottom: 40px;
+    }
+    &-harmony__surprise {
+        text-transform: uppercase;
+        margin-left: 95px;
+        max-width: 445px;
+    }
+    &-main,
+    &-main-title-block,
+    &-info,
+    &-harmony {
+        position: relative;
+    }
+    &-main::before,
+    &-main::after,
+    &-main-title-block::before,
+    &-main-title-block::after,
+    &-info::before,
+    &-info::after,
+    &-harmony::before, 
+    &-harmony::after {
+        position: absolute;
+        content: '';
+    }
+    &-main-title-block::before,
+    &-main-title-block::after,
+    &-harmony::after {
+        background-position: left center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 10;
+    }
+    &-main-title-block::before {
+        background-image: url(../../../public/images/about-us-top-left-image.webp);
+        left: 0;
+        top: -55px;
+        width: 685px;
+        height: 621px;
+    }
+    &-main-title-block::after {
+        background-image: url(../../../public/images/about-us-top-right-image.webp);
+        right: 0;
+        top: -200px;
+        width: 808px;
+        height: 590px;    
+    }
+    &-harmony::after {
+        background-image: url(../../../public/images/about-us-bottom-image.webp);
+        right: 0;
+        top: -550px;
+        width: 780px;
+        height: 1170px;
+        z-index: -1;
+    }
+    &-main::before,
+    &-main::after,
+    &-info::before,
+    &-info::after,
+    &-harmony::before {
+        z-index: -1;
+        filter: blur(100px);
+        background-color: #C8A156;
+    }
+    &-main::before {
+        transform: rotate(71deg);
+        width: 275px;
+        height: 220px;
+        left: 0;
+        top: 0;
+    }
+    &-main::after {
+        transform: rotate(21deg);
+        width: 205px;
+        height: 437px;
+        left: 0;
+        bottom: -315px;
+    }
+    &-info::before,
+    &-info::after {
+        width: 294px;
+        height: 235px;
+        transform: rotate(72deg);
+        top: 290px;
+        right: unset;
+        left: 290px;
+    }
+    &-info::after {
+        width: 223px;
+        height: 165px;
+        right: 400px;
+        top: 0;
+        left: unset;
+    }
+    &-harmony::before {
+        width: 354px;
+        height: 364px;
+        transform: rotate(-33deg);
+        bottom: -80px;
+        right: 0;   
+    }
+}

@@ -1,0 +1,47 @@
+@import '../../styles/constants.scss';
+
+.footer {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 7;
+    background-color: black;
+
+    &__logo {
+        width: 34px;
+        height: 75px;
+        margin-right: auto;
+    }
+    &__menu,
+    &__menu-list,
+    &-bottom  {
+        justify-content: space-between;
+    }
+    &__menu-list {
+        gap: 30px;
+    }
+    &-top {
+        margin-bottom: 36px;
+    }
+    &__menu-item {
+        list-style: none;
+    }
+    &__menu-link {
+        letter-spacing: 1px;
+        color: $white;
+        padding: 10px;
+    }
+    &__menu-item:hover .footer__menu-link,
+    &__menu-item:focus .footer__menu-link,
+    &__menu-item:active .footer__menu-link {
+        color: $pink;
+    }
+    &-bottom .menu-contacts {
+        margin-bottom: 6px;
+    }
+    &-bottom__phone-number {
+        text-align: right;
+        display: block;
+    }
+}
