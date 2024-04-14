@@ -25,14 +25,13 @@ export const CatalogContainer = () => {
             })
             .catch(() => dispatch(bouquetsFetchingError()))
     }, []);
-
-        
+    
     if (bouquetsloadingStatus === 'loading') {
         return <Spinner />;
     } else if (bouquetsloadingStatus === 'error') {
         return <h3>Something went wrong</h3>
     }
-
+    
     return (
         <FiltersProvider>
             <Catalog/>
