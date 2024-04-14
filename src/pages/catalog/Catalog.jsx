@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'; 
 import { Link } from 'react-router-dom';
-import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { initialFilters, useFilters } from '../../context/FiltersProvider';
 
+import Portal from '../../components/portal/Portal';
 import Basket from '../../components/basket/Basket';
 import Popup from '../../components/popup/Popup';
 import OrderPopup from '../../components/orderPopup/OrderPopup';
@@ -82,7 +82,7 @@ const Catalog = () => {
                 </div>
             </section>
 
-            { isOrderModalOpen && createPortal(<OrderPopup/>, document.querySelector('#portal-wrapper') ) }
+            { isOrderModalOpen && Portal(<OrderPopup/> ) }
 
             <CategoriesSort />
 
@@ -103,7 +103,7 @@ const Catalog = () => {
                 </div>
             </section>
 
-            { openModal && createPortal(<Popup handleOpenModal={setOpenModal}/>, document.querySelector('#portal-wrapper') ) }
+            { openModal && Portal(<Popup handleOpenModal={setOpenModal}/>) }
         </main> 
     )
 };

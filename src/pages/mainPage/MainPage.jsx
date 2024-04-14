@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 import './MainPage.scss';
 
+import Portal from '../../components/portal/Portal';
 import Popup from '../../components/popup/Popup';
 import Basket from '../../components/basket/Basket';
 import OrderPopup from '../../components/orderPopup/OrderPopup';
@@ -74,7 +74,7 @@ const MainPage = () => {
 				</div>
 			</section>
 
-			{ isOrderModalOpen && createPortal(<OrderPopup/>, document.querySelector('#portal-wrapper') ) }
+			{ isOrderModalOpen && Portal(<OrderPopup/>) }
 
 			<section className="catalog-info page-margin">
 				<div className="container">
@@ -252,7 +252,7 @@ const MainPage = () => {
 					</div>              
 				</div>
 			</section>
-			{ openModal && createPortal(<Popup handleOpenModal={setOpenModal}/>, document.querySelector('#portal-wrapper') ) }
+			{ openModal && Portal(<Popup handleOpenModal={setOpenModal}/>) }
 		</main> 
     )
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import Portal from '../../components/portal/Portal';
 import OrderPopup from '../../components/orderPopup/OrderPopup';
 
 import './OneBouquetPage.scss';
@@ -61,7 +61,7 @@ const OneBouquetPage = () => {
                 </div>
             </section>
 
-            { isOrderModalOpen && createPortal(<OrderPopup/>, document.querySelector('#portal-wrapper')) }
+            { isOrderModalOpen && Portal(<OrderPopup/>) }
 
             <section className="one-order__addition chapter-margin">
                 <div className="container">
