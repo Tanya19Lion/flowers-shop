@@ -35,7 +35,7 @@ export const CatalogContainer = () => {
 
     return (
         <FiltersProvider>
-            <Catalog />
+            <Catalog/>
         </FiltersProvider>
     )
 }
