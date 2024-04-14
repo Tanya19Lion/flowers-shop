@@ -18,7 +18,7 @@ const MainPage = () => {
 	const dispatch = useDispatch();
 	const [scroll, setScroll] = useState(0);
 	const [openModal, setOpenModal] = useState(false);
-	const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
+	const { bouquets, isOrderModalOpen } = useSelector(state => state.order);
 
 	useEffect(() => {		
 		const pageHeader = document.querySelector('.header');
@@ -121,19 +121,22 @@ const MainPage = () => {
 				</div>
 			</section>
 
-			<section className="popular page-margin">
-				<div className="container">
-					<h2 className="popular__title top-title">
-						<p className="popular__title-first">Popular</p>
-						<p className="popular__title-second">bouquets</p>
-					</h2>
-					<p className="popular__info bigger-text">Our clients' favorite compositions</p>
-					<div className="popular__inner">
-						<SimpleSlider />
-					</div>						
-					<Link to='/catalog' className="popular__btn common-link-btn">Check all catalog</Link>
-				</div>
-			</section>
+			{
+				bouquets && <section className="popular page-margin">
+					<div className="container">
+						<h2 className="popular__title top-title">
+							<p className="popular__title-first">Popular</p>
+							<p className="popular__title-second">bouquets</p>
+						</h2>
+						<p className="popular__info bigger-text">Our clients' favorite compositions</p>
+						<div className="popular__inner">
+							<SimpleSlider bouquets={bouquets}/>
+						</div>						
+						<Link to='/catalog' className="popular__btn common-link-btn">Check all catalog</Link>
+					</div>
+				</section>
+			}
+
 
 			<section className="make-order page-margin">
 				<div className="container">

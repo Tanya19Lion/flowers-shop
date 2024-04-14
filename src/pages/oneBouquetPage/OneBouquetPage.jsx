@@ -53,7 +53,7 @@ const OneBouquetPage = () => {
                             <div className="one-order__info-buttons flex">
                                 <button 
                                     className="one-order__info-btn common-btn" 
-                                    onClick={() => handlePopupOpen(+id)}
+                                    onClick={() => handlePopupOpen(id)}
                                 >Add to the basket</button>
                             </div>
                         </div>

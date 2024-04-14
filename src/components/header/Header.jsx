@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
@@ -8,13 +8,19 @@ import './Header.scss';
 
 import Basket from '../basket/Basket';
 import OrderPopup from '../orderPopup/OrderPopup';
+import Popup from '../popup/Popup';
 
 import { openOrderModal } from '../../redux/actions/actions';
 
 const Header = () => {
     const dispatch = useDispatch();
+    const [openModal, setOpenModal] = useState(false);
 
     const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
+
+    openModal || isOrderModalOpen 
+        ? document.body.classList.add('lock')
+        : document.body.classList.remove('lock')
 
     return (
         <>
@@ -53,12 +59,12 @@ const Header = () => {
                         <button className="header__mobile-btn" id="toggle">Menu</button>
                     </nav>
 
-                    <Link className="header__phone" to="tel:+44171552948">
+                    <button className="header__phone" onClick={() => setOpenModal(true)}>
                         <span className="header__phone-img">
                             <img src="../images/order-phone-icon.svg" alt="phone icon" width="12" height="12" />
                         </span>
                         <span className="header__phone-link" >+44 171 552948</span>
-                    </Link>
+                    </button>
                     <Basket handleOpenOrderModal={() => dispatch(openOrderModal())}/>
 
                     <div className="header__mail">
@@ -71,6 +77,7 @@ const Header = () => {
             </div>              
         </header>
         { isOrderModalOpen && createPortal(<OrderPopup/>, document.querySelector('#portal-wrapper') ) }
+        { openModal && createPortal(<Popup handleOpenModal={setOpenModal}/>, document.querySelector('#portal-wrapper') ) }
         </>
     )
 };

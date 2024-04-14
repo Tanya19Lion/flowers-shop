@@ -62,7 +62,6 @@ const updateCountTotal = (orderList, quantity) => {
 
 const updateOrder = (state, bouquetId , quantity) => {
     const { bouquets, orderList, sumTotal } = state;
-
     const bouquet = bouquets.find( item => item.id === bouquetId);
     const itemIndex = orderList.findIndex(({ id }) => id === bouquetId);
     const item = orderList[itemIndex];

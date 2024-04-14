@@ -51,8 +51,7 @@ function PrevArrow(props) {
     );
 }
 
-export default function SimpleSlider() {  
-    const bouquets = useSelector(state => state.order.bouquets);
+export default function SimpleSlider({ bouquets }) {  
 
     var settings = {
         dots: false,
