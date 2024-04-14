@@ -16,10 +16,6 @@ const Header = () => {
     const dispatch = useDispatch();
     const [openModal, setOpenModal] = useState(false);
 
-    // const handleOpenModal = () => {
-	// 	setOpenModal(true);
-	// }	
-
     const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
 
     return (
