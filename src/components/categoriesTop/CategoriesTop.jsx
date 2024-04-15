@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 
-import { categories } from '../../hooks/categories.hook';
+import { useCategories } from '../../hooks/categories.hook';
+import useFlowersService from '../../services/FlowersService';
 
 import { topCategoriesFetching, topCategoriesFetched, topCategoriesFetchingError, activeTopCategoryChange } from '../../redux/actions/actions';
-import useFlowersService from '../../services/FlowersService';
  
 import './CategoriesTop.scss';
 
@@ -12,53 +12,7 @@ export default function CategoriesTop() {
 
     const { getCategoriesTop } = useFlowersService();
 
-    return categories('top-categories', topCategoriesFetching, topCategoriesFetched, topCategoriesFetchingError, activeTopCategoryChange, getCategoriesTop, topCategories, categoriesLoadingStatus, activeTopCategories);
-
-    // useEffect(() => {
-    //     dispatch(topCategoriesFetching());
-    //     getCategoriesTop()
-    //         .then(data => dispatch(topCategoriesFetched(data)))
-    //         .catch(() => dispatch(topCategoriesFetchingError()))
-    // }, []);
-
-    // if (categoriesLoadingStatus === 'loading') { 
-    //     return <Spinner />;
-    // } else if (categoriesLoadingStatus === 'error') {
-    //     return <h3>Something went wrong</h3>
-    // }
-
-    // if (topCategories.length === 0) {
-    //     return  <div className='catalog-details__no-data'>No categories are available</div>;
-    // } else {
-    //     return (
-    //         <div className="catalog-top__categories">
-    //             <button className="catalog-top__categories-btn">Categories</button>
-    //             <div className="catalog-top__categories-block flex">    
-    //                 {
-    //                     topCategories.map(item => {
-    //                         const { id, name, value } = item;
-    //                         const checked = activeTopCategories.some((category) => {
-    //                             if (category === 'all' && value === 'all') return true;
-    //                             return value === category;
-    //                         });
-                            
-    //                         return (
-    //                             <label className="catalog-top__categories-checkbox-block" key={id}>                            
-    //                                 <input className="catalog-top__categories-checkbox" 
-    //                                     type="checkbox" 
-    //                                     value={value}
-    //                                     checked={checked}
-    //                                     onChange={() => dispatch(activeTopCategoryChange(value))}
-    //                                 />
-    //                                 <span className="catalog-top__categories-lable">{name}</span>
-    //                             </label> 
-    //                         )
-    //                     })
-    //                 }
-    //             </div>
-    //         </div>
-    //     )
-    // }
+    return useCategories('top-categories', topCategoriesFetching, topCategoriesFetched, topCategoriesFetchingError, activeTopCategoryChange, getCategoriesTop, topCategories, categoriesLoadingStatus, activeTopCategories);
 };
 
 

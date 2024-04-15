@@ -8,7 +8,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Spinner from './components/spinner/Spinner';
 
-import {MainPage, AboutUs, Clients, Contacts, Delivery, FAQ, Policy, Page404, OneBouquetPage} from './pages/index';
+import {MainPage, AboutUs, Clients, Contacts, Delivery, FAQ, Policy, Page404, FinalPage, OneBouquetPage} from './pages/index';
 import { CatalogContainer } from './containers/CatalogContainer';
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
 						<Route path='delivery' element={<Delivery />} />
 						<Route path='faq' element={<FAQ />} />
 						<Route path='policy' element={<Policy />} />
+						<Route path='final-page' element={<FinalPage />} />
 						<Route path="*" element={<Page404 />} />
 					</Routes>
 				</Suspense>

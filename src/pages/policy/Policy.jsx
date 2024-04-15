@@ -4,10 +4,10 @@ import './Policy.scss';
 
 const Policy = () => {
 
-    useChangeHeaderColor('#000000', '100px');
+    useChangeHeaderColor('#000000', '0px');
 
     return (
-        <main className="main-policy bigger-text page-margin"> 
+        <main className="main-policy bigger-text"> 
             <section className="policy-title-block chapter-margin">
                 <div className="container">
                     <div className="policy-title">

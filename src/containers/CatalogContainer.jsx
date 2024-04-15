@@ -6,9 +6,8 @@ import useFlowersService from '../services/FlowersService';
 import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../redux/actions/actions';
 
 import { Catalog } from '../pages';
-import Spinner from '../components/spinner/Spinner';
 
-import { FiltersProvider } from '../context/FiltersProvider';
+import Spinner from '../components/spinner/Spinner';
 
 export const CatalogContainer = () => {
     const { getAllBouquets } = useFlowersService();
@@ -25,16 +24,12 @@ export const CatalogContainer = () => {
             })
             .catch(() => dispatch(bouquetsFetchingError()))
     }, []);
-    
+
     if (bouquetsloadingStatus === 'loading') {
         return <Spinner />;
     } else if (bouquetsloadingStatus === 'error') {
         return <h3>Something went wrong</h3>
     }
     
-    return (
-        <FiltersProvider>
-            <Catalog/>
-        </FiltersProvider>
-    )
+    return <Catalog />
 }

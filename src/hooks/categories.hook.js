@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import Spinner from '../components/spinner/Spinner.jsx';
 
-export const categories = (categoryTitle, actionFetching, actionFetched, actionFetchinError, activeCategoriesChange, categoryService, allCurrentCategories, currentCategoryStatus, activeCurrentCategories) => {
+export const useCategories = (categoryTitle, actionFetching, actionFetched, actionFetchinError, activeCategoriesChange, categoryService, allCurrentCategories, currentCategoryStatus, activeCurrentCategories) => {
     const dispatch = useDispatch();
 
     useEffect(() => {

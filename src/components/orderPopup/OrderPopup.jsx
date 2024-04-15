@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './OrderPopup.scss';
@@ -58,7 +59,7 @@ const OrderPopup = () => {
                 
                 <div className="order-popup__preorder">
                     <p className="order-popup__preorder-info green-text">Preliminary total: <span>£{sumTotal}</span></p>
-                    <button className="order-popup__preorder-btn common-btn">Checkout</button>
+                    <Link to='/final-page' className="order-popup__preorder-btn common-btn" onClick={() => dispatch(closeOrderModal(true))}>Checkout</Link>
                 </div>
               
             </div>
