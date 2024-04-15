@@ -10,7 +10,10 @@ const initialState = {
     activeFlowersCategories: ['all'],
     lowPriceLimit: 0,
     highPriceLimit: 4000,
-    categoriesLoadingStatus: 'initial',
+    topCategoriesLoadingStatus: 'initial',
+    formatCategoriesLoadingStatus: 'initial',
+    flowersCategoriesLoadingStatus: 'initial',
+    colorsCategoriesLoadingStatus: 'initial',
     resetFilters: false,
     error: null
 }
@@ -44,21 +47,21 @@ const categoriesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 coloursCategories: [],
-                categoriesLoadingStatus: 'loading',
+                colorsCategoriesLoadingStatus: 'loading',
                 error: null
             };
         case 'COLOURS_CATEGORIES_FETCHED':
             return {
                 ...state,
                 coloursCategories: action.payload,
-                categoriesLoadingStatus: 'initial',
+                colorsCategoriesLoadingStatus: 'initial',
                 error: null
             };
         case 'COLOURS_CATEGORIES_FETCHING_ERROR':
             return {
                 ...state,
                 coloursCategories: [],
-                categoriesLoadingStatus: 'error',
+                colorsCategoriesLoadingStatus: 'error',
                 error: action.payload
             };
 
@@ -66,21 +69,21 @@ const categoriesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 formatCategories: [],
-                categoriesLoadingStatus: 'loading', 
+                formatCategoriesLoadingStatus: 'loading', 
                 error: null
             };
         case 'FORMAT_CATEGORIES_FETCHED':
             return {
                 ...state,
                 formatCategories: action.payload,
-                categoriesLoadingStatus: 'initial',
+                formatCategoriesLoadingStatus: 'initial',
                 error: null
             };
         case 'FORMAT_CATEGORIES_FETCHING_ERROR':
             return {
                 ...state,
                 formatCategories: [],
-                categoriesLoadingStatus: 'error',
+                formatCategoriesLoadingStatus: 'error',
                 error: action.payload
             };
 
@@ -88,21 +91,21 @@ const categoriesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 flowersCategories: [],
-                categoriesLoadingStatus: 'loading', 
+                flowersCategoriesLoadingStatus: 'loading', 
                 error: null
             };
         case 'FLOWERS_CATEGORIES_FETCHED':
             return {
                 ...state,
                 flowersCategories: action.payload,
-                categoriesLoadingStatus: 'initial',
+                flowersCategoriesLoadingStatus: 'initial',
                 error: null
             };
         case 'FLOWERS_CATEGORIES_FETCHING_ERROR':
             return {
                 ...state,
                 flowersCategories: [],
-                categoriesLoadingStatus: 'error',
+                flowersCategoriesLoadingStatus: 'error',
                 error: action.payload
             };
         
