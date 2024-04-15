@@ -8,8 +8,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Spinner from './components/spinner/Spinner';
 
-import {MainPage, AboutUs, Clients, Contacts, Delivery, FAQ, Policy, Page404, FinalPage, OneBouquetPage} from './pages/index';
-import { CatalogContainer } from './containers/CatalogContainer';
+import {MainPage, Catalog, AboutUs, Clients, Contacts, Delivery, FAQ, Policy, Page404, FinalPage, OneBouquetPage} from './pages/index';
 
 function App() {
 	return (
@@ -20,7 +19,7 @@ function App() {
 					<Routes>
 						<Route path='/' element={<MainPage />} />
 						<Route path='about-us' element={<AboutUs />} />
-						<Route path='catalog' element={<CatalogContainer />} />
+						<Route path='catalog' element={<Catalog />} />
 						<Route path='catalog/:id/' element={<OneBouquetPage />} />
 						<Route path='clients' element={<Clients />} />
 						<Route path='contacts' element={<Contacts />} />
