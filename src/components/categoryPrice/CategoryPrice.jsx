@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import './CategoryPrice.scss';
 
 import { lowLimitChange, highLimitChange } from '../../redux/actions/actions';
+import { selectPriceData } from '../../redux/selectors/selectors';
 
 const CategoryPrice = () => {
     const dispatch = useDispatch();
     const [lowData, setLowData] = useState(0);
     const [highData, setHighData] = useState(4000);
 
-    const { lowPriceLimit, highPriceLimit, resetFilters } = useSelector(state => state.categories);
+    const { lowPriceLimit, highPriceLimit, resetFilters } = useSelector(selectPriceData);
 
     useEffect( () => {
         dispatch(lowLimitChange(lowData));                  

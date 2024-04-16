@@ -1,10 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { selectCountTotal } from '../../redux/selectors/selectors';
+
 import './Basket.scss';
 
 const Basket = ({ handleOpenOrderModal }) => {
-    const totalCount = useSelector(state => state.order.countTotal);
+    const totalCount = useSelector(selectCountTotal);
 
     return (
         <button className="info-basket" onClick={handleOpenOrderModal}>

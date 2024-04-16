@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 import { useScroll } from '../../hooks/handleScroll.hook';
-// import PropTypes from 'prop-types';
-
-import './MainPage.scss';
 
 import Portal from '../../components/portal/Portal';
 import Popup from '../../components/popup/Popup';
@@ -15,11 +13,14 @@ import OrderPhoneElement from '../../components/orderPhoneElement/OrderPhoneElem
 import SimpleSlider from '../../components/simpleSlider/SimpleSlider';
 
 import { openOrderModal } from '../../redux/actions/actions';
+import { selectOrderData } from '../../redux/selectors/selectors';
+
+import './MainPage.scss';
 
 const MainPage = () => {
 	const dispatch = useDispatch();
 	const [openModal, setOpenModal] = useState(false);
-	const { bouquets, isOrderModalOpen } = useSelector(state => state.order);
+	const { bouquets, isOrderModalOpen } = useSelector(selectOrderData);
 
 	useChangeHeaderColor('transparent', '50px', 'header-with-basket');
 	useScroll();

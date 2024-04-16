@@ -8,7 +8,6 @@ import { activeSortCategoryChange } from '../../redux/actions/actions';
 const classNames = require('classnames');
 
 const CategoriesSort = () => {
-    // const { activeSortCategory } = useSelector(state => state.categories);
     const dispatch = useDispatch();
     const [listOpen, setListOpen] = useState(false);
 
@@ -69,7 +68,3 @@ const CategoriesSort = () => {
 };
 
 export default CategoriesSort;
-
-
-// ${active === button.dataValue && 'active'}
-// ${active === button.dataValue && 'active'}

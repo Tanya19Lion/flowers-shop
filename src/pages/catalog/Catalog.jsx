@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState } from 'react'; 
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 import { useScroll } from '../../hooks/handleScroll.hook';
 
@@ -17,14 +18,15 @@ import CategoryPrice from '../../components/categoryPrice/CategoryPrice';
 import CategoriesFlowers from '../../components/categoriesFlowers/CategoriesFlowers';
 import AllBouquets from '../../components/allBouquets/AllBouquets';
 
-import './Catalog.scss';
-
 import { openOrderModal, lowLimitChange, highLimitChange, activeFlowersCategoryChange, activeFormatCategoryChange, activeColorsCategoryChange, resetAllFilters } from '../../redux/actions/actions';
+import { selectOrderModalOpen } from '../../redux/selectors/selectors';
+
+import './Catalog.scss';
 
 const Catalog = () => {
     const dispatch = useDispatch();
     const [openModal, setOpenModal] = useState(false);
-    const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
+    const isOrderModalOpen = useSelector(selectOrderModalOpen);
 
     const resetSidebarFilters = () => {
         dispatch(lowLimitChange(0));

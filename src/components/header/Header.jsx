@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-// import PropTypes from 'prop-types';
 
 import './Header.scss';
 
@@ -11,12 +10,13 @@ import OrderPopup from '../orderPopup/OrderPopup';
 import Popup from '../popup/Popup';
 
 import { openOrderModal } from '../../redux/actions/actions';
+import { selectOrderModalOpen } from '../../redux/selectors/selectors';
 
 const Header = () => {
     const dispatch = useDispatch();
     const [openModal, setOpenModal] = useState(false);
 
-    const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
+    const isOrderModalOpen = useSelector(selectOrderModalOpen);
 
     openModal || isOrderModalOpen 
         ? document.body.classList.add('lock')

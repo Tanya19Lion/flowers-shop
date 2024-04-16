@@ -6,15 +6,18 @@ import { createSelector } from 'reselect';
 import useFlowersService from '../../services/FlowersService';
 
 import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../../redux/actions/actions';
+import { selectBouquetsloadingStatus, selectStateData } from '../../redux/selectors/selectors';
 
 import Spinner from '../spinner/Spinner';
 
 import './AllBouquets.scss';
 
+
 const AllBouquets = () => {
     const { getAllBouquets } = useFlowersService();
 
-    const bouquetsloadingStatus = useSelector(state => state.order.bouquetsloadingStatus);
+    const bouquetsloadingStatus = useSelector(selectBouquetsloadingStatus);
+    const { activeColorCategories, activeFormatCategories, activeFlowersCategories, lowPriceLimit, highPriceLimit } = useSelector(selectStateData);
 
     const dispatch = useDispatch();
 
@@ -32,8 +35,6 @@ const AllBouquets = () => {
     } else if (bouquetsloadingStatus === 'error') {
         return <h3>Something went wrong</h3>
     }
-
-    const { activeColorCategories, activeFormatCategories, activeFlowersCategories, lowPriceLimit, highPriceLimit } = useSelector(state => state.categories);
 
     const filteredBouquetsSelector = createSelector(
         (state) => state.categories.activeTopCategories,

@@ -1,14 +1,15 @@
 import React from 'react';
-import { Navigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { bouquetAddedToOrder, bouquetRemovedFromOrder, bouquetDeletedFromOrder, closeOrderModal } from '../../redux/actions/actions';
+import { selectOrderSummData } from '../../redux/selectors/selectors';
 
 import './OrderPopup.scss';
 
-import { bouquetAddedToOrder, bouquetRemovedFromOrder, bouquetDeletedFromOrder, closeOrderModal } from '../../redux/actions/actions';
-
 const OrderPopup = () => {
     const dispatch = useDispatch();
-    const { orderList, sumTotal, countTotal } = useSelector(state => state.order);
+    const { orderList, sumTotal, countTotal } = useSelector(selectOrderSummData);
 
     return (
         <div className="order-popup__wrapper">

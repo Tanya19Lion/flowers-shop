@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
 import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 
 import Portal from '../../components/portal/Portal';
 import OrderPopup from '../../components/orderPopup/OrderPopup';
 
-import './OneBouquetPage.scss';
-
 import { bouquetAddedToOrder, openOrderModal } from '../../redux/actions/actions';
+import { selectOrderModalOpen } from '../../redux/selectors/selectors';
+
 import useFlowersService from '../../services/FlowersService';
 
+import './OneBouquetPage.scss';
+
 const OneBouquetPage = () => {
+    const isOrderModalOpen = useSelector(selectOrderModalOpen);
 
     useChangeHeaderColor('#000000', '100px');
 
@@ -24,7 +28,6 @@ const OneBouquetPage = () => {
 	}, [id]);
 
     const dispatch = useDispatch();
-    const isOrderModalOpen = useSelector(state => state.order.isOrderModalOpen);
 
     const handlePopupOpen = (id) => {
         dispatch(openOrderModal());  
