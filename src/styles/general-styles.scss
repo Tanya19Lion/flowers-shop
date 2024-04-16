@@ -71,8 +71,10 @@ body.addition {
 /*---------------MAIN-CLASSES--------------*/
 .app {
 	min-height: 100vh;
-	display: grid;
-	grid-template-rows: auto 1fr auto;
+	// display: grid;
+	// grid-template-rows: auto 1fr auto;
+	display: flex;
+	flex-direction: column;
 	overflow: clip;
 }
 
@@ -86,20 +88,19 @@ body.addition {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
-/* @media (max-width: 640px) {
-.top-title {
-    font-size: 52px;
-    line-height: 1.2;
-    padding-left: unset;
-    word-break: break-word;
-}
+@media (max-width: 640px) {
+	.top-title {
+		font-size: 52px;
+		line-height: 1.2;
+	}
 }
 @media (max-height: 800px) and (orientation: landscape) {
-.top-title {
-    font-size: 52px;
-    padding-left: unset;
-}
-} */
+	.top-title {
+		font-size: 52px;
+		padding-left: unset;
+	}
+} 
+
 .top-subtitle {
 	font-size: 60px;
 	line-height: 64px;

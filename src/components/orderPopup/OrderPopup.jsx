@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { bouquetAddedToOrder, bouquetRemovedFromOrder, bouquetDeletedFromOrder, closeOrderModal } from '../../redux/actions/actions';
+import { bouquetAddedToOrder, bouquetRemovedFromOrder, bouquetDeletedFromOrder, closeOrderModal, clearOrderList } from '../../redux/actions/actions';
 import { selectOrderSummData } from '../../redux/selectors/selectors';
 
 import './OrderPopup.scss';
@@ -60,7 +60,14 @@ const OrderPopup = () => {
                 
                 <div className="order-popup__preorder">
                     <p className="order-popup__preorder-info green-text">Preliminary total: <span>£{sumTotal}</span></p>
-                    <Link to='/final-page' className="order-popup__preorder-btn common-btn" onClick={() => dispatch(closeOrderModal(true))}>Checkout</Link>
+                    <Link 
+                        to='/final-page' 
+                        className="order-popup__preorder-btn common-btn" 
+                        onClick={() => {
+                            dispatch(closeOrderModal(true));
+                            dispatch(clearOrderList());
+                        }}
+                    >Checkout</Link>
                 </div>
               
             </div>

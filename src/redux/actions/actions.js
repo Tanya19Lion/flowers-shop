@@ -176,6 +176,12 @@ const resetAllFilters = () => {
     }
 }
 
+const clearOrderList = () => {
+    return {
+        type: 'CLEAR_ORDER_LIST'
+    }
+}
+
 export {
     bouquetsFetching,
     bouquetsFetched,
@@ -204,5 +210,6 @@ export {
     bouquetDeletedFromOrder,
     openOrderModal,
     closeOrderModal,
-    resetAllFilters
+    resetAllFilters,
+    clearOrderList
 }

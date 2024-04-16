@@ -1,28 +1,33 @@
-@import '../../styles/constants.scss';
-
 /*--------------------------404------------*/
 .not-found-main {
-    position: relative;
-
+    &,
     &__image {
         position: relative;
+    }
+    &__image {
+        max-width: 1400px;
+        max-height: 1000px;
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
     }
     &::after,
     &::before {
         position: absolute;
         content: '';
-        background-position: left center;
+        background-position: top;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: url(../../../public/images/404-top-right-image.webp);
+        background-image: url(../../../public/images/not-found-right-image.webp);
         z-index: 10;
         right: 0;
-        top: 0;
-        width: 300px;
-        height: 700px;
+        bottom: 0;
+        width: 500px;
+        height: 800px;
     }
     &::before,
-    &__image::after,
     &__image::before {
         position: absolute;
         content: '';
@@ -37,8 +42,7 @@
         right: 0;
         top: -130px;
     }
-    &__image::before,
-    &__image::after {
+    &__image::before {
         transform: rotate(21deg);
         width: 285px;
         height: 300px;
@@ -46,13 +50,7 @@
         bottom: -15px;
         z-index: 1;
     }
-    &__image::after {
-        height: 600px;
-        left: unset;
-        right: -50px;
-        bottom: -100px;
-        z-index: -1;
-    }
+
     &__number {
         font-family: Cormorant-Regular; 
         font-size: 600px;
@@ -60,26 +58,23 @@
         background: -webkit-linear-gradient(#163D8F, #163D8F, #4F6CAB, #B6CDFF);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;   
-        // position: absolute; 
-        position: relative;
-
+        position: absolute; 
         &--first {
-            left: 100px;
-            top: 205px;
+            left: 15%;
+            top: -175px;
             z-index: -1;
         }
         &--second {
-            left: 600px;
-            top: 0px;
+            left: 38%;
+            top: -253px;
             z-index: -1;
         }
         &--third {
-            left: 450px;
-            top: 320px;
+            left: 29%;
+            top: 20px;
             z-index: 5;
         }
     }
-
     &__text,
     &__sign {
         position: absolute;
@@ -87,21 +82,113 @@
         bottom: 10%;
         text-transform: uppercase;
     }
-    &__text-error,
-    &__text-message {
-        margin-bottom: 20px;
-    }
-    &__text-link {
-        text-decoration: underline;
-    }
-    &__sign {
-        right: 15%;
+    &__text {
+        right: 22%; 
         bottom: unset;
         top: 200px;
+        &-error,
+        &-message {
+            margin-bottom: 20px;
+        }
+        &-link {
+            text-decoration: underline;
+        }
     }
     &__sign img {
         object-fit: cover;
     }
-
 }
+
+@media (max-width: 1300px) {
+    .not-found-main {
+        &::after {
+            display: none;
+        }
+
+        &__text,
+        &__sign {
+            right: 50px;
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    .not-found-main {
+        &__number {
+            font-size: 400px;
+            line-height: 585px; 
+            &--third {
+                left: 32%;
+                top: -50px;
+            }
+        }
+        
+    }
+}
+
+@media (max-width: 880px) {
+    .not-found-main {
+        &__text {
+            top: 48px;
+            font-size: 14px;
+        }
+        &__sign {
+            bottom: 48px;
+            max-width: 200px;
+            max-height: 130px;
+            & img {
+                object-fit: contain;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &__text,
+        &__sign {
+            right: 48px;
+        }
+
+    }
+}
+
+@media (max-width: 640px) {
+    .not-found-main {
+        &__sign {
+            display: none;
+        }
+        &__text {
+            bottom: 48px;
+            top: unset;
+        }
+        &__number {
+            font-size: 200px;
+            line-height: 360px;
+            &--first {
+                left: 15%;
+                top: -20px;
+            }
+            &--second{
+                left: 48%;
+                top: -100px;
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .not-found-main {
+        &__image::before {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .not-found-main {
+        &__text {
+            z-index: 15;
+            backdrop-filter: blur(3px);
+        }
+    }
+}
+
 

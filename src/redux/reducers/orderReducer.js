@@ -64,7 +64,7 @@ const updateOrder = (state, bouquetId , quantity) => {
     const { bouquets, orderList, sumTotal } = state;
 
     const bouquet = bouquets.find( item => item.id == bouquetId);
-    const itemIndex = orderList.findIndex(({ id }) => id === bouquetId);
+    const itemIndex = orderList.findIndex(({ id }) => id == bouquetId);
     const item = orderList[itemIndex];
     let newItem = updateOrderItem(bouquet, item, quantity);
 
@@ -147,6 +147,14 @@ const orderReducer = (state = initialState, action) => {
                 ...state,
                 isOrderModalOpen: false
             };
+
+        case 'CLEAR_ORDER_LIST':
+            return {
+                ...state,
+                orderList: [],
+                sumTotal: 0,
+                countTotal: 0
+            }
 
         default:
             return state;
