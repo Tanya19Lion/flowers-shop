@@ -14,8 +14,10 @@
         background-position: right center;
         background-size: contain;
         background-repeat: no-repeat;
-        width: 854px;
-        height: 754px;
+        max-width: 854px;
+        max-height: 754px;
+        width: 100%;
+        height: 100%;
         right: 0px;
         top: -250px;
         z-index: 16;
@@ -23,8 +25,8 @@
     &-block::after {
         background-image: url(../../../public/images/employees-top-left--image.webp);
         background-position: left center;
-        width: 454px;
-        height: 354px;
+        max-width: 454px;
+        max-height: 354px;
         left: 0px;
         right: unset;
         top: -180px;
@@ -98,7 +100,7 @@
         align-items: baseline;
         position: relative;    
         z-index: 1;
-        grid-template-columns: 540px 540px;
+        grid-template-columns: minmax(100px, 540px) minmax(100px, 540px);
         grid-auto-rows: auto;
         gap: 10px 30px;  
 
@@ -132,6 +134,7 @@
                 display: grid;
                 grid-auto-flow: column;
                 justify-content: center;
+                text-align: center;
             }
             &--second-title {
                 grid-column: 2/3;
@@ -259,3 +262,48 @@
     }
 }
 
+@media (max-width: 640px) {
+    .employee-main-title, 
+    .employee-main-subtitle,
+    .employee-main-subtitle__second-part {
+        padding-left: 48px;
+    }
+    .more-information__block {
+        padding-left: unset;
+        max-width: unset;
+    }
+    .main-info-details__inner {
+        gap: 10px;
+    }
+    .main-info-details__price,
+    .main-info-details__inner-item--first-title,
+    .main-info-details__inner-item--second-title {
+        margin-bottom: 24px;
+    }
+    .stages,
+    .employee-order {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+    .stages__block {
+        margin-left: unset;
+    }
+    .stages__title {
+        margin-bottom: 20px;
+    }
+    .employee-order__form-inner {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .employee-main-title {
+        padding-left: unset;
+    }
+    .employee-main-subtitle {
+        padding-left: 12px;
+    }
+    .employee-main-subtitle__second-part {
+       padding-left: 24px;
+    }  
+}

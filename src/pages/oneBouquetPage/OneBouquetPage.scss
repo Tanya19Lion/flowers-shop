@@ -1,7 +1,7 @@
 @import '../../styles/constants.scss';
 
 .one-order {
-    padding-bottom: $chapter-margin-bottom;
+    padding-bottom: 100px;
 
     &__inner {
         gap: 60px;
@@ -67,6 +67,8 @@
 
     &__addition-title,
     &__delivery-title  {
+        font-size: 30px;
+        line-height: 1.2;
         margin-bottom: 45px;
         letter-spacing: 1px;
         text-align: center;
@@ -208,3 +210,52 @@
     }
 }
 
+@media (max-width: 1150px) {
+    .one-order__addition-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .one-order__addition-item {
+        max-width: 48%;
+        min-height: 150px;
+    }
+    .one-order__inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .one-order__info-title,
+    .one-order__info-price {
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 640px) {
+    .one-order__addition-item {
+        min-height: 180px;
+        max-width: 260px;
+    }
+    .one-order__addition::before {
+        left: 30px;
+    }
+    .one-order__addition::after {
+        top: 500px;
+    }
+    .one-order__delivery-list {
+        margin-left: 20px;
+    }
+    .one-order__inner {
+        gap: 24px;
+    }
+    .one-order__info-title,
+    .one-order__info-price {
+        margin-bottom: 12px;
+    }
+    .one-order__image {
+        max-width: 350px;
+        max-height: 460px;
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

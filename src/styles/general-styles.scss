@@ -105,9 +105,11 @@ body.addition {
 	font-size: 60px;
 	line-height: 64px;
 }
-.chapter-subtitle {
-	font-size: 40px;
-	line-height: 48.44px;
+@media (max-width: 640px) {
+	.top-subtitle {
+		font-size: 30px;
+		line-height: 1.2;
+	}
 }
 .common-title {
 	font-size:  $subtitle-font-size;
@@ -123,6 +125,30 @@ body.addition {
 	letter-spacing: 1px;
 	font-weight: 400;
 }
+@media (max-width: 640px) {
+	.common-subtitle {
+		font-size: 16px;
+		line-height: 28.75px;
+	}
+}
+
+.chapter-subtitle {
+	font-size: 40px;
+	line-height: 48.44px;
+}
+@media (max-width: 880px) {
+	.chapter-subtitle {
+		font-size: 30px;
+		line-height: 36px;
+	}
+}
+@media (max-width: 640px) {
+	.chapter-subtitle {
+		font-size: 20px;
+		line-height: 24.22px;
+	}
+}
+
 .bigger-text {
 	font-size:  20px;
 	line-height: 26px;
@@ -130,6 +156,13 @@ body.addition {
 	font-weight: 300;
 	letter-spacing: 1px;
 }
+@media (max-width: 640px) {
+	.bigger-text {
+		font-size: 14px;
+		line-height: 20.75px;
+	}
+}
+
 .common-btn,
 .colored-btn {
 	display: flex;
@@ -207,10 +240,10 @@ body.addition {
     padding-left: 16px;
 }
 .page-margin {
-    margin-bottom: $main-margin-bottom;
+    @include main-margin-bottom;
 }
 .chapter-margin {
-    margin-bottom: $chapter-margin-bottom;
+    @include chapter-margin-bottom;
 }
 .green-text {
     color: $green;
@@ -219,6 +252,8 @@ body.addition {
 	color: $pink;
 	text-transform: uppercase;
 	margin-bottom: 20px;
+	font-size: 30px;
+    line-height: 1.5;
 }
 .flex {
 	display: flex;
@@ -230,16 +265,16 @@ body.addition {
 	background-color: $blackscale-1;
 	backdrop-filter: blur(20px);
 }
-/* @media (max-width: 1050px) {
-.main-block {
-    padding: 24px;
-}
+@media (max-width: 1050px) {
+	.main-block {
+		padding: 24px;
+	}
 }
 @media (max-height: 800px) and (orientation: landscape) {
-.main-block {
-    padding: 24px;
-}
-} */
+	.main-block {
+		padding: 24px;
+	}
+} 
 
 .visually-hidden {
 	/* Удаляем элемент из потока документа */

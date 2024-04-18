@@ -128,3 +128,61 @@
 .questions.contacts-questions .questions__form-policy a {
     color: $pink;
 }
+
+@media (max-width: 1050px) {
+    .contacts-info__details {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .contacts-info__details-item {
+        width: 48%;
+    }
+}
+
+@media (max-width: 800px) {
+    .contacts-main {
+        padding-bottom: 96px;
+    }
+    .contacts-info__details {
+        gap: 20px;
+    }
+    .contacts-info__details-item {
+        padding: 36px 24px;
+        min-height: unset;
+    }    
+    .questions__title {
+        margin-bottom: 45px;
+    }
+    .contacts-main .questions__box {
+        flex-direction: column-reverse;
+        margin-left: unset;
+    }
+    .contacts-main .questions {
+        padding-bottom: unset;
+    }
+    .contacts-main .questions__info {
+        position: static;
+        max-width: unset;
+    }
+
+}
+
+@media (max-width: 540px) {
+    .contacts-main-title {
+        margin-left: unset;
+    }
+    .contacts-info__details {
+        justify-content: left;
+    }
+    .contacts-info__details-item {
+        padding: unset;
+        backdrop-filter: unset;
+        text-align: left;
+    }
+    .contacts-info__details-item-title {
+        margin-bottom: 4px;
+    }
+    .contacts-map iframe {
+        max-height: 300px;
+    }
+}

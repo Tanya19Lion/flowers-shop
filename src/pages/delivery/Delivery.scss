@@ -188,6 +188,35 @@
 
 }
 
+@media (max-width: 1050px) {
+    .delivery-info__inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .delivery-info__title {
+        text-align: center;
+    }
+    .delivery-info__inner-item {
+        max-width: unset;
+        width: 45%;
+    }
+}
+@media (max-width: 640px) {
+    .delivery-about-info {
+        line-height: 24px;
+    }
+}
 
-
-
+@media (max-width: 480px) {
+    .delivery-main-title__second-part, .delivery-cost {
+        margin-left: 36px;
+    }
+    .delivery-info__inner {
+        gap: 20px;
+    }
+    .delivery-info__inner-item {
+        min-height: 185px;
+        max-width: 250px;
+        width: 100%;
+    }
+}

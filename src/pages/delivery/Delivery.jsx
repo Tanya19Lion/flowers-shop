@@ -21,7 +21,7 @@ const Delivery = () => {
                 <div className="container">
                     <div className="delivery-info">
                         <h2 className="delivery-info__title pink-heading">Payment methods:</h2>
-                        <div className="delivery-info__inner flex  chapter-margin">
+                        <div className="delivery-info__inner flex chapter-margin">
                             <div className="delivery-info__inner-item main-block">
                                 BY BANK CARD WHEN PLACING AN ORDER THROUGH THE SITE or via the link
                             </div>
