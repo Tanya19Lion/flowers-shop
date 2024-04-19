@@ -1,39 +1,73 @@
 @import '../../styles/constants.scss';
+.main-page {
+    position: relative;
+    &::before {
+        position: absolute;
+        content: '';
+        background: url(../../../public/images/main-bg-upper-part-new.webp) top center / cover no-repeat;
+        left: 0;
+        right: 0;
+        min-height: 1520px;
+        top: -150px;
+        z-index: -1;
+    }
+    &::after {
+        position: absolute;
+        content: '';
+        filter: blur(100px);
+        width: 359px;
+        height: 293px;
+        top: 270px;
+        left: 0px;
+        background-color: #249479;
+        z-index: -1;
+    }
+}
+.top-info-address {
+    padding-top: 24px;
+    position: relative;
+    z-index: 5;
+}
+.first-part-title {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
 
 .top-info {
     position: relative;
     text-align: center;
-    background-image: url(../../../public/images/main-page-background.webp);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 125px;
-    min-height: 1500px;
-    top: -150px;
+    min-height: 1165px;
     z-index: 3;    
 
-    &::before,
+    &::before {
+        position: absolute;
+        content: '';
+        background: url(../../../public/images/main-bg-upper.webp) top center / cover no-repeat;
+        left: 0;
+        right: 0;
+        min-height: 1165px;
+        top: -416px;
+        // left: -26px;
+        // right: -32px;
+        // min-height: 1165px;
+        // top: -456px;
+    }
     &::after {
         position: absolute;
         content: '';
         z-index: -1;
         filter: blur(100px);
     }
-    &::before {
-        width: 359px;
-        height: 293px;
-        top: 680px;
-        left: 161px;
-        background-color: #249479;
-    }
     &::after {
         width: 472px;
         height: 211px;
-        top: 200px;
+        top: 100px;
         right: 100px;
         left: unset;
         background-color: $crimson;
     }
+
     &__title {
         font-size: 200px;
         line-height: 242.2px;
@@ -290,8 +324,10 @@
         background-position: top left;
         background-size: contain;
         background-repeat: no-repeat;
-        width: 562px;
-        height: 842px;
+        max-width: 562px;
+        max-height: 842px;
+        width: 100%;
+        height: 100%;
         left: 0px;
         top: 0;
     }
@@ -337,10 +373,7 @@
                 text-transform: uppercase;
             }
         }
-        &-left .make-order__inner-item + .make-order__inner-item {
-            margin-top: 40px;
-        }
-        &-right .make-order__inner-item + .make-order__inner-item {
+        &-item + .make-order__inner-item {
             margin-top: 40px;
         }
     }
@@ -362,17 +395,16 @@
         background-color: $crimson;
     }
     &__title-second {
-        padding-left: 25%;
         position: relative;
     }
-    &__title-second::before {
-        position: absolute;
-        content: '';
-        width: 255px;
+    &__title-line {
+        display: inline-block;
+        max-width: 255px;
+        width: 100%;
         height: 1px;
         background-color: $pink;
-        left: 0px;
-        top: 50%;
+        margin-bottom: 33px;
+        margin-right: 30px;
     }
     &__block {
         position: relative;
@@ -388,6 +420,8 @@
     &__inner {
         text-transform: uppercase;
         gap: 30px;
+        margin-bottom: 24px;
+        padding-left: 12px;
     }
     &__item--text {
         letter-spacing: 1px;
@@ -409,13 +443,14 @@
         width: 20px;
         height: 60px;
         left: -16px;
-        bottom: -55px;
+        bottom: -45px;
     }
     &__item-list-detail + .special-occasion__item-list-detail {
         margin-top: 12px;
     }
     &__btn {
         cursor: pointer;
+        margin-left: 12px;
     }
 }
 
@@ -540,4 +575,189 @@
     &__sign {
         position: relative;
     }
+}
+
+@media (max-width: 1250px) {
+    .special-occasion__image {
+        display: none;
+    }
+    .make-order::before {
+        z-index: -1;
+    }
+    .catalog-info__inner-item {
+        max-width: 425px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .questions__box {
+        flex-direction: column;
+        margin-left: unset;
+    }
+    .questions__info {
+        position: static;
+        max-width: unset;
+    }
+    .special-occasion__item--holiday {
+        display: none;
+    }
+    .special-occasion__item-list::after {
+        bottom: -65px;
+    }
+    .make-order__inner {
+        margin-left: 100px;
+        backdrop-filter: blur(6px);
+        padding-left: 24px;
+        padding-right: 48px;
+    }
+    .catalog-info__inner-item {
+        max-width: 360px;
+    }
+    .catalog-info__inner-text {
+        padding-left: unset; 
+        max-width: unset;
+    }
+    .catalog-info__inner-item--flowers {
+        margin-left: unset;
+    }
+    .catalog-info__inner-item--bouquet {
+        margin-top: unset;
+    }
+    .catalog-info__inner-item--bouquet::before {
+        top: unset;
+        bottom: -95px;
+    }
+    .catalog-info__inner-item--addition {
+        margin-left: 32%;
+    }
+}
+
+@media (max-width: 900px) {
+    .special-occasion__title-line {
+        max-width: 96px;
+    }
+    .special-occasion__item--card {
+        display: none;
+    }
+    .special-occasion__title {
+        font-size: 80px;
+        line-height: 100px;
+    }
+    .special-occasion__title-line {
+        margin-bottom: 27px;
+        margin-right: 18px;
+    }
+    .questions__title-second {
+        margin-left: unset;
+    }
+    .questions__title {
+        margin-bottom: 24px;
+    }
+    .questions__info {
+        padding-top: 24px;
+    }   
+}
+
+@media (max-width: 840px) {
+    .catalog-info__inner-item--bouquet {
+        margin-left: 22%;
+    }
+    .catalog-info__inner-item--bouquet::before {
+        top: 0;
+        bottom: unset;
+    }    
+}
+
+@media (max-width: 768px) {
+    .make-order__inner {
+        gap: 48px;
+        margin-left: 48px;
+    }
+}
+
+@media (max-width: 640px) {
+    .special-occasion__title {
+        font-size: 52px;
+        line-height: 1.2;
+        margin-bottom: 24px;
+    }
+    .special-occasion__title-line {
+        margin-bottom: 16px;
+        margin-right: 12px;
+    }
+    .special-occasion__item--autumn {
+        display: none;
+    }
+    .make-order__inner {
+        gap: unset;
+        margin-left: unset;
+        display: block;
+        border: unset;
+    }
+    .make-order__pink-block {
+        margin-left: unset;
+        width: 200px;
+    }
+    .make-order__inner-left .make-order__inner-item:nth-child(1) {
+        margin-left: 10rem;
+    }
+    .make-order__inner-left .make-order__inner-item:nth-child(2) {
+        margin-left: 8rem;
+    }
+    .make-order__inner-left .make-order__inner-item:nth-child(3) {
+        margin-left: 6rem;
+    }
+    .make-order__inner-right .make-order__inner-item:nth-child(1) {
+        margin-left: 4rem;
+    }
+    .make-order__inner-right .make-order__inner-item:nth-child(2) {
+        margin-left: 2rem;
+    }
+    .make-order__inner-left {
+        margin-bottom: 24px;
+    }
+    .make-order__inner-item + .make-order__inner-item {
+        margin-top: 24px;
+    }
+    .make-order__inner::after {
+        z-index: -1;
+    }
+    .catalog-info__title {
+        margin-bottom: 24px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .special-occasion__title {
+        font-size: 40px;
+        line-height: 48.44px;
+    }
+    .special-occasion__title-line {
+        max-width: 48px;
+    }
+    .make-order__inner {
+        padding-left: unset;
+        padding-right: unset;
+    }
+    .make-order__inner-left .make-order__inner-item:nth-child(1) {
+        margin-left: 4rem;
+    }
+    .make-order__inner-left .make-order__inner-item:nth-child(2) {
+        margin-left: 3rem;
+    }
+    .make-order__inner-left .make-order__inner-item:nth-child(3) {
+        margin-left: 2rem;
+    }
+    .make-order__inner-right .make-order__inner-item:nth-child(1) {
+        margin-left: 1rem;
+    }
+    .make-order__inner-right .make-order__inner-item:nth-child(2) {
+        margin-left: 0;
+    }
+    .catalog-info__inner-item--addition,
+    .catalog-info__inner-item--bouquet {
+        margin-left: unset;
+    }
+
 }

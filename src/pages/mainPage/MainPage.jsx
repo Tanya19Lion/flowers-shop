@@ -22,7 +22,7 @@ const MainPage = () => {
 	const [openModal, setOpenModal] = useState(false);
 	const { bouquets, isOrderModalOpen } = useSelector(selectOrderData);
 
-	useChangeHeaderColor('transparent', '50px', 'header-with-basket');
+	useChangeHeaderColor('transparent', '0px', 'header-with-basket');
 	useScroll();
 
 	const handleOpenModal = () => {
@@ -34,17 +34,26 @@ const MainPage = () => {
 		: document.body.classList.remove('lock');
 
 	return (    
-        <main className="main-page">        
-			<section className="top-info"> 
-				<div className="container container-fluid">           
-					<h1 className="top-info__title">Lover Flower</h1>
-					<p className="top-info__slogan common-subtitle">We create for those who appreciate the freshness and grace of flowers</p>
-					<Link to='/catalog' className="top-info__btn colored-btn">View catalog</Link>
+        <main className="main-page">   
 
+			<section className="top-info-address">
+				<div className="container container-fluid"> 
 					<div className="top-info__address">
 						<p className="top-info__address-street menu-contacts">221B Baker St, London NW1 6XE</p>
 						<p className="top-info__address-about menu-contacts-info">10:00 to 21:00<br/>seven days a week</p>
 					</div>
+				</div>
+			</section>   
+
+			<section className="first-part-title">
+				<p className="top-info__title">Lover</p>
+			</section>     
+
+			<section className="top-info"> 
+				<div className="container container-fluid">           
+					<h1 className="top-info__title">Flower</h1>
+					<p className="top-info__slogan common-subtitle">We create for those who appreciate the freshness and grace of flowers</p>
+					<Link to='/catalog' className="top-info__btn colored-btn">View catalog</Link>
 
 					<div className="top-info__right-block">
 						<div className="top-info__right-block-phone">
@@ -107,7 +116,7 @@ const MainPage = () => {
 			</section>
 
 			{
-				bouquets.length && <section className="popular page-margin">
+				bouquets.length > 0 && <section className="popular page-margin">
 					<div className="container">
 						<h2 className="popular__title top-title">
 							<p className="popular__title-first">Popular</p>
@@ -176,7 +185,7 @@ const MainPage = () => {
 					<div className="special-occasion__block">
 						<h2 className="special-occasion__title top-title">
 							<p className="special-occasion__title-first">Special</p>
-							<p className="special-occasion__title-second">occasion?</p>                        
+							<p className="special-occasion__title-second"><span className="special-occasion__title-line"></span>occasion?</p>                        
 						</h2>
 						<div className="special-occasion__image">
 							<img src="images/special-image-1.webp" alt="two boxes with presents" width="255" height="223" />

@@ -51,7 +51,7 @@ body.addition {
     padding-top: 92px;
 }
 .container {
-	max-width: 1140px;
+	max-width: 1170px;
 	padding: 0 15px;
 	margin: 0 auto;
 }
@@ -92,6 +92,12 @@ body.addition {
 	.top-title {
 		font-size: 52px;
 		line-height: 1.2;
+	}
+}
+@media (max-width: 480px) {
+	.top-title {
+		font-size: 40px;
+		line-height: 48.44px;
 	}
 }
 @media (max-height: 800px) and (orientation: landscape) {
