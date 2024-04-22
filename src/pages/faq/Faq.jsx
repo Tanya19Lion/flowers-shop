@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
     Accordion,
     AccordionItem,
@@ -6,6 +6,7 @@ import {
     AccordionItemButton,
     AccordionItemPanel,
 } from 'react-accessible-accordion';
+
 import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 
 import 'react-accessible-accordion/dist/fancy-example.css';

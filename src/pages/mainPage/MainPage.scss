@@ -586,6 +586,10 @@
         font-size: 150px;
         line-height: 180px;
     }
+    .top-info-address,
+    .top-info__right-block {
+        display: none;
+    }
 }
 
 @media (max-width: 1050px) {
@@ -752,10 +756,6 @@
     }
     .catalog-info__title {
         margin-bottom: 24px;
-    }
-    .top-info-address,
-    .top-info__right-block {
-        display: none;
     }
     .main-page::before {
         min-height: 900px;

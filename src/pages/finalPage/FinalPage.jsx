@@ -14,7 +14,7 @@ const FinalPage = () => {
                     <img className="final-page__image" src='images/payment-lover-flower.webp' alt='lower flower text' width='245' height='180' />              
                 </div>
                 
-                <Link to='/catalog' className="final-page__btn common-link-btn">Back to all bouquets</Link>       
+                <Link to='/catalog' className="final-page__btn common-link-btn">Back to catalog</Link>       
 
             </div>
         </main> 

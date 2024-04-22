@@ -65,6 +65,14 @@
         }
     }
 
+    &__addition-arrow {
+        display: inline-block;
+        margin-right: 12px;
+        & img {
+            transform: rotate(180deg);
+            margin-bottom: 9px;
+        }
+    }
     &__addition-title,
     &__delivery-title  {
         font-size: 30px;

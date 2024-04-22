@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
 
@@ -40,6 +40,10 @@ const OneBouquetPage = () => {
         <main className="one-order">
             <section className="one-order__main chapter-margin">
                 <div className="container">
+                    <Link to='/catalog' className='one-order__addition-title pink-heading'>
+                        <span className='one-order__addition-arrow'><img src="../images/pink-arrow-right.svg" alt="pink arrow to the left" width='40' height='5'/></span>
+                        Back to all
+                    </Link>
                     <div className="one-order__inner flex">
                         <div className="one-order__image">
                             <img src={imageSrc} alt={altSign} width="350" height="460" />

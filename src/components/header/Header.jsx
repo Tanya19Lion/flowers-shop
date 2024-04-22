@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import './Header.scss';
 
@@ -16,6 +16,7 @@ const classNames = require('classnames');
 
 const Header = () => {
     const dispatch = useDispatch();
+    const location = useLocation();
     const [openPhoneModal, setOpenPhoneModal] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -41,6 +42,10 @@ const Header = () => {
         'header-mobile__close-btn': true,
         'active': mobileMenuOpen
     });    
+
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [location]);
         
     return (
         <>
@@ -142,13 +147,15 @@ const Header = () => {
                                 <span className="header__phone-link">+44 171 552948</span>
                             </button>
                             <div className={mobileCloseBtnClass} onClick={() => setMobileMenuOpen(false)}>
-                                <img src="images/popup-close-btn.svg" alt="green close sign" width="30" height="30" />
+                                <img src="../images/popup-close-btn.svg" alt="green close sign" width="30" height="30" />
                             </div>
                         </div>
                         <Basket handleOpenOrderModal={() => dispatch(openOrderModal())}/>
+                        <p className='header-mobile__title'>Lower <br /> flower</p>
                     </div>                        
                 </div>              
             </header>
+
             { isOrderModalOpen && Portal(<OrderPopup/>) }
             { openPhoneModal && Portal(<Popup handleOpenModal={setOpenPhoneModal}/> ) }
         </>
