@@ -9,18 +9,17 @@
         right: 0;
         min-height: 1520px;
         top: -150px;
-        z-index: -1;
+        z-index: -3;
     }
     &::after {
         position: absolute;
         content: '';
-        filter: blur(100px);
-        width: 359px;
-        height: 293px;
-        top: 270px;
-        left: 0px;
-        background-color: #249479;
-        z-index: -1;
+        background: url(../../../public/images/main-bg-upper.webp) top center / cover no-repeat;
+        left: 0;
+        right: 0;
+        min-height: 1200px;
+        top: -150px;
+        z-index: 1;
     }
 }
 .top-info-address {
@@ -31,7 +30,32 @@
 .first-part-title {
     text-align: center;
     position: relative;
-    z-index: 1;
+    z-index: -2;
+
+    &::after,
+    &::before {
+        position: absolute;
+        content: '';
+        z-index: -2;
+        filter: blur(100px);
+    }
+
+    &::before {
+        width: 359px;
+        height: 293px;
+        top: 270px;
+        left: 0px;
+        background-color: #249479;
+    }
+    &::after {
+        width: 472px;
+        height: 211px;
+        top: 300px;
+        right: 100px;
+        left: unset;
+        background-color: $crimson;
+    }
+
 }
 
 .top-info {
@@ -39,35 +63,6 @@
     text-align: center;
     min-height: 1165px;
     z-index: 3;    
-
-    &::before {
-        position: absolute;
-        content: '';
-        background: url(../../../public/images/main-bg-upper.webp) top center / cover no-repeat;
-        left: 0;
-        right: 0;
-        min-height: 1165px;
-        top: -416px;
-        // left: -26px;
-        // right: -32px;
-        // min-height: 1165px;
-        // top: -456px;
-    }
-    &::after {
-        position: absolute;
-        content: '';
-        z-index: -1;
-        filter: blur(100px);
-    }
-    &::after {
-        width: 472px;
-        height: 211px;
-        top: 100px;
-        right: 100px;
-        left: unset;
-        background-color: $crimson;
-    }
-
     &__title {
         font-size: 200px;
         line-height: 242.2px;
@@ -587,6 +582,10 @@
     .catalog-info__inner-item {
         max-width: 425px;
     }
+    .top-info__title {
+        font-size: 150px;
+        line-height: 180px;
+    }
 }
 
 @media (max-width: 1050px) {
@@ -665,7 +664,36 @@
     .catalog-info__inner-item--bouquet::before {
         top: 0;
         bottom: unset;
-    }    
+    }  
+    .main-page::before,
+    .main-page::after {
+        top: -100px;
+    }
+    .main-page::before {
+        min-height: 1200px;
+    }
+    .main-page::after {
+        min-height: 942px;
+    }
+    .top-info {
+        min-height: 750px;
+    }
+    .first-part-title {
+        margin-top: 64px;
+    }  
+    .top-info__title {
+        font-size: 120px;
+        line-height: 140px;
+        letter-spacing: 11px;
+    }
+    .first-part-title::after {
+        top: 0;
+        right: 0;
+    }
+    .first-part-title::before {
+        top: 35px;
+        left: 0px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -725,6 +753,26 @@
     .catalog-info__title {
         margin-bottom: 24px;
     }
+    .top-info-address,
+    .top-info__right-block {
+        display: none;
+    }
+    .main-page::before {
+        min-height: 900px;
+    }
+    .main-page::after {
+        min-height: 705px;
+    }
+    .first-part-title {
+        margin-top: 5px;
+    }
+    .top-info__title {
+        font-size: 100px;
+        line-height: 110px;
+    }
+    .top-info .top-info__title {
+        margin-bottom: 400px;
+    }
 
 }
 
@@ -758,6 +806,33 @@
     .catalog-info__inner-item--addition,
     .catalog-info__inner-item--bouquet {
         margin-left: unset;
+    }
+    .top-info__title {
+        font-size: 70px;
+        line-height: 80px;
+    }
+    .first-part-title::before {
+        width: 159px;
+        height: 193px;
+        top: 100px;
+    }
+    .first-part-title::after {
+        width: 222px;
+        height: 111px;
+        top: 105px;
+    }
+    .top-info {
+        min-height: 700px;
+    }
+    .main-page::before {
+        min-height: 700px;
+    }
+    .main-page::after {
+        min-height: 550px;
+    }
+    .top-info__title {
+        font-size: 55px;
+        line-height: 75px;
     }
 
 }

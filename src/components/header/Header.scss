@@ -10,7 +10,7 @@
     backdrop-filter: blur(20px);
 
     &-top,
-    &-middle {
+    &-mobile {
         justify-content: space-between;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -31,16 +31,16 @@
     &__menu-link.active {
         color: $green;
     }
-    &__menu-item--home,
+    &-mobile,
     &__mobile-btn {
         display: none;
     }
      
-    &__mail,
-    &-middle {
+    &__mail {
         text-align: right;
     }
-    &__mail {
+    &__mail,
+    &__address {
         display: none;
     }
     &__phone {
@@ -74,5 +74,144 @@
     &.header-with-basket .header__mail {
         display: block;
     }
+
+    &__mobile-btn {
+        position: relative;
+        display: none;
+        width: 30px;
+        height: 26px;
+        padding: 2px 1px;
+        cursor: pointer;
+        background: transparent;
+        border-top: 3px solid;
+        border-bottom: 3px solid;
+        border-left: unset;
+        border-right: unset;
+        color: $green;
+        font-size: 0;
+        z-index: 80;
+        transition: all 0.25s ease-in-out;
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 3px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: $green;
+            transform: translate(-50%, -50%);
+            transition: transform 0.25s ease-in-out;
+        }      
+    }
+    
+    @keyframes show {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    
 }
 
+@media (max-width: 1250px) {
+    .header-top,
+    .header.header-with-basket .header__mail {
+        display: none;
+    }
+    .header__mobile-btn {
+        display: block;
+    }
+
+    .header-mobile {
+        display: block;
+        padding-top: 24px;
+
+        &__close-btn {
+            cursor: pointer;
+            display: none;
+        }
+        .header-mobile__close-btn.active {
+            display: block;
+            position: absolute;
+            right: 12px;
+            top: 24px;
+        }
+        &.open {
+            opacity: 1;
+            visibility: visible;
+            height: 100%;
+            background-color: #1e1e1e;
+            z-index: 80;        
+        }
+        .header-mobile__wrapper {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            top: 0px;
+            padding-top: 24px;
+            z-index: 7;
+        }
+        .header-mobile__wrapper.show {
+            z-index: 80;
+            padding-left: 12px;
+            opacity: 1;
+            visibility: visible;
+            height: 600px;
+            width: 300px;
+            overflow: auto;
+            background-color: $black;
+            margin-left: unset;
+            animation: show 0.4s ease forwards;
+        }
+        .header-mobile__wrapper.show .header__mail,
+        .header-mobile__wrapper.show .header__address,
+        .header-mobile__wrapper.show .header__phone {
+            display: block;
+        }
+        .header__menu-list {
+            margin-left: unset;
+        }
+        .header__menu {
+            padding-right: 24px;
+            margin-bottom: 12px;
+        }
+        .header__menu-link {
+            padding-left: unset;
+            width: 100%;
+        }
+        .header-mobile__grey-block {
+            width: 100px;
+            height: 1px;
+            background-color: #555;
+            margin-bottom: 24px;
+        }
+        .header__mail,
+        .menu-contacts-info {
+            text-align: left;
+        }
+        .header__mail,
+        .header__address {
+            margin-bottom: 24px;
+        }
+        .header__phone {
+            margin-right: unset;
+            margin-left: unset;
+        }
+        .info-basket {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+        }
+    }
+   
+}
