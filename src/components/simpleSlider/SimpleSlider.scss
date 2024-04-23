@@ -1,6 +1,16 @@
+@import '../../styles/constants.scss';
+
 .slick-track {
     display: flex;
     align-items: baseline;
+}
+.slick-list {
+    display: flex;
+    justify-content: center;
+}
+.slick-next,
+.slick-prev {
+    z-index: 18;
 }
 .slick-next::before,
 .slick-prev::before {
@@ -11,4 +21,64 @@
 }
 .slick-prev {
     left: -60px;
+}
+
+@media (max-width: 1200px) {
+    .slick-next {
+        right: 0px;
+    }
+    .slick-prev {
+        left: 0px;
+    }
+    .slick-slider,
+    .slick-track {
+        padding-left: 64px;
+        padding-right: 64px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 840px) {
+    .slick-slider,
+    .slick-track {
+        padding-left: 48px;
+        padding-right: 48px;
+    }  
+}
+
+@media (max-width: 768px) {
+    .slick-next {
+        right: 100px;
+    }
+    .slick-prev {
+        left: 100px;
+    }
+}
+
+@media (max-width: 640px) {
+    .slick-next {
+        right: 50px;
+    }
+    .slick-prev {
+        left: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slick-slider,
+    .slick-track {
+        padding-left: 0px;
+        padding-right: 0px;
+    }  
+    .slick-next,
+    .slick-prev {
+        top: unset;
+        bottom: 75px;
+    }
+    .slick-next {
+        right: 0px;
+    }
+    .slick-prev {
+        left: 0px;
+    }
 }

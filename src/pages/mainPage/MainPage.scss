@@ -590,6 +590,9 @@
     .top-info__right-block {
         display: none;
     }
+    .main-page .popular__inner-item-btn {
+        margin: auto;
+    }
 }
 
 @media (max-width: 1050px) {
@@ -659,6 +662,13 @@
     .questions__info {
         padding-top: 24px;
     }   
+    .main-page .popular__inner-item-image {
+        max-width: 280px;
+        max-height: 280px;
+    }
+    .main-page .popular__inner-item {
+        max-width: 280px;
+    }
 }
 
 @media (max-width: 840px) {
@@ -704,6 +714,9 @@
     .make-order__inner {
         gap: 48px;
         margin-left: 48px;
+    }
+    .main-page .popular__info {
+        margin-bottom: 48px;
     }
 }
 
@@ -834,5 +847,7 @@
         font-size: 55px;
         line-height: 75px;
     }
-
+    .main-page .popular__inner-item-btn {
+        margin-left: unset;
+    }
 }

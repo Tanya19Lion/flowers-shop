@@ -208,6 +208,12 @@
     }
 }
 
+@media (max-width: 1250px) {
+    .catalog-sort__select {
+        margin-left: unset;
+    }
+}
+
 @media (max-width: 1050px) {
     .catalog-top-title__second-part,
     .catalog-top__slogan {
@@ -215,13 +221,10 @@
     }
 }
 
-
-@media (max-width: 880px) {
-    .catalog-page .top-info__right-block {
-        display: none;
+@media (max-width: 480px) {
+    .catalog-top-title__second-part,
+    .catalog-top__slogan {
+        margin-left: 24px;
     }
 }
 
-.catalog-sort__select {
-    margin-left: unset;
-}

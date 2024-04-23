@@ -19,10 +19,10 @@ import './MainPage.scss';
 
 const MainPage = () => {
 	const dispatch = useDispatch();
-	const [openModal, setOpenModal] = useState(false);
 	const { bouquets, isOrderModalOpen } = useSelector(selectOrderData);
+	const [openModal, setOpenModal] = useState(false);
 
-	useChangeHeaderColor('transparent', '0px', 'header-with-basket');
+	useChangeHeaderColor('transparent', '0px', 'header-with-basket', 'show-mobile-title');
 	useScroll();
 
 	const handleOpenModal = () => {

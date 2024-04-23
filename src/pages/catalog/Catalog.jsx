@@ -37,7 +37,7 @@ const Catalog = () => {
         dispatch(resetAllFilters());
     }
 
-    useChangeHeaderColor('transparent', '50px', 'header-with-basket');
+    useChangeHeaderColor('transparent', '50px', 'header-with-basket', 'show-mobile-title');
     useScroll();
 
     const handleOpenModal = () => {

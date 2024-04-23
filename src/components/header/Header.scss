@@ -117,7 +117,8 @@
             visibility: visible;
         }
     }
-    &-mobile__title {
+    &-mobile__title,
+    &-mobile__title.show-mobile-title {
         font-size: 20px;
         line-height: 22px;
         text-align: center;
@@ -218,17 +219,18 @@
         }
         .info-basket {
             position: absolute;
-            top: 24px;
-            right: 24px;
-        }   
+            top: 20px;
+            right: 16px;
+        } 
+        &__title {
+            display: block;
+            position: absolute;
+            top: 30px;
+            left: calc(50% - 50px);
+        }  
     }   
 }
 
-@media (max-width: 640px) {
-    .header-mobile__title {
-        display: block;
-        position: absolute;
-        top: 30px;
-        left: calc(50% - 50px);
-    }
-}
+// @media (max-width: 0px) {
+   
+// }

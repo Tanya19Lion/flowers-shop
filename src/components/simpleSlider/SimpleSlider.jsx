@@ -64,28 +64,23 @@ export default function SimpleSlider({ bouquets }) {
         prevArrow: <PrevArrow />,
         responsive: [
             {
-              breakpoint: 1024,
+              breakpoint: 1200,
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
                 infinite: true,
+                centralMode: true
               }
             },
             {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
-              }
-            },
-            {
-              breakpoint: 480,
+              breakpoint: 768,
               settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1
+                slidesToScroll: 1,
+                infinite: true,
+                centralMode: true,
               }
-            }
+            }           
           ]
     };
     return (
