@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 
 import Portal from '../../components/portal/Portal';
 import OrderPopup from '../../components/orderPopup/OrderPopup';
@@ -17,7 +17,7 @@ import './OneBouquetPage.scss';
 const OneBouquetPage = () => {
     const isOrderModalOpen = useSelector(selectOrderModalOpen);
 
-    useChangeHeaderColor('#000000', '100px');
+    useChangeHeader('#000000', '100px');
 
     const { id } = useParams();
     const { getOneBouquet } = useFlowersService(); 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 import { useScroll } from '../../hooks/handleScroll.hook';
 
 import Portal from '../../components/portal/Portal';
@@ -17,6 +17,7 @@ import CategoriesFormat from '../../components/categoriesFormat/CategoriesFormat
 import CategoryPrice from '../../components/categoryPrice/CategoryPrice';
 import CategoriesFlowers from '../../components/categoriesFlowers/CategoriesFlowers';
 import AllBouquets from '../../components/allBouquets/AllBouquets';
+import ErrorBoundary from '../../components/errorBoundary/ErrorBoundary';
 
 import { openOrderModal, lowLimitChange, highLimitChange, activeFlowersCategoryChange, activeFormatCategoryChange, activeColorsCategoryChange, resetAllFilters } from '../../redux/actions/actions';
 import { selectOrderModalOpen } from '../../redux/selectors/selectors';
@@ -37,7 +38,7 @@ const Catalog = () => {
         dispatch(resetAllFilters());
     }
 
-    useChangeHeaderColor('transparent', '50px', 'header-with-basket', 'show-mobile-title');
+    useChangeHeader('transparent', '50px', 'header-with-basket', 'show-mobile-title');
     useScroll();
 
     const handleOpenModal = () => {
@@ -61,7 +62,9 @@ const Catalog = () => {
                             <p className="catalog-top__slogan">
                                 In out store you will find the largest selection of flowers for any event of your life
                             </p>
-                            <CategoriesTop />
+                            <ErrorBoundary>
+                                <CategoriesTop />
+                            </ErrorBoundary>
                         </div>
                         <div className="top-info__right-block">
                             <div className="top-info__right-block-phone">
@@ -83,14 +86,26 @@ const Catalog = () => {
                     <div className="catalog-details__inner">
                         <div className="catalog-details__inner-filters">
                             <div className="catalog-details__inner-filters-block main-block">
-                                <CategoriesColours />
-                                <CategoriesFormat />
+                                <ErrorBoundary>
+                                    <CategoriesColours />
+                                </ErrorBoundary>
+ 
+                                <ErrorBoundary>
+                                    <CategoriesFormat />
+                                </ErrorBoundary>
+
                                 <CategoryPrice />
-                                <CategoriesFlowers />
+            
+                                <ErrorBoundary>
+                                    <CategoriesFlowers />
+                                </ErrorBoundary>
+
                                 <button className="catalog-details__inner-btn common-btn" onClick={() => resetSidebarFilters()}>Reset filters</button>
                             </div>
                         </div>
-                        <AllBouquets />
+                        <ErrorBoundary>
+                            <AllBouquets />
+                        </ErrorBoundary>
                     </div>
                 </div>
             </section>

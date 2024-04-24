@@ -1,10 +1,10 @@
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 
 import './Policy.scss';
 
 const Policy = () => {
 
-    useChangeHeaderColor('#000000', '0px');
+    useChangeHeader('#000000', '0px');
 
     return (
         <main className="main-policy bigger-text"> 

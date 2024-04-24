@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 
 import './Contacts.scss';
 
 const Contacts = () => {
 
-    useChangeHeaderColor('#000000', '100px');
+    useChangeHeader('#000000', '100px');
 
     return (
         <main className="contacts-main"> 

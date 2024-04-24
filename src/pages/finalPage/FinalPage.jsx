@@ -1,10 +1,10 @@
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 import { Link } from 'react-router-dom';
 
 import './FinalPage.scss';
 
 const FinalPage = () => {
-    useChangeHeaderColor('#000000', '0px');
+    useChangeHeader('#000000', '0px');
 
     return (
         <main className="final-page bigger-text"> 

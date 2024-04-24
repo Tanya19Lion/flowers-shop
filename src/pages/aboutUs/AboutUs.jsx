@@ -1,9 +1,9 @@
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 
 import './AboutUs.scss';
 
 const AboutUs = () => { 
-    useChangeHeaderColor('#000000', '100px');
+    useChangeHeader('#000000', '100px');
 
     return (
         <main className="about-us-main page-margin"> 

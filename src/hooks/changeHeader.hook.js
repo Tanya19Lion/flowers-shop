@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useChangeHeaderColor = (color, marginBottom, additionalHeaderClass = '', additionalMobileClass = '') => {
+export const useChangeHeader = (color, marginBottom, additionalHeaderClass = '', additionalMobileClass = '') => {
 
     useEffect(() => {		
 		const pageHeader = document.querySelector('.header');

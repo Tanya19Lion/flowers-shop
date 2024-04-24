@@ -116,7 +116,7 @@
     &-details__inner {
         display: flex;
         gap: 30px;
-        align-items: flex-start;
+        // align-items: flex-start;
 
         &-items {
             flex-wrap: wrap;
@@ -183,6 +183,11 @@
         }
         &-checkbox-block input[type="checkbox"]:focus + .catalog-details__inner-lable::before { 
             box-shadow: 0 0 0 1px $green;
+        }
+        .error-block {
+            flex-direction: column;
+            text-transform: none;
+            margin-bottom: 12px;
         }
     }
 

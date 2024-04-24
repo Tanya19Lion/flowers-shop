@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 import { useScroll } from '../../hooks/handleScroll.hook';
 
 import Portal from '../../components/portal/Portal';
@@ -22,7 +22,7 @@ const MainPage = () => {
 	const { bouquets, isOrderModalOpen } = useSelector(selectOrderData);
 	const [openModal, setOpenModal] = useState(false);
 
-	useChangeHeaderColor('transparent', '0px', 'header-with-basket', 'show-mobile-title');
+	useChangeHeader('transparent', '0px', 'header-with-basket', 'show-mobile-title');
 	useScroll();
 
 	const handleOpenModal = () => {

@@ -7,14 +7,14 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion';
 
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 
 import 'react-accessible-accordion/dist/fancy-example.css';
 import './Faq.scss';
 
 const FAQ = () => {
 
-    useChangeHeaderColor('#000000', '100px');
+    useChangeHeader('#000000', '100px');
     
     return (
         <main className="faq-main"> 

@@ -9,6 +9,7 @@ import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../..
 import { selectBouquetsloadingStatus, selectStateData } from '../../redux/selectors/selectors';
 
 import Spinner from '../spinner/Spinner';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 
 import './AllBouquets.scss';
 
@@ -33,7 +34,7 @@ const AllBouquets = () => {
     if (bouquetsloadingStatus === 'loading') {
         return <Spinner />;
     } else if (bouquetsloadingStatus === 'error') {
-        return <h3>Something went wrong</h3>
+        return <ErrorMessage />;
     }
 
     const filteredBouquetsSelector = createSelector(
@@ -71,6 +72,7 @@ const AllBouquets = () => {
     useSelector(sortedFlowers);
 
     const includesAny = (arr, values) => values.some(v => arr.includes(v));
+
     if (activeColorCategories.length) {
         filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.colour, activeColorCategories));   
     } else {

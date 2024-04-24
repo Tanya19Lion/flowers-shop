@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 
 import './Page404.scss';
 
 const Page404 = () => { 
-    useChangeHeaderColor('#000000', '0px');
+    useChangeHeader('#000000', '0px');
 
     let navigate = useNavigate();
 

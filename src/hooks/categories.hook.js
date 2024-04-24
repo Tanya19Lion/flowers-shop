@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import Spinner from '../components/spinner/Spinner.jsx';
+import ErrorMessage from '../components/errorMessage/ErrorMessage.jsx';
 
 export const useCategories = (categoryTitle, actionFetching, actionFetched, actionFetchinError, activeCategoriesChange, categoryService, allCurrentCategories, currentCategoryStatus, activeCurrentCategories) => {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export const useCategories = (categoryTitle, actionFetching, actionFetched, acti
     if (currentCategoryStatus === 'loading') {
         return <Spinner />;
     } else if (currentCategoryStatus === 'error') {
-        return <h3>Something went wrong</h3>
+        return <ErrorMessage />
     }
 
     if (allCurrentCategories.length === 0) {

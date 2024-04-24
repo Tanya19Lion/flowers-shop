@@ -176,8 +176,9 @@
     }
     .contacts-info__details-item {
         padding: unset;
-        backdrop-filter: unset;
         text-align: left;
+        backdrop-filter: unset;
+        background-color: transparent;
     }
     .contacts-info__details-item-title {
         margin-bottom: 4px;

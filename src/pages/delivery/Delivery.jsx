@@ -1,10 +1,10 @@
-import { useChangeHeaderColor } from '../../hooks/changeHeader.hook';
+import { useChangeHeader } from '../../hooks/changeHeader.hook';
 
 import './Delivery.scss';
 
 const Delivery = () => { 
 
-    useChangeHeaderColor('#000000', '100px');
+    useChangeHeader('#000000', '100px');
 
     return (
         <main className="delivery-main chapter-margin"> 
