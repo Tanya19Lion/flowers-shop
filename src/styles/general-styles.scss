@@ -104,6 +104,7 @@ body.addition {
 	.top-title {
 		font-size: 52px;
 		padding-left: unset;
+		line-height: 72px;
 	}
 } 
 
@@ -314,4 +315,10 @@ body.addition {
 .bold-text {
     font-family: Oswald-Bold;
     font-weight: 700;
+}
+.error-message {
+	margin-bottom: 12px;
+	letter-spacing: 1px;
+	color: #ef6868;
+	// color: #FF3A44;
 }

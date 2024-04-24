@@ -240,7 +240,7 @@
             border: 1px solid $grey;
             padding: 20px;
             letter-spacing: 1px;
-            margin-top: 6px;
+            margin-top: 10px;
             background-color: transparent;
             color: $main-text-color;
         }
@@ -252,13 +252,17 @@
         }
         &-policy {
             font-size: 10px;
-            line-height: 11.72px;
+            line-height: 15.72px;
             letter-spacing: 1px;
             max-width: 342px;
 
             & a {
                 color: $pink;
             }
+        }
+        .error-message {
+            margin-bottom: unset;
+            margin-top: 12px;
         }
     }
 }

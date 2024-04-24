@@ -33,7 +33,8 @@
     }
 }
 
-.policy-info__text + .policy-info__text {
+.policy-info__text + .policy-info__text,
+.policy-info__list-item + .policy-info__list-item {
     margin-top: 12px;
 }
 .policy-info__list {

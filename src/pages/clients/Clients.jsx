@@ -1,7 +1,23 @@
 import { Link } from 'react-router-dom';
+import { Formik, Form, Field, ErrorMessage, useField } from 'formik';
+import { object, string, number } from 'yup';
+
 import { useChangeHeader } from '../../hooks/changeHeader.hook';
 
 import './Clients.scss';
+
+const TextInput = ({label, ...props }) => {
+    const [field, meta] = useField(props);
+    return (
+        <>
+            <label className="employee-order__form-label">
+                {label}
+                <input {...props} {...field}/>
+                {meta.touched && meta.error ? <p className='error-message'>{meta.error }</p> : null}
+            </label>
+        </>
+    )
+};
 
 const Clients = () => {
 
@@ -96,38 +112,86 @@ const Clients = () => {
                     <p className="employee-order__make-order green-text">
                         Fill out the application:
                     </p>
-                    <form className="employee-order__form">
-                        <div className="employee-order__form-inner flex">
-                            <label className="employee-order__form-label">
-                                The name of your organization
-                                <input type="text" className="employee-order__form-input" placeholder="Enter the name of your organization"/>
-                            </label>
-                            <label className="employee-order__form-label">
-                                Address
-                                <input type="text" className="employee-order__form-input" placeholder="Enter the address here"/>
-                            </label>
-                            <label className="employee-order__form-label">
-                                Contact person
-                                <input type="text" className="employee-order__form-input" placeholder="Enter the name of contact person"/>
-                            </label>
-                            <label className="employee-order__form-label">
-                                Phone number
-                                <input type="phone" className="employee-order__form-input" placeholder="Enter the the phone number here"/>
-                            </label>
-                            <label className="employee-order__form-label">
-                                Approximate cost of the bouquet
-                                <input type="number" className="employee-order__form-input" placeholder="The cost of the bouquet"/>
-                            </label>    
-                            <label className="employee-order__form-label">
-                                Email
-                                <input type="email" className="employee-order__form-input" placeholder="Email"/>
-                            </label>  
-                        </div>
-                        <button type="submit" className="employee-order__form-btn colored-btn">Send</button>
-                        <p className="employee-order__form-policy">
-                            By clicking on the “Send” button, I consent to the processing of personal data in accordance with the <Link to='/policy'>Privacy Policy</Link>.
-                        </p>
-                    </form>
+
+                    <Formik
+                        initialValues = {{ 
+                            organization: '',
+                            address: '',
+                            contact_person: '',
+                            phone: '',
+                            cost: '',
+                            email: ''
+                        }}
+                        validationSchema = {object({
+                            organization: string().required('Required!'),
+                            address: string().required('Required!'),
+                            contact_person: string().required('Required!'),
+                            phone: number().min(10, 'No less than 10 number!').required('Required!'),
+                            cost: number().required('Required!'),
+                            email: string().email('Invalid email!').required('Required!')
+                        })}
+                        onSubmit = {(values, { resetForm }) => {
+                            console.log(JSON.stringify(values, null, 2));
+                            resetForm();
+                        }}
+                    >
+                        {({ isSubmitting }) => (
+                            <Form className="employee-order__form">
+                                <div className="employee-order__form-inner flex">
+                                    <TextInput 
+                                        label="The name of your organization"
+                                        type="text"
+                                        name="organization" 
+                                        className="employee-order__form-input" 
+                                        placeholder="Enter the name of your organization"
+                                    />
+                                    <TextInput 
+                                        label="Address"
+                                        type="text" 
+                                        name="address"
+                                        className="employee-order__form-input"
+                                        placeholder="Enter the address here"
+                                    />
+                                    <TextInput 
+                                        label="Contact person"
+                                        type="text"
+                                        name="contact_person" 
+                                        className="employee-order__form-input" 
+                                        placeholder="Enter the name of contact person"
+                                    />
+                                    <TextInput 
+                                        label="Phone number"
+                                        type="tel" 
+                                        name="phone"
+                                        className="employee-order__form-input"
+                                        placeholder="Enter the phone number here"
+                                    />
+                                    <TextInput 
+                                        label="Approximate cost of the bouquet"
+                                        type="number"
+                                        name="cost" 
+                                        className="employee-order__form-input" 
+                                        placeholder="The cost of the bouquet"
+                                    />
+                                    <TextInput 
+                                        label="Email"
+                                        type="email" 
+                                        name="email"
+                                        className="employee-order__form-input"
+                                        placeholder="Email"
+                                    />
+                                </div>
+                                <button 
+                                    type="submit" 
+                                    className="employee-order__form-btn colored-btn"
+                                    disabled={isSubmitting}
+                                >Send</button>
+                                <p className="employee-order__form-policy">
+                                    By clicking on the "Send" button, I consent to the processing of personal data in accordance with the <Link to='/policy'> Privacy Policy</Link>.
+                                </p>
+                            </Form> 
+                        )}
+                    </Formik>                   
                 </div>
             </section>
 
