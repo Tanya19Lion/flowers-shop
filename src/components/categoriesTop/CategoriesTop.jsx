@@ -8,12 +8,12 @@ import { selectTopCategories } from '../../redux/selectors/selectors';
  
 import './CategoriesTop.scss';
 
-export default function CategoriesTop() {
+export default function CategoriesTop({ topCategoriesBlockClasses }) {
     const { topCategories, categoriesLoadingStatus, activeTopCategories } = useSelector(selectTopCategories);
 
     const { getCategoriesTop } = useFlowersService();
 
-    return useCategories('top-categories', topCategoriesFetching, topCategoriesFetched, topCategoriesFetchingError, activeTopCategoryChange, getCategoriesTop, topCategories, categoriesLoadingStatus, activeTopCategories);
+    return useCategories('top-categories', topCategoriesFetching, topCategoriesFetched, topCategoriesFetchingError, activeTopCategoryChange, getCategoriesTop, topCategories, categoriesLoadingStatus, activeTopCategories, topCategoriesBlockClasses);
 };
 
 

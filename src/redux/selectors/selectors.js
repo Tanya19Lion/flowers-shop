@@ -136,3 +136,10 @@ export const selectOrderSummData = createSelector(
         }
     }
 );
+
+export const selectActiveSortCategory = createSelector(
+    [
+        (state) => state.categories.activeSortCategory,
+    ],
+    activeSortCategory => activeSortCategory    
+);

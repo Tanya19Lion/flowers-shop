@@ -170,6 +170,23 @@ body.addition {
 	}
 }
 
+.main-block {
+	padding: 30px 50px;
+	border-radius: 20px;
+	background-color: $blackscale-1;
+	backdrop-filter: blur(20px);
+}
+@media (max-width: 1050px) {
+	.main-block {
+		padding: 24px;
+	}
+}
+@media (max-height: 800px) and (orientation: landscape) {
+	.main-block {
+		padding: 24px;
+	}
+}
+
 .common-btn,
 .colored-btn {
 	display: flex;
@@ -230,7 +247,42 @@ body.addition {
 .colored-btn:disabled {
 	color: $grey;
 	border-color: $grey;
+	background-color: transparent;
+	cursor: not-allowed;
 }
+
+.select-btn {
+	max-width: 257px;
+	width: 100%;
+	text-align: left;
+	position: relative;
+	display: block;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	background-color: transparent;
+	cursor: pointer;
+	outline: transparent;
+	border-radius: 10px;
+	border: none;    
+	color: $main-text-color;
+	padding: 11px 32px 11px 16px;
+
+	&::after {
+		position: absolute;
+		content: "";
+		pointer-events: none;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-top: 8px solid $main-text-color;
+		top: 15px;
+		right: 20px;
+		pointer-events: none;
+	}
+	&:focus {
+		box-shadow: 0 0 0 1px $green;
+	}
+}
+
 .common-link-btn {
 	color: $pink;  
 	font-size: 12px;
@@ -266,22 +318,6 @@ body.addition {
 	display: flex;
 	align-items: center;
 }
-.main-block {
-	padding: 30px 50px;
-	border-radius: 20px;
-	background-color: $blackscale-1;
-	backdrop-filter: blur(20px);
-}
-@media (max-width: 1050px) {
-	.main-block {
-		padding: 24px;
-	}
-}
-@media (max-height: 800px) and (orientation: landscape) {
-	.main-block {
-		padding: 24px;
-	}
-} 
 
 .visually-hidden {
 	/* Удаляем элемент из потока документа */

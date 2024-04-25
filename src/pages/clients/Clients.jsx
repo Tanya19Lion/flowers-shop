@@ -135,7 +135,7 @@ const Clients = () => {
                             resetForm();
                         }}
                     >
-                        {({ isSubmitting }) => (
+                        {({ errors, isSubmitting }) => (
                             <Form className="employee-order__form">
                                 <div className="employee-order__form-inner flex">
                                     <TextInput 
@@ -184,7 +184,7 @@ const Clients = () => {
                                 <button 
                                     type="submit" 
                                     className="employee-order__form-btn colored-btn"
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || errors.organization || errors.address || errors.contact_person || errors.cost || errors.phone || errors.email}
                                 >Send</button>
                                 <p className="employee-order__form-policy">
                                     By clicking on the "Send" button, I consent to the processing of personal data in accordance with the <Link to='/policy'> Privacy Policy</Link>.

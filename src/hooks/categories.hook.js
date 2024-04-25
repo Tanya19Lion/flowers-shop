@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Spinner from '../components/spinner/Spinner.jsx';
 import ErrorMessage from '../components/errorMessage/ErrorMessage.jsx';
 
-export const useCategories = (categoryTitle, actionFetching, actionFetched, actionFetchinError, activeCategoriesChange, categoryService, allCurrentCategories, currentCategoryStatus, activeCurrentCategories) => {
+export const useCategories = (categoryTitle, actionFetching, actionFetched, actionFetchinError, activeCategoriesChange, categoryService, allCurrentCategories, currentCategoryStatus, activeCurrentCategories, categoryClassNames) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -25,8 +25,7 @@ export const useCategories = (categoryTitle, actionFetching, actionFetched, acti
     } else if (categoryTitle === 'top-categories') {
         return (
             <div className="catalog-top__categories">
-                <button className="catalog-top__categories-btn">Categories</button>
-                <div className="catalog-top__categories-block flex">    
+                <div className={categoryClassNames}>    
                     {
                         allCurrentCategories.map(item => {
                             const { id, name, value } = item;
@@ -53,7 +52,7 @@ export const useCategories = (categoryTitle, actionFetching, actionFetched, acti
         )
     } else {
         return (
-            <div className="catalog-details__inner-price">
+            <div className="catalog-details__inner-block">
                 <p className="catalog-details__inner-title green-text">
                     {categoryTitle}
                 </p> 

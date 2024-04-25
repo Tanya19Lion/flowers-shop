@@ -11,7 +11,7 @@ const TextInput = ({ ...props }) => {
     return (
         <>
             <input {...props} {...field}/>
-            {meta.touched && meta.error ? <div className='error-message'>{meta.error }</div> : null}
+            {meta.touched && meta.error ? <p className='error-message'>{meta.error }</p> : null}
         </>
     )
 };
@@ -92,7 +92,7 @@ const Contacts = () => {
                                 resetForm();
                             }}
 						>
-							{({ isSubmitting }) => (
+							{({ errors, isSubmitting }) => (
 								<Form className="questions__form">
 									<TextInput 
 										type="text"
@@ -104,7 +104,7 @@ const Contacts = () => {
 										type="tel" 
 										name="phone"
 										className="questions__form-phone" 
-										placeholder="+44 171 77-77-77" 
+										placeholder="+44 171 77 77 77" 
 									/>
 									<Field 
 										as="textarea"
@@ -116,7 +116,7 @@ const Contacts = () => {
 									<button 
 										type="submit" 
 										className="questions__form-btn colored-btn"
-										disabled={isSubmitting}
+										disabled={isSubmitting || errors.name || errors.phone || errors.comment}
 									>Send</button>
 									<p className="questions__form-policy">
 										By clicking on the "Send" button, I consent to the processing of personal data in accordance with the 
@@ -125,16 +125,6 @@ const Contacts = () => {
 								</Form> 
 							)}
 						</Formik>
-
-                        {/* <form className="questions__form">
-                            <input type="text" className="questions__form-name" placeholder="Your name" />
-                            <input type="phone" className="questions__form-phone" placeholder="+44 171 77-77-77" />
-                            <textarea className="questions__form-textarea" placeholder="Your comment"></textarea>
-                            <button type="submit" className="questions__form-btn colored-btn">Send</button>
-                            <p className="questions__form-policy">
-                                By clicking on the “Send” button, I consent to the processing of personal data in accordance with the <Link to="/policy">Privacy Policy</Link>.
-                            </p>
-                        </form>   */}
                     </div>              
                 </div>
             </section>

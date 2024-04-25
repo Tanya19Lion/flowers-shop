@@ -24,10 +24,25 @@ import { selectOrderModalOpen } from '../../redux/selectors/selectors';
 
 import './Catalog.scss';
 
+const classNames = require('classnames');   
+
 const Catalog = () => {
     const dispatch = useDispatch();
     const [openModal, setOpenModal] = useState(false);
     const isOrderModalOpen = useSelector(selectOrderModalOpen);
+
+    const [topCategoriesOpen, setTopCategoriesOpen] = useState(false); 
+    const [filtersOpen, setFiltersOpen] = useState(false); 
+
+    const topCategoriesBlockClasses = classNames({
+		'catalog-top__categories-block flex': true,
+		'open': topCategoriesOpen
+	});
+
+    const filtersBlockClasses = classNames({
+		'catalog-details__inner-filters-block main-block': true,
+		'open': filtersOpen
+	});
 
     const resetSidebarFilters = () => {
         dispatch(lowLimitChange(0));
@@ -62,8 +77,12 @@ const Catalog = () => {
                             <p className="catalog-top__slogan">
                                 In out store you will find the largest selection of flowers for any event of your life
                             </p>
+                            <button 
+                                className="catalog-top__categories-btn select-btn main-block"
+                                onClick={() => setTopCategoriesOpen(!topCategoriesOpen)}
+                            >Categories</button>
                             <ErrorBoundary>
-                                <CategoriesTop />
+                                <CategoriesTop topCategoriesBlockClasses={topCategoriesBlockClasses}/>
                             </ErrorBoundary>
                         </div>
                         <div className="top-info__right-block">
@@ -85,7 +104,12 @@ const Catalog = () => {
                 <div className="container">
                     <div className="catalog-details__inner">
                         <div className="catalog-details__inner-filters">
-                            <div className="catalog-details__inner-filters-block main-block">
+                            <button 
+                                className="catalog-details__inner-filters-btn select-btn main-block"
+                                onClick={() => setFiltersOpen(!filtersOpen)}
+                            >Filters</button>
+
+                            <div className={filtersBlockClasses}>
                                 <ErrorBoundary>
                                     <CategoriesColours />
                                 </ErrorBoundary>

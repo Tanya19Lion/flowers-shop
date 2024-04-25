@@ -27,7 +27,7 @@ const CategoryPrice = () => {
     }, [resetFilters]);
 
     return (
-        <div className="catalog-details__inner-price">
+        <div className="catalog-details__inner-block">
             <p className="catalog-details__inner-title green-text">
                 Cost
             </p>  
