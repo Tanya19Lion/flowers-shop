@@ -100,9 +100,6 @@
     }
 }
 
-
-
-
 .questions.contacts-questions {
     background-color: unset;
 }
@@ -112,6 +109,7 @@
     width: 825px;
     height: 1000px;
     top: -200px;
+    z-index: 0;
 }
 .questions.contacts-questions::after,
 .questions.contacts-questions .questions__box::before {
@@ -137,6 +135,7 @@
     .contacts-info__details-item {
         width: 48%;
     }
+    
 }
 
 @media (max-width: 800px) {

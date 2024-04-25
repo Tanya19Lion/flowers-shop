@@ -29,7 +29,7 @@
     max-height: 542px;
     left: unset;
     right: 0;    
-    top: -200px;
+    top: -140px;
 }
 .faq-main-title-block::before,
 .faq-main-title-block::after,
@@ -136,3 +136,41 @@
     top: 2px;
 }
 
+@media (max-width: 1500px) {
+    .faq-main::after {
+        max-width: 424px;
+    }
+    .faq-main::before {
+        top: -100px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .faq-main::after {
+        max-width: 324px;
+        max-height: 342px;
+    }
+    .faq-main::before {
+        max-width: 162px;
+        max-height: 139px;
+    }
+}
+
+@media (max-width: 900px) {
+    .faq-main::after {
+        max-width: 284px;
+        max-height: 302px;
+    }
+}
+
+@media (max-width: 640px) {
+    .faq-main::after {
+        max-width: 234px;
+        max-height: 202px;
+        top: -125px;
+    }
+    .faq-main::before {
+        max-width: 102px;
+        max-height: 113px;
+    }
+}

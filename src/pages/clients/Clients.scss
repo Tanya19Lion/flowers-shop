@@ -19,13 +19,13 @@
         width: 100%;
         height: 100%;
         right: 0px;
-        top: -250px;
+        top: -100px;
         z-index: 16;
     }
     &-block::after {
         background-image: url(../../../public/images/employees-top-left--image.webp);
         background-position: left center;
-        max-width: 454px;
+        max-width: 254px;
         max-height: 354px;
         left: 0px;
         right: unset;
@@ -267,6 +267,18 @@
     }
 }
 
+@media (max-width: 1250px) {
+    .employee-main-block::after {
+        top: -100px;
+        z-index: 0;
+    }    
+    .employee-main-block::before {
+        max-width: 354px;
+        max-height: 354px;
+        z-index: 0;
+    }
+}
+
 @media (max-width: 640px) {
     .employee-main-title, 
     .employee-main-subtitle,
@@ -311,4 +323,12 @@
     .employee-main-subtitle__second-part {
        padding-left: 24px;
     }  
+    .employee-main-block::after {
+        max-width: 154px;
+        max-height: 195px;
+    }    
+    .employee-main-block::before {
+        max-width: 254px;
+        max-height: 254px;
+    }
 }

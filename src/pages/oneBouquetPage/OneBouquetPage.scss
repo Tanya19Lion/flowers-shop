@@ -180,8 +180,10 @@
         background-position: right center;
         background-size: cover;
         background-repeat: no-repeat;
-        width: 780px;
-        height: 1170px;
+        max-width: 780px;
+        max-height: 1170px;
+        width: 100%;
+        height: 100%;
         right: 0px;
         top: -100px;
     }
@@ -211,8 +213,10 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: right center;
-        width: 682px;
-        height: 1022px;
+        max-width: 544px;
+        max-height: 1022px;
+        width: 100%;
+        height: 100%;
         right: 0;
         top: -200px;
     }
@@ -234,6 +238,20 @@
     .one-order__info-title,
     .one-order__info-price {
         margin-bottom: 24px;
+    }
+    .one-order::after,
+    .one-order__delivery::after {
+        z-index: -1;
+    }
+}
+
+@media (max-width: 900px) {
+    .one-order::after {
+        max-width: 480px;
+        max-height: 615px;
+    }
+    .catalog-details__inner-items {
+        justify-content: center;
     }
 }
 
@@ -265,5 +283,11 @@
             width: 100%;
             height: 100%;
         }
+    }
+}
+
+@media (max-width: 480px) {
+    .one-order::after {
+        display: none;
     }
 }

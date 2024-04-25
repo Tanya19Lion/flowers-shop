@@ -607,6 +607,16 @@
         position: static;
         max-width: 505px;
     }
+    .questions::before,
+    .questions.contacts-questions::before {
+        background-image: url('../../../public/images/question-mobile-right-bg.webp');
+        background-size: cover;
+        left: unset;
+        right: 0;
+        top: 200px;
+        width: 593px;
+        height: 605px;
+    }
     .special-occasion__item--holiday {
         display: none;
     }
@@ -671,6 +681,10 @@
     }
     .main-page .popular__inner-item {
         max-width: 280px;
+    }
+    .questions::before {
+        width: 510px;
+        height: 457px;
     }
 }
 
@@ -789,7 +803,11 @@
     .top-info .top-info__title {
         margin-bottom: 400px;
     }
-
+    .questions::before {
+        width: 355px;
+        height: 325px;
+        top: 180px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -853,6 +871,11 @@
     .main-page .popular__inner-item-btn {
         margin-left: unset;
     }
+    .questions__sign,
+    .questions__sign svg {
+        width: 180px;
+        height: 180px;
+    }
 }
 
 @media (max-height: 800px) and (orientation: landscape) {
@@ -880,3 +903,4 @@
         max-width: 505px;
     }
 }
+
