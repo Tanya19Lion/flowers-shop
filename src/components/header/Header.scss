@@ -2,7 +2,7 @@
 
 .header {
     position: sticky;
-    z-index: 15;    
+    z-index: 25;    
     padding-top: 15px;
     padding-bottom: 15px;
     top: 0;
@@ -68,6 +68,10 @@
             display: inline-block;
             margin-right: 12px;
         }
+    }
+    &.header-with-blur {
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
     }
     .info-basket {
         margin-left: unset;

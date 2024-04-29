@@ -12,8 +12,8 @@ export const useScroll = () => {
 
     if (pageHeader) {
         scroll > 60 
-            ? pageHeader.style.backdropFilter = 'blur(20px)'
-            : pageHeader.style.backdropFilter = 'unset';
+            ? pageHeader.classList.add('header-with-blur')
+            : pageHeader.classList.remove('header-with-blur');
     }
 
     if (pageTopHeader) {
