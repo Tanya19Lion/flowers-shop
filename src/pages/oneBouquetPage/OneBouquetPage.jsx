@@ -1,41 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 
 import { useChangeHeader } from '../../hooks/changeHeader.hook';
 
+import Spinner from '../../components/spinner/Spinner';
 import Portal from '../../components/portal/Portal';
 import OrderPopup from '../../components/orderPopup/OrderPopup';
 
-import { bouquetAddedToOrder, openOrderModal } from '../../redux/actions/actions';
-import { selectOrderModalOpen } from '../../redux/selectors/selectors';
-
-import useFlowersService from '../../services/FlowersService';
+import { bouquetAddedToOrder, orderModalOpen, fetchOneBouquet } from '../../redux/slices/orderSlice';
+import { selectOrderModalOpen, selectSelectedBouquet, selectSelectedBouquetStatus } from '../../redux/selectors/selectors';
 
 import './OneBouquetPage.scss';
 
 const OneBouquetPage = () => {
-    const isOrderModalOpen = useSelector(selectOrderModalOpen);
-
-    useChangeHeader('#000000', '100px');
-
+    const dispatch = useDispatch();
     const { id } = useParams();
-    const { getOneBouquet } = useFlowersService(); 
-    const [oneBouquet, setOneBouquet] = useState([]);
+
+    const isOrderModalOpen = useSelector(selectOrderModalOpen);
+    const oneBouquet = useSelector(selectSelectedBouquet);
+    const selectedBouquetStatus = useSelector(selectSelectedBouquetStatus);
+
+    useChangeHeader('#000000', '100px');    
 
     useEffect(() => {
-		getOneBouquet(id).then(data => setOneBouquet(data));
-	}, [id]);
-
-    const dispatch = useDispatch();
+		dispatch(fetchOneBouquet(id));
+	}, [id, dispatch]);
 
     const handlePopupOpen = (id) => {
-        dispatch(openOrderModal());  
+        dispatch(orderModalOpen());  
         dispatch(bouquetAddedToOrder(id));
     }
 
-    const { imageSrc, altSign, name, price } = oneBouquet;
+    if (selectedBouquetStatus === 'loading') {
+        return <div className="loading"><Spinner /></div>;
+    }
 
+    if (!oneBouquet) {
+        return <div className="error">Bouquet not found or still loading...</div>;
+    }
+
+    const { imageSrc, altSign, name, price } = oneBouquet;
+    
     return (
         <main className="one-order">
             <section className="one-order__main chapter-margin">

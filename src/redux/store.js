@@ -1,8 +1,13 @@
-import { createStore, combineReducers } from "redux";
+import { configureStore } from '@reduxjs/toolkit'
 
-import categoriesReducer from "./reducers/categoriesReducer";
-import orderReducer from "./reducers/orderReducer";
+import categoriesReducer from "./slices/categoriesSlice";
+import orderReducer from "./slices/orderSlice";
 
-const store = createStore( combineReducers({categories: categoriesReducer, order: orderReducer}) );
+const store = configureStore({
+    reducer: { 
+        categories: categoriesReducer, 
+        order: orderReducer
+    }
+});
 
 export default store;

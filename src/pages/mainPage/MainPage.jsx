@@ -14,7 +14,7 @@ import OrderPopup from '../../components/orderPopup/OrderPopup';
 import OrderPhoneElement from '../../components/orderPhoneElement/OrderPhoneElement';
 import SimpleSlider from '../../components/simpleSlider/SimpleSlider';
 
-import { openOrderModal } from '../../redux/actions/actions';
+import { orderModalOpen } from '../../redux/slices/orderSlice';
 import { selectOrderData } from '../../redux/selectors/selectors';
 
 import './MainPage.scss';
@@ -72,7 +72,7 @@ const MainPage = () => {
 							<Link to="tel:+44171552948" className="top-info__right-block-link">+44 171 552948</Link>
 						</div>
 						<OrderPhoneElement handleOpenModal={handleOpenModal}/>
-						<Basket handleOpenOrderModal={() => dispatch(openOrderModal())}/>
+						<Basket handleOpenOrderModal={() => dispatch(orderModalOpen())}/>
 					</div>
 					<div className="top-info__sign">
 						<img src="images/main-page-top-lover-flower.webp" alt="sight lower flower" width="245" height="180" />

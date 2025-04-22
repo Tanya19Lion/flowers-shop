@@ -19,7 +19,8 @@ import CategoriesFlowers from '../../components/categoriesFlowers/CategoriesFlow
 import AllBouquets from '../../components/allBouquets/AllBouquets';
 import ErrorBoundary from '../../components/errorBoundary/ErrorBoundary';
 
-import { openOrderModal, lowLimitChange, highLimitChange, activeFlowersCategoryChange, activeFormatCategoryChange, activeColorsCategoryChange, resetAllFilters } from '../../redux/actions/actions';
+import { lowLimitChange, highLimitChange, activeFlowersCategoryChange, activeFormatCategoryChange, activeColorCategoryChange, resetAllFilters } from '../../redux/slices/categoriesSlice';
+import { orderModalOpen } from '../../redux/slices/orderSlice';
 import { selectOrderModalOpen } from '../../redux/selectors/selectors';
 
 import './Catalog.scss';
@@ -49,7 +50,7 @@ const Catalog = () => {
         dispatch(highLimitChange(4000));
         dispatch(activeFlowersCategoryChange('all'));
         dispatch(activeFormatCategoryChange('all'));
-        dispatch(activeColorsCategoryChange('all'));
+        dispatch(activeColorCategoryChange('all'));
         dispatch(resetAllFilters());
     }
 
@@ -90,7 +91,7 @@ const Catalog = () => {
                                 <Link to="tel:+44171552948" className="top-info__right-block-link">+44 171 552948</Link>
                             </div>
                             <OrderPhoneElement handleOpenModal={handleOpenModal}/>
-                            <Basket handleOpenOrderModal={() => dispatch(openOrderModal())}/>
+                            <Basket handleOpenOrderModal={() => dispatch(orderModalOpen())}/>
                         </div>
                     </div>                 
                 </div>

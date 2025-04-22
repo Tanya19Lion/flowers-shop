@@ -119,8 +119,7 @@ const Contacts = () => {
 										disabled={isSubmitting || errors.name || errors.phone || errors.comment}
 									>Send</button>
 									<p className="questions__form-policy">
-										By clicking on the "Send" button, I consent to the processing of personal data in accordance with the 
-										<Link to='/policy'>Privacy Policy</Link>.
+										By clicking on the "Send" button, I consent to the processing of personal data in accordance with the <Link to='/policy'> Privacy Policy</Link>.
 									</p>
 								</Form> 
 							)}

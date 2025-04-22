@@ -1,34 +1,26 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createSelector } from 'reselect';
 
-import useFlowersService from '../../services/FlowersService';
-
-import { bouquetsFetching , bouquetsFetched, bouquetsFetchingError } from '../../redux/actions/actions';
-import { selectBouquetsloadingStatus, selectStateData } from '../../redux/selectors/selectors';
+import { fetchAllBouquets } from '../../redux/slices/orderSlice';
+import { selectBouquetsloadingStatus, selectStateData, sortedFlowersSelector } from '../../redux/selectors/selectors';
 
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 
 import './AllBouquets.scss';
 
-
 const AllBouquets = () => {
-    const { getAllBouquets } = useFlowersService();
-
     const bouquetsloadingStatus = useSelector(selectBouquetsloadingStatus);
     const { activeColorCategories, activeFormatCategories, activeFlowersCategories, lowPriceLimit, highPriceLimit } = useSelector(selectStateData);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(bouquetsFetching());
-        getAllBouquets()
-            .then(data => { 
-                dispatch(bouquetsFetched(data));
-            })
-            .catch(() => dispatch(bouquetsFetchingError()))
+        dispatch(fetchAllBouquets())
+        // .then((result) => {
+        //     console.log('Thunk result:', result); 
+        // });       
     }, []);
 
     if (bouquetsloadingStatus === 'loading') {
@@ -37,59 +29,21 @@ const AllBouquets = () => {
         return <ErrorMessage />;
     }
 
-    const filteredBouquetsSelector = createSelector(
-        (state) => state.categories.activeTopCategories,
-        (state) => state.order.bouquets,
-        (activeTopCategories, bouquets) => {
-            if (activeTopCategories.includes('all')) {
-                return bouquets;
-            }
-            else {
-                return Array.from(new Set( activeTopCategories.map(category => {
-                    return bouquets.filter(item => item.categories.includes(category));                
-                }).flat() ));
-            }
-        }
-    );
-
-    let filteredBouquets = useSelector(filteredBouquetsSelector);
-
-    const sortedFlowers = createSelector(
-        (state) => state.categories.activeSortCategory,
-        (activeSortCategory) => {
-            switch(activeSortCategory) {
-                case 'popularity':
-                    return [...filteredBouquets.sort((a, b) => b.popularity - a.popularity)];
-                case 'cheap-first':
-                    return [...filteredBouquets.sort((a, b) => a.price - b.price)];
-                case 'expensive-first':
-                    return [...filteredBouquets.sort((a, b) => b.price - a.price)];
-                default:
-                    return filteredBouquets;
-            }
-        }
-    );
-    useSelector(sortedFlowers);
+    let filteredBouquets = useSelector(sortedFlowersSelector);
 
     const includesAny = (arr, values) => values.some(v => arr.includes(v));
-
-    if (activeColorCategories.length) {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.colour, activeColorCategories));   
-    } else {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.colour.includes('all'));    
+    
+    const filterByCategories = (category, activeProp) => {
+        if (category.length) {
+            return filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet[activeProp], category));
+        } else {
+            filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet[activeProp].includes('all'));
+        }
     }
 
-    if (activeFlowersCategories.length) {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.flowers, activeFlowersCategories));
-    } else {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.flowers.includes('all'));
-    }
-
-    if (activeFormatCategories.length) {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => includesAny(bouquet.format, activeFormatCategories));
-    } else {
-        filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.format.includes('all'));
-    }
+    filterByCategories(activeColorCategories, 'colour', activeColorCategories);
+    filterByCategories(activeFlowersCategories, 'flowers', activeFlowersCategories);
+    filterByCategories(activeFormatCategories, 'format', activeFormatCategories);
 
     filteredBouquets = [...filteredBouquets].filter(bouquet => bouquet.price > lowPriceLimit && bouquet.price < highPriceLimit);
     

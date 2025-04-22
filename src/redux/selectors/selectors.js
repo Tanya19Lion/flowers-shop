@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector } from '@reduxjs/toolkit';
 
 export const selectOrderModalOpen = createSelector(
     (state) => state.order.isOrderModalOpen,
@@ -143,3 +143,38 @@ export const selectActiveSortCategory = createSelector(
     ],
     activeSortCategory => activeSortCategory    
 );
+
+export const filteredBouquetsSelector = createSelector(
+    (state) => state.categories.activeTopCategories,
+    (state) => state.order.bouquets,
+    (activeTopCategories, bouquets) => {
+        if (activeTopCategories.includes('all')) {
+            return bouquets;
+        }
+        else {
+            return Array.from(new Set( activeTopCategories.map(category => {
+                return bouquets.filter(item => item.categories.includes(category));                
+            }).flat() ));
+        }
+    }
+);
+
+export const sortedFlowersSelector = createSelector(
+    (state) => state.categories.activeSortCategory,
+    filteredBouquetsSelector,
+    (activeSortCategory, filteredBouquets) => {
+        switch(activeSortCategory) {
+            case 'popularity':
+                return filteredBouquets.slice().sort((a, b) => b.popularity - a.popularity);
+            case 'cheap-first':
+                return filteredBouquets.slice().sort((a, b) => a.price - b.price);
+            case 'expensive-first':
+                return filteredBouquets.slice().sort((a, b) => b.price - a.price);
+            default:
+                return filteredBouquets;
+        }
+    }
+);
+
+export const selectSelectedBouquet = (state) => state.order.selectedBouquet;
+export const selectSelectedBouquetStatus = (state) => state.order.selectedBouquetLoadingStatus;

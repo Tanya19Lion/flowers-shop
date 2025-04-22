@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { bouquetAddedToOrder, bouquetRemovedFromOrder, bouquetDeletedFromOrder, closeOrderModal, clearOrderList } from '../../redux/actions/actions';
+import { bouquetAddedToOrder, bouquetRemovedFromOrder, bouquetDeletedFromOrder, orderModalClose, clearOrderList } from '../../redux/slices/orderSlice';
 import { selectOrderSummData } from '../../redux/selectors/selectors';
 
 import './OrderPopup.scss';
@@ -14,7 +14,7 @@ const OrderPopup = () => {
     return (
         <div className="order-popup__wrapper">
             <div className="order-popup__content">
-                <div className="order-popup__close-btn" onClick={() => dispatch(closeOrderModal())}>
+                <div className="order-popup__close-btn" onClick={() => dispatch(orderModalClose())}>
                     <img src="../images/popup-close-btn.svg" alt="green close sign" width="30" height="30" />
                 </div>
                 {   countTotal > 0 
@@ -35,14 +35,14 @@ const OrderPopup = () => {
                                         <h2 className="order-popup__info-name">{name}</h2>
                                         <div className="order-popup__info-buttons flex">
                                             <button 
-                                                className="order-popup__info-btn order-popup__info-btn--increase" 
-                                                onClick={() => dispatch(bouquetAddedToOrder(id))}
-                                            >+</button>
-                                            <span className="order-popup__info-number">{count}</span>
-                                            <button 
                                                 className="order-popup__info-btn order-popup__info-btn--decrease" 
                                                 onClick={() => dispatch(bouquetRemovedFromOrder(id))}
                                             ><div></div></button>
+                                            <span className="order-popup__info-number">{count}</span>                                           
+                                            <button 
+                                                className="order-popup__info-btn order-popup__info-btn--increase" 
+                                                onClick={() => dispatch(bouquetAddedToOrder(id))}
+                                            >+</button>
                                         </div>
                                     </div>
                                     <div className="order-popup__info-details">
@@ -64,7 +64,7 @@ const OrderPopup = () => {
                         to='/final-page' 
                         className="order-popup__preorder-btn common-btn" 
                         onClick={() => {
-                            dispatch(closeOrderModal(true));
+                            dispatch(orderModalClose(true));
                             dispatch(clearOrderList());
                         }}
                     >Checkout</Link>

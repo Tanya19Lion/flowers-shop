@@ -9,7 +9,7 @@ import Basket from '../basket/Basket';
 import OrderPopup from '../orderPopup/OrderPopup';
 import Popup from '../popup/Popup';
 
-import { openOrderModal } from '../../redux/actions/actions';
+import { orderModalOpen } from '../../redux/slices/orderSlice';
 import { selectOrderModalOpen } from '../../redux/selectors/selectors';
 
 const classNames = require('classnames');
@@ -93,7 +93,7 @@ const Header = () => {
                             </span>
                             <span className="header__phone-link">+44 171 552948</span>
                         </button>                        
-                        <Basket handleOpenOrderModal={() => dispatch(openOrderModal())}/>
+                        <Basket handleOpenOrderModal={() => dispatch(orderModalOpen())}/>
                     </div>  
 
                     <div className="header-mobile">
@@ -150,7 +150,7 @@ const Header = () => {
                                 <img src="../images/popup-close-btn.svg" alt="green close sign" width="30" height="30" />
                             </div>
                         </div>
-                        <Basket handleOpenOrderModal={() => dispatch(openOrderModal())}/>
+                        <Basket handleOpenOrderModal={() => dispatch(orderModalOpen())}/>
                         <p className='header-mobile__title'>Lower <br /> flower</p>
                     </div>                        
                 </div>              

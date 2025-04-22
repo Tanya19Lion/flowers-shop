@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import './CategoryPrice.scss';
 
-import { lowLimitChange, highLimitChange } from '../../redux/actions/actions';
+import { lowLimitChange, highLimitChange } from '../../redux/slices/categoriesSlice';
 import { selectPriceData } from '../../redux/selectors/selectors';
 
 const CategoryPrice = () => {

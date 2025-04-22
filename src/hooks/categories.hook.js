@@ -4,14 +4,11 @@ import { useDispatch } from 'react-redux';
 import Spinner from '../components/spinner/Spinner.jsx';
 import ErrorMessage from '../components/errorMessage/ErrorMessage.jsx';
 
-export const useCategories = (categoryTitle, actionFetching, actionFetched, actionFetchinError, activeCategoriesChange, categoryService, allCurrentCategories, currentCategoryStatus, activeCurrentCategories, categoryClassNames) => {
+export const useCategories = (categoryTitle, fetchAction, activeCategoriesChange, allCurrentCategories, currentCategoryStatus, activeCurrentCategories, categoryClassNames) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(actionFetching());
-        categoryService()
-            .then(data => dispatch(actionFetched(data)))
-            .catch(() => dispatch(actionFetchinError()))
+       dispatch(fetchAction());      
     }, []);
 
     if (currentCategoryStatus === 'loading') {

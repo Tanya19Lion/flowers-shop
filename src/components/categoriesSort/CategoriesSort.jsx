@@ -3,10 +3,28 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import './CategoriesSort.scss';
 
-import { activeSortCategoryChange } from '../../redux/actions/actions';
+import { activeSortCategoryChange } from '../../redux/slices/categoriesSlice';
 import { selectActiveSortCategory } from '../../redux/selectors/selectors';
 
 const classNames = require('classnames');
+
+const categoriesSortData = [
+    {
+        id: 1,
+        name: 'Popularity',
+        value: 'popularity'
+    },
+    {
+        id: 2,
+        name: 'Cheap bouquets first',
+        value: 'cheap-first'
+    },
+    {
+        id: 3,
+        name: 'Expensive bouquets first',
+        value: 'expensive-first'
+    }
+];
 
 const CategoriesSort = () => {
     const dispatch = useDispatch();
@@ -24,42 +42,24 @@ const CategoriesSort = () => {
                 <div className="catalog-sort__select">
                     <button className="catalog-sort__select-btn main-block select-btn" onClick={() => setListOpen(!listOpen)}>Sort by</button>
                     <div className={listClass}>
-                        <div className="catalog-sort__button">
-                            <input
-                                type="radio" 
-                                id="popularity" 
-                                name="catalog-sort" 
-                                value="popularity" 
-                                checked={selectedSortCategory === "popularity"}
-                                className="catalog-sort__button-input" 
-                                onChange={(e) =>  dispatch(activeSortCategoryChange(e.target.value))}
-                            />
-                            <label htmlFor="popularity" className="catalog-sort__button-label">Popularity</label>
-                        </div>
-                        <div className="catalog-sort__button">
-                            <input 
-                                type="radio" 
-                                id="cheap-first" 
-                                name="catalog-sort" 
-                                value="cheap-first" 
-                                checked={selectedSortCategory === "cheap-first"}
-                                className="catalog-sort__button-input" 
-                                onChange={(e) =>  dispatch(activeSortCategoryChange(e.target.value))}
-                            />
-                            <label htmlFor="cheap-first" className="catalog-sort__button-label">Cheap bouquets first</label>
-                        </div>
-                        <div className="catalog-sort__button">
-                            <input 
-                                type="radio" 
-                                id="expensive-first" 
-                                name="catalog-sort" 
-                                value="expensive-first" 
-                                checked={selectedSortCategory === "expensive-first"}
-                                className="catalog-sort__button-input" 
-                                onChange={(e) =>  dispatch(activeSortCategoryChange(e.target.value))}
-                            />
-                            <label htmlFor="expensive-first" className="catalog-sort__button-label">Expensive bouquets first</label>
-                        </div>
+                        {
+                            categoriesSortData.map(({id, name, value}) => {
+                                return (
+                                    <div className="catalog-sort__button" key={id}>
+                                        <input 
+                                            type="radio" 
+                                            id={value} 
+                                            name="catalog-sort" 
+                                            value={value} 
+                                            checked={selectedSortCategory === value}
+                                            className="catalog-sort__button-input" 
+                                            onChange={(e) => dispatch(activeSortCategoryChange(e.target.value))}
+                                        />
+                                        <label htmlFor={value} className="catalog-sort__button-label">{name}</label>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
