@@ -1,19 +1,39 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useGetCategoriesTopQuery, useGetCategoriesColoursQuery, useGetCategoriesFormatQuery, useGetCategoriesFlowersQuery } from '../api/apiSlice';
 
 import Spinner from '../components/spinner/Spinner.jsx';
 import ErrorMessage from '../components/errorMessage/ErrorMessage.jsx';
 
-export const useCategories = (categoryTitle, fetchAction, activeCategoriesChange, allCurrentCategories, currentCategoryStatus, activeCurrentCategories, categoryClassNames) => {
+export const useCategories = (categoryTitle, activeCategoriesChange, activeCurrentCategories, categoryClassNames) => {
     const dispatch = useDispatch();
+    const topQuery = useGetCategoriesTopQuery();
+    const colourQuery = useGetCategoriesColoursQuery();
+    const formatQuery = useGetCategoriesFormatQuery();
+    const flowerQuery = useGetCategoriesFlowersQuery();
+    
+    let queryResult;
+    switch (categoryTitle) {
+        case 'top-categories':
+            queryResult = topQuery;
+            break;
+        case 'By colour':
+            queryResult = colourQuery;
+            break;
+        case 'By format':
+            queryResult = formatQuery ;
+            break;      
+        case 'By flowers':
+            queryResult = flowerQuery;
+            break;
+        default:
+            break;
+    }
+    const { data: allCurrentCategories, isError, isLoading } = queryResult;
 
-    useEffect(() => {
-       dispatch(fetchAction());      
-    }, []);
-
-    if (currentCategoryStatus === 'loading') {
+    if (isLoading) {
         return <Spinner />;
-    } else if (currentCategoryStatus === 'error') {
+    } else if (isError) {
         return <ErrorMessage />
     }
 

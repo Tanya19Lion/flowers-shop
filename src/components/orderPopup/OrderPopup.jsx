@@ -36,12 +36,12 @@ const OrderPopup = () => {
                                         <div className="order-popup__info-buttons flex">
                                             <button 
                                                 className="order-popup__info-btn order-popup__info-btn--decrease" 
-                                                onClick={() => dispatch(bouquetRemovedFromOrder(id))}
+                                                onClick={() => dispatch(bouquetRemovedFromOrder(selectedBouquet))}
                                             ><div></div></button>
                                             <span className="order-popup__info-number">{count}</span>                                           
                                             <button 
                                                 className="order-popup__info-btn order-popup__info-btn--increase" 
-                                                onClick={() => dispatch(bouquetAddedToOrder(id))}
+                                                onClick={() => dispatch(bouquetAddedToOrder(selectedBouquet))}
                                             >+</button>
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@ const OrderPopup = () => {
                                         <p className="order-popup__info-price green-text">£{price}</p>
                                         <button 
                                             className="order-popup__info-remove" 
-                                            onClick={() => dispatch(bouquetDeletedFromOrder(id))}
+                                            onClick={() => dispatch(bouquetDeletedFromOrder(selectedBouquet))}
                                         >Remove</button>
                                     </div>
                                 </div>

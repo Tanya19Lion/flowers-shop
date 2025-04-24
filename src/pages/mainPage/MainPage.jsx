@@ -14,8 +14,9 @@ import OrderPopup from '../../components/orderPopup/OrderPopup';
 import OrderPhoneElement from '../../components/orderPhoneElement/OrderPhoneElement';
 import SimpleSlider from '../../components/simpleSlider/SimpleSlider';
 
+import { useGetAllBouquetsQuery } from '../../api/apiSlice';
 import { orderModalOpen } from '../../redux/slices/orderSlice';
-import { selectOrderData } from '../../redux/selectors/selectors';
+import { selectOrderModalOpen } from '../../redux/selectors/selectors';
 
 import './MainPage.scss';
 
@@ -31,8 +32,9 @@ const TextInput = ({ ...props }) => {
 
 const MainPage = () => {
 	const dispatch = useDispatch();
-	const { bouquets, isOrderModalOpen } = useSelector(selectOrderData);
 	const [openModal, setOpenModal] = useState(false);
+	const { data: bouquets = [] } = useGetAllBouquetsQuery();
+	const { isOrderModalOpen } = useSelector(selectOrderModalOpen);	
 
 	useChangeHeader('transparent', '0px', 'header-with-basket', 'show-mobile-title');
 	useScroll();

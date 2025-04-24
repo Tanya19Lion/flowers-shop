@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 
@@ -8,31 +8,27 @@ import Spinner from '../../components/spinner/Spinner';
 import Portal from '../../components/portal/Portal';
 import OrderPopup from '../../components/orderPopup/OrderPopup';
 
-import { bouquetAddedToOrder, orderModalOpen, fetchOneBouquet } from '../../redux/slices/orderSlice';
-import { selectOrderModalOpen, selectSelectedBouquet, selectSelectedBouquetStatus } from '../../redux/selectors/selectors';
+import { useGetOneBouquetQuery } from '../../api/apiSlice';
+import { bouquetAddedToOrder, orderModalOpen } from '../../redux/slices/orderSlice';
+import { selectOrderModalOpen } from '../../redux/selectors/selectors';
 
 import './OneBouquetPage.scss';
 
 const OneBouquetPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-
+    
+    const { data: oneBouquet, isLoading } = useGetOneBouquetQuery(id);
     const isOrderModalOpen = useSelector(selectOrderModalOpen);
-    const oneBouquet = useSelector(selectSelectedBouquet);
-    const selectedBouquetStatus = useSelector(selectSelectedBouquetStatus);
-
+   
     useChangeHeader('#000000', '100px');    
 
-    useEffect(() => {
-		dispatch(fetchOneBouquet(id));
-	}, [id, dispatch]);
-
-    const handlePopupOpen = (id) => {
-        dispatch(orderModalOpen());  
-        dispatch(bouquetAddedToOrder(id));
+    const handlePopupOpen = (bouquet) => {
+        dispatch(orderModalOpen());     
+        dispatch(bouquetAddedToOrder(bouquet));
     }
 
-    if (selectedBouquetStatus === 'loading') {
+    if (isLoading) {
         return <div className="loading"><Spinner /></div>;
     }
 
@@ -60,7 +56,7 @@ const OneBouquetPage = () => {
                             <div className="one-order__info-buttons flex">
                                 <button 
                                     className="one-order__info-btn common-btn" 
-                                    onClick={() => handlePopupOpen(id)}
+                                    onClick={() => handlePopupOpen(oneBouquet)}
                                 >Add to the basket</button>
                             </div>
                         </div>

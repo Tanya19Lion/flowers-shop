@@ -1,106 +1,43 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const selectOrderModalOpen = createSelector(
-    (state) => state.order.isOrderModalOpen,
-    (isOrderModalOpen) => isOrderModalOpen   
-);
+export const selectOrderModalOpen = (state) => state.order.isOrderModalOpen;
 
-export const selectOrderData = createSelector(
-    [
-		(state) => state.order.isOrderModalOpen,
-		(state) => state.order.bouquets
-	],
-    (isOrderModalOpen, bouquets) => {
-		return {
-			isOrderModalOpen, 
-			bouquets
-		}
-	} 
-);
+export const selectOrderList = (state) => state.order.orderList;
 
-export const selectCountTotal = createSelector(
-    (state) => state.order.countTotal,
-    (countTotal) => countTotal    
-);
+export const selectCountTotal = (state) => state.order.countTotal;
 
-export const selectTopCategories = createSelector(
-    [
-        (state) => state.categories.topCategories,
-        (state) => state.categories.categoriesLoadingStatus,
-        (state) => state.categories.activeTopCategories
-    ],
-    (topCategories, categoriesLoadingStatus, activeTopCategories) => { 
-        return {
-            topCategories,
-            categoriesLoadingStatus,
-            activeTopCategories
-        }
-    }
-);
+export const selectSumTotal = (state) => state.order.sumTotal;
 
-export const selectFlowersCategories = createSelector(
-    [
-        (state) => state.categories.flowersCategories,
-        (state) => state.categories.flowersCategoriesLoadingStatus,
-        (state) => state.categories.activeFlowersCategories
-    ],
-    (flowersCategories, flowersCategoriesLoadingStatus, activeFlowersCategories) => { 
-        return {
-            flowersCategories,
-            flowersCategoriesLoadingStatus,
-            activeFlowersCategories
-        }
-    }
-);
+export const selectLowPriceLimit = (state) => state.categories.lowPriceLimit;
 
-export const selectFormatCategories = createSelector(
-    [
-        (state) => state.categories.formatCategories,
-        (state) => state.categories.formatCategoriesLoadingStatus,
-        (state) => state.categories.activeFormatCategories
-    ],
-    (formatCategories, formatCategoriesLoadingStatus, activeFormatCategories) => { 
-        return {
-            formatCategories,
-            formatCategoriesLoadingStatus,
-            activeFormatCategories
-        }
-    }
-);
+export const selectHighPriceLimit = (state) => state.categories.highPriceLimit;
 
-export const selectColorsCategories = createSelector(
-    [
-        (state) => state.categories.coloursCategories,
-        (state) => state.categories.colorsCategoriesLoadingStatus,
-        (state) => state.categories.activeColorCategories
-    ],
-    (coloursCategories, colorsCategoriesLoadingStatus, activeColorCategories) => { 
-        return {
-            coloursCategories,
-            colorsCategoriesLoadingStatus,
-            activeColorCategories
-        }
-    }
-);
+export const selectTopCategories = (state) => state.categories.activeTopCategories;
 
-export const selectBouquetsloadingStatus = createSelector(
-    (state) => state.order.bouquetsloadingStatus,
-    (bouquetsloadingStatus) => bouquetsloadingStatus    
-);
+export const selectFlowersCategories = (state) => state.categories.activeFlowersCategories;
+
+export const selectFormatCategories = (state) => state.categories.activeFormatCategories;
+
+export const selectColorsCategories = (state) => state.categories.activeColorCategories;
+
+export const selectActiveSortCategory = (state) => state.categories.activeSortCategory;
 
 export const selectStateData = createSelector(
-    [
-        (state) => state.categories.activeColorCategories,
-        (state) => state.categories.activeFormatCategories,
-        (state) => state.categories.activeFlowersCategories,
-        (state) => state.categories.lowPriceLimit,
-        (state) => state.categories.highPriceLimit
+    [   selectTopCategories,
+        selectColorsCategories,
+        selectFormatCategories,
+        selectFlowersCategories,
+        selectActiveSortCategory,
+        selectLowPriceLimit,
+        selectHighPriceLimit
     ],
-    (activeColorCategories, activeFormatCategories, activeFlowersCategories, lowPriceLimit, highPriceLimit) => { 
+    (activeTopCategories, activeColorCategories, activeFormatCategories, activeFlowersCategories, activeSortCategory, lowPriceLimit, highPriceLimit) => { 
         return {
+            activeTopCategories,
             activeColorCategories,
             activeFormatCategories,
             activeFlowersCategories,
+            activeSortCategory,
             lowPriceLimit,
             highPriceLimit
         }
@@ -109,8 +46,8 @@ export const selectStateData = createSelector(
 
 export const selectPriceData = createSelector(
     [
-        (state) => state.categories.lowPriceLimit,
-        (state) => state.categories.highPriceLimit,
+        selectLowPriceLimit,
+        selectHighPriceLimit,
         (state) => state.categories.resetFilters
     ],
     (lowPriceLimit, highPriceLimit, resetFilters) => { 
@@ -123,11 +60,7 @@ export const selectPriceData = createSelector(
 );
 
 export const selectOrderSummData = createSelector(
-    [
-        (state) => state.order.orderList,
-        (state) => state.order.sumTotal,
-        (state) => state.order.countTotal
-    ],
+    [ selectOrderList, selectSumTotal, selectCountTotal ],
     (orderList, sumTotal, countTotal) => { 
         return {
             orderList,
@@ -136,45 +69,3 @@ export const selectOrderSummData = createSelector(
         }
     }
 );
-
-export const selectActiveSortCategory = createSelector(
-    [
-        (state) => state.categories.activeSortCategory,
-    ],
-    activeSortCategory => activeSortCategory    
-);
-
-export const filteredBouquetsSelector = createSelector(
-    (state) => state.categories.activeTopCategories,
-    (state) => state.order.bouquets,
-    (activeTopCategories, bouquets) => {
-        if (activeTopCategories.includes('all')) {
-            return bouquets;
-        }
-        else {
-            return Array.from(new Set( activeTopCategories.map(category => {
-                return bouquets.filter(item => item.categories.includes(category));                
-            }).flat() ));
-        }
-    }
-);
-
-export const sortedFlowersSelector = createSelector(
-    (state) => state.categories.activeSortCategory,
-    filteredBouquetsSelector,
-    (activeSortCategory, filteredBouquets) => {
-        switch(activeSortCategory) {
-            case 'popularity':
-                return filteredBouquets.slice().sort((a, b) => b.popularity - a.popularity);
-            case 'cheap-first':
-                return filteredBouquets.slice().sort((a, b) => a.price - b.price);
-            case 'expensive-first':
-                return filteredBouquets.slice().sort((a, b) => b.price - a.price);
-            default:
-                return filteredBouquets;
-        }
-    }
-);
-
-export const selectSelectedBouquet = (state) => state.order.selectedBouquet;
-export const selectSelectedBouquetStatus = (state) => state.order.selectedBouquetLoadingStatus;

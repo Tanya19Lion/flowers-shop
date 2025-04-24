@@ -438,7 +438,7 @@
         width: 20px;
         height: 60px;
         left: -16px;
-        bottom: -55px;
+        bottom: calc(0% - 55px);
     }
     &__item-list-detail + .special-occasion__item-list-detail {
         margin-top: 12px;
@@ -619,9 +619,6 @@
     }
     .special-occasion__item--holiday {
         display: none;
-    }
-    .special-occasion__item-list::after {
-        bottom: -65px;
     }
     .make-order__inner {
         margin-left: 100px;
@@ -887,9 +884,6 @@
     }
     .special-occasion__title {
         margin-bottom: 24px;
-    }
-    .special-occasion__item-list::after {
-        bottom: -70px;
     }
     .questions__title {
         margin-bottom: 24px;

@@ -2,13 +2,13 @@ import { useSelector } from 'react-redux';
 
 import { useCategories } from '../../hooks/categories.hook';
 
-import { fetchFlowersCategories, activeFlowersCategoryChange } from '../../redux/slices/categoriesSlice';
+import { activeFlowersCategoryChange } from '../../redux/slices/categoriesSlice';
 import { selectFlowersCategories } from '../../redux/selectors/selectors';
 
 const CategoriesFlowers = () => {
-    const { flowersCategories, flowersCategoriesLoadingStatus, activeFlowersCategories } = useSelector(selectFlowersCategories);
+    const activeFlowersCategories = useSelector(selectFlowersCategories);
 
-    return useCategories('By flowers', fetchFlowersCategories, activeFlowersCategoryChange, flowersCategories, flowersCategoriesLoadingStatus, activeFlowersCategories);   
+    return useCategories('By flowers', activeFlowersCategoryChange, activeFlowersCategories);   
 };
 
 export default CategoriesFlowers;

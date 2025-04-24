@@ -21,7 +21,7 @@ const Popup = ({ handleOpenModal }) => {
         <div className="popup-wrapper">
             <div className="popup">
                 <div className="popup__close-btn" onClick={() => handleOpenModal(false)}>
-                    <img src="images/popup-close-btn.svg" alt="green close sign" width="30" height="30" />
+                    <img src="../images/popup-close-btn.svg" alt="green close sign" width="30" height="30" />
                 </div>
                 <h1 className="popup__title chapter-subtitle">Order a call</h1>
                 <div className="popup__green-block"></div>

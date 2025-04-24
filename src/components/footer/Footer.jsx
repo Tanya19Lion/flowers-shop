@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { links } from '../header/Header';
 
 import './Footer.scss';
 
@@ -18,24 +19,13 @@ const Footer = () => {
                             <li className="footer__menu-item header__menu-item--home">
                                 <NavLink end to="/" className="footer__menu-link">Home</NavLink>
                             </li>
-                            <li className="footer__menu-item">
-                                <NavLink end to="/catalog" className="footer__menu-link">Catalog</NavLink>
-                            </li>
-                            <li className="footer__menu-item">
-                                <NavLink end to="/delivery" className="footer__menu-link">Order and delivery</NavLink>
-                            </li>                            
-                            <li className="footer__menu-item">
-                                <NavLink end to="/about-us" className="footer__menu-link">About us</NavLink>
-                            </li>
-                            <li className="footer__menu-item">
-                                <NavLink end to="/contacts" className="footer__menu-link">Contacts</NavLink>
-                            </li>                                
-                            <li className="footer__menu-item">
-                                <NavLink end to="/faq" className="footer__menu-link">FAQ</NavLink>
-                            </li>
-                            <li className="footer__menu-item">
-                                <NavLink end to="/clients" className="footer__menu-link">For corporate clients</NavLink>
-                            </li>                       
+                            { 
+                                links.map(({ id, name, path }) => (
+                                    <li className="footer__menu-item" key={id}>
+                                        <NavLink end to={path} className="footer__menu-link">{name}</NavLink>
+                                    </li>
+                                ))
+                            }                                
                         </ul>
                     </nav>
                 </div>

@@ -14,6 +14,15 @@ import { selectOrderModalOpen } from '../../redux/selectors/selectors';
 
 const classNames = require('classnames');
 
+export const links = [
+    { id: 1, name: 'Catalog', path: '/catalog' },
+    { id: 2, name: 'Order and delivery', path: '/delivery' },
+    { id: 3, name: 'About us', path: '/about-us' },
+    { id: 4, name: 'Contacts', path: '/contacts' },
+    { id: 5, name: 'FAQ', path: '/faq' },
+    { id: 6, name: 'For corporate clients', path: '/clients' }
+];
+
 const Header = () => {
     const dispatch = useDispatch();
     const location = useLocation();
@@ -59,24 +68,13 @@ const Header = () => {
                                 </NavLink>
                             </div>
                             <ul className="header__menu-list flex">
-                                <li className="header__menu-item">
-                                    <NavLink end to="/catalog" className="header__menu-link">Catalog</NavLink>
-                                </li>
-                                <li className="header__menu-item">
-                                    <NavLink end to="/delivery" className="header__menu-link">Order and delivery</NavLink>
-                                </li>                            
-                                <li className="header__menu-item">
-                                    <NavLink end to="/about-us" className="header__menu-link">About us</NavLink>
-                                </li>
-                                <li className="header__menu-item">
-                                    <NavLink end to="/contacts" className="header__menu-link">Contacts</NavLink>
-                                </li>                                
-                                <li className="header__menu-item">
-                                    <NavLink end to="/faq" className="header__menu-link">FAQ</NavLink>
-                                </li>
-                                <li className="header__menu-item">
-                                    <NavLink end to="/clients" className="header__menu-link">For corporate clients</NavLink>
-                                </li>                       
+                                {
+                                    links.map(({ id, name, path }) => (
+                                        <li className="header__menu-item" key={id}>
+                                            <NavLink end to={path} className="header__menu-link">{name}</NavLink>
+                                        </li>
+                                    ))
+                                }                              
                             </ul>
                         </nav>
 

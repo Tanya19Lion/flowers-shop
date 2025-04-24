@@ -1,15 +1,6 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import useFlowersService from '../../services/useFlowersService';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    bouquets: [],
-    bouquetsLoadingStatus: 'initial',
-    error: null,
-
-    selectedBouquet: null, 
-    selectedBouquetLoadingStatus: 'initial', 
-    selectedBouquetError: null,
-
     orderList: [],
     sumTotal: 0,
     countTotal: 0,
@@ -61,8 +52,8 @@ const updateCountTotal = (orderList) => {
     return counter;
 }
 
-const updateOrder = (state, bouquetId, quantity) => {
-    const bouquet = state.selectedBouquet;
+const updateOrder = (state, bouquet, quantity) => {
+    const bouquetId = bouquet.id;
     const itemIndex = state.orderList.findIndex(({ id }) => id == bouquetId);
     const item = state.orderList[itemIndex];
 
@@ -78,7 +69,7 @@ const updateOrderItem = (bouquet, item = {}, quantity) => {
     const { id = bouquet.id, name = bouquet.name, imageSrc = bouquet.imageSrc, altSign = bouquet.altSign, price = 0, count = 0 } = item;
 
     const setPrice = () => {
-        if (bouquet === undefined) return price + item.price / item.count * quantity;
+        if (Object.keys(item).length !== 0) return price + item.price / item.count * quantity;
         return price + bouquet.price * quantity;
     }
 
@@ -92,32 +83,6 @@ const updateOrderItem = (bouquet, item = {}, quantity) => {
     }
 };
 
-const { getAllBouquets, getOneBouquet } = useFlowersService();
-
-export const fetchAllBouquets = createAsyncThunk(
-    'categories/fetchAllBouquets',
-    async (_, thunkAPI) => {
-        try {
-            const data = await getAllBouquets();
-            return data;
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.message);
-        }
-    }
-);
-
-export const fetchOneBouquet = createAsyncThunk(
-    'categories/fetchOneBouquet',
-    async (id, thunkAPI) => {
-        try {
-            const data = await getOneBouquet(id);
-            return data;
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.message);
-        }
-    }
-);
-
 const orderSlice = createSlice({
     name: 'order',
     initialState,
@@ -125,7 +90,7 @@ const orderSlice = createSlice({
         bouquetAddedToOrder: (state, action) => {updateOrder(state, action.payload, 1)},
         bouquetRemovedFromOrder: (state, action) => {updateOrder(state, action.payload, -1)},
         bouquetDeletedFromOrder: (state, action) => {
-            const deletedItem = state.orderList.find( ({ id }) => id === action.payload );
+            const deletedItem = state.orderList.find( ({ id }) => id === action.payload.id );
             updateOrder(state, action.payload, -deletedItem.count);
         },
         orderModalOpen: (state) => {
@@ -141,40 +106,7 @@ const orderSlice = createSlice({
             state.sumTotal = 0;
             state.countTotal = 0;
         }
-    },
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchAllBouquets.pending, (state) => {
-                state.bouquets = [];
-                state.bouquetsLoadingStatus = 'loading';
-                state.error = null;
-            })
-            .addCase(fetchAllBouquets.fulfilled, (state, action) => {
-                state.bouquetsLoadingStatus = 'initial';
-                state.bouquets = action.payload;
-                state.error = null;
-            })
-            .addCase(fetchAllBouquets.rejected, (state, action) => {
-                state.bouquets = [];
-                state.orderList = state.orderList;
-                state.bouquetsLoadingStatus = 'error';
-                state.error = action.payload;
-            })
-            .addCase(fetchOneBouquet.pending, (state) => {
-                state.selectedBouquetLoadingStatus = 'loading';
-                state.selectedBouquetError = null;
-            })
-            .addCase(fetchOneBouquet.fulfilled, (state, action) => {
-                state.selectedBouquet = action.payload;
-                state.selectedBouquetLoadingStatus = 'initial';
-            })
-            .addCase(fetchOneBouquet.rejected, (state, action) => {
-                state.selectedBouquet = null;
-                state.selectedBouquetLoadingStatus = 'error';
-                state.selectedBouquetError = action.payload;
-            })
-            .addDefaultCase(() => {});
-    }
+    }    
 });
 
 export const {
